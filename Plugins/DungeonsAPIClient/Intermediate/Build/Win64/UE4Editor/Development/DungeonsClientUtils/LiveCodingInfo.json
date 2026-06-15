@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsClientUtils.cpp.obj": [
+			"ClientStringUtil.cpp.obj",
+			"ConfigUtil.cpp.obj",
+			"DungeonsClientUtils.cpp.obj"
+		]
+	}
+}

@@ -1,0 +1,1256 @@
+<h1>Development Team</>
+<br></>
+<h2>Design</>
+<br></>
+<h3>Game Director</>
+<img id="mansolson"/> <bodyportrait>Måns Olson</>
+<br></>
+<h3>Game Designers</>
+<img id="danielbrynolf"/> <bodyportrait>Daniel Brynolf</>
+<img id="lauradellorensgarcia"/> <bodyportrait>Laura de Llorens Garcia</>
+<br></>
+<h3>Level Designers</>
+<img id="pontushammarberg"/> <bodyportrait>Pontus Hammarberg</>
+<img id="christianberg"/> <bodyportrait>Christian Berg</>
+<br></>
+<h3>Narrative</>
+<img id="maxherngren"/> <bodyportrait>Max Herngren</>
+<img id="Default"/> <bodyportrait>Kelsey Howard</>
+<br></>
+<h2>Production</>
+<br></>
+<h3>Executive Producer</>
+<img id="davidnisshagen"/> <bodyportrait>David Nisshagen</>
+<br></>
+<h3>Senior Producer</>
+<img id="annicastrand"/> <bodyportrait>Annica Strand</>
+<br></>
+<h3>Senior Producer MGP</>
+<img id="nathanrose"/> <bodyportrait>Nathan Rose</>
+<br></>
+<h3>Producer</>
+<img id="Default"/> <bodyportrait>Lisa Bryer</>
+<br></>
+<h3>Associate Producer</>
+<img id="Default"/> <bodyportrait>Marc Watson</>
+<br></>
+<h2>Programming</>
+<br></>
+<h3>Technical Director</>
+<img id="kristofferjelbring"/> <bodyportrait>Kristoffer Jelbring</>
+<br></>
+<h3>Lead Game Developer</>
+<img id="niklasborestam"/> <bodyportrait>Niklas Börestam</>
+<br></>
+<h3>Game Developers</>
+<img id="adriantoncean"/> <bodyportrait>Adrian Toncean</>
+<img id="antonarbring"/> <bodyportrait>Anton Arbring </>
+<img id="aronnieminen"/> <bodyportrait>Aron Nieminen</>
+<img id="danielwustenhoff"/> <bodyportrait>Daniël Wüstenhoff</>
+<img id="Default"/> <bodyportrait>Fredrik Bergstrand</>
+<img id="jakobryden"/> <bodyportrait>Jakob Rydén</>
+<img id="jonaseriksson"/> <bodyportrait>Jonas Eriksson</>
+<img id="jonmaiga"/> <bodyportrait>Jon Maiga</>
+<img id="Default"/> <bodyportrait>Kristoffer Kobosko</>
+<img id="martenhelander"/> <bodyportrait>Mårten Helander</>
+<img id="Default"/> <bodyportrait>Stefan Annell</>
+<img id="tomasalaeus"/> <bodyportrait>Tomas Alaeus</>
+<img id="Default"/> <bodyportrait>Virgilio Blones Jr</>
+<br></>
+<h3>Build Engineers</>
+<img id="Default"/> <bodyportrait>Christopher BeHanna</>
+<img id="Default"/> <bodyportrait>Johannes Sundqvist</>
+<img id="Default"/> <bodyportrait>Simon Fagerholm</>
+<br></>
+<h2>Visuals</>
+<br></>
+<h3>Art Director</>
+<img id="danielbjorkefors"/> <bodyportrait>Daniel Björkefors</>
+<br></>
+<h3>Studio Art Director</>
+<img id="johanaronsson"/> <bodyportrait>Johan Aronsson </>
+<br></>
+<h3>3D/Tech Art</>
+<img id="christiannordgren"/> <bodyportrait>Christian Nordgren</>
+<br></>
+<h3>Key Art</>
+<img id="Default"/> <bodyportrait>Ninni Landin</>
+<img id="Default"/> <bodyportrait>Anton Stenvall</>
+<br></>
+<h3>UX Developer</>
+<img id="Default"/> <bodyportrait>John-Philip Johansson</>
+<br></>
+<h3>Additional Art</>
+<img id="Default"/> <bodyportrait>Brendan Sullivan</>
+<img id="jasperboerstra"/> <bodyportrait>Jasper Boerstra</>
+<img id="Default"/> <bodyportrait>Josefine Lindqvist</>
+<img id="Default"/> <bodyportrait>Markus Toivonen</>
+<img id="Default"/> <bodyportrait>Mattis Grahm</>
+<img id="Default"/> <bodyportrait>Oscar Nilsson</>
+<img id="Default"/> <bodyportrait>Torbjörn Allard</>
+<img id="Default"/> <bodyportrait>Mariana Salimena</>
+<br></>
+<h2>Audio</>
+<br></>
+<h3>Audio Director</>
+<img id="samuelaberg"/> <bodyportrait>Samuel Åberg</>
+<br></>
+<h3>Sound Designer and Composer</>
+<img id="peterhont"/> <bodyportrait>Peter Hont</>
+<br></>
+<h3>Technical Sound Designer</>
+<img id="jonatancrafoord"/> <bodyportrait>Jonatan Crafoord</>
+<br></>
+<h3>Sound Designer</>
+<img id="Default"/> <bodyportrait>Rostislav Trifonov</>
+<br></>
+<h3>Composer</>
+<img id="Default"/> <bodyportrait>Johan Johnson</>
+<br></>
+<h3>Voice Actor - Narrator Voice</>
+<img id="Default"/> <bodyportrait>Jo Rideout (Red Pipe Studios)</>
+<br></>
+<h2>Integrated Quality Assessment</>
+<br></>
+<h3>QA Lead</>
+<img id="kristianbjorkgrimberg"/> <bodyportrait>Kristian Björk Grimberg</>
+<br></>
+<h3>QA</>
+<img id="ollepersonne"/> <bodyportrait>Olle Personne</>
+<br></>
+<h2>Cinematics</>
+<br></>
+<h3>Producers</>
+<img id="hampusnilsson"/> <bodyportrait>Hampus Nilsson</>
+<img id="Default"/> <bodyportrait>Sofia Orrheim</>
+<br></>
+<h3>Art Directors</>
+<img id="Default"/> <bodyportrait>Martin Johansson</>
+<br></>
+<h3>Organizational Coaches</>
+<img id="Default"/> <bodyportrait>Martin Bloomstine</>
+<img id="Default"/> <bodyportrait>Rasmus Hansen</>
+<br></>
+<h3>Production Studio</>
+<bodyportrait>Svep</>
+<br></>
+<h1>Development Partner – Double Eleven</>
+<br></>
+<h2>Management</>
+<br></>
+<h3>CEO / Executive Producer</>
+<body>Lee Hutchinson</>
+<br></>
+<h3>COO</>
+<body>Mark South</>
+<br></>
+<h3>Technical Directors</>
+<body>Matt Shepcar</>
+<body>Rob Ware</>
+<br></>
+<h3>Non-Executive Director</>
+<body>Samantha Hutchinson</>
+<br></>
+<h3>Finance Director</>
+<body>Kimberley Turner</>
+<br></>
+<h3>Operations Manager</>
+<body>Andrea Wearmouth</>
+<br></>
+<h3>Training & Development Manager</>
+<body>Sarah Lowe</>
+<br></>
+<h3>Recruitment Manager</>
+<body>Jo Potts</>
+<br></>
+<h3>Art Manager</>
+<body>Gurmita Singh</>
+<br></>
+<h3>Development Manager</>
+<body>Wayne Smithson</>
+<br></>
+<h3>Design Manager</>
+<body>Gareth Wright</>
+<br></>
+<h3>Programme Manager</>
+<body>Iain Farrell</>
+<br></>
+<h3>Publishing Operations Manager</>
+<body>Kirsten Cummins</>
+<br></>
+<h3>Product Design Manager</>
+<body>Natalie Wicks</>
+<br></>
+<h3>Marketing Associate </>
+<body>Ryan Smith</>
+<br></>
+<h3>Junior Release Associate</>
+<body>Winona Sharpe</>
+<br></>
+<h2>Production</>
+<br></>
+<h3>Producer</>
+<body>Steven Taarland</>
+<br></>
+<h3>Associate Producers</>
+<body>Jenny Wheatley</>
+<body>Amit Singh</>
+<body>Andrew Nisbet</>
+<body>Ross Scott</>
+<br></>
+<h2>Design</>
+<br></>
+<h3>Lead Game Designer</>
+<body>Matthew Dunthorne</>
+<br></>
+<h3>Senior Game Designer</>
+<body>Aaron Black</>
+<body>Tom Pedalino</>
+<br></>
+<h3>Game Designer</>
+<body>George Rickard</>
+<br></>
+<h3>Junior Game Designers</>
+<body>Cara Hudson</>
+<br></>
+<h3>Level Designers</>
+<body>Joe Parker</>
+<br></>
+<h3>Junior Level Designers</>
+<body>Christopher Nichols</>
+<body>Courtney Raine</>
+<body>Danielle Sinclair</>
+<body>Joshua Barker-Challenor</>
+<body>Lewis Ahmed</>
+<body>Jamie Neal</>
+<br></>
+<h2>Programming/Engineering</>
+<br></>
+<h3>Lead Programmer</>
+<body>Phil Sedgeman</>
+<body>Adrian Hirst</>
+<br></>
+<h3>Associate Lead Programmer</>
+<body>David Buckley</>
+<br></>
+<h3>Senior Programmers</>
+<body>Steven Clayton</>
+<body>Ivan Golubev</>
+<body>Tony Monckton</>
+<br></>
+<h3>Principal Programmers</>
+<body>Mark Roll</>
+<body>Nigel Conroy</>
+<br></>
+<h3>Programmers</>
+<body>Charlie Dave Maxwell</>
+<body>Daniel Bardsley</>
+<body>Damien Henderson</>
+<body>Gabriel Menezes</>
+<body>Jack Staples</>
+<body>Jay Xavier Peet</>
+<body>Jordan Phoenix</>
+<body>Keenan Sice</>
+<body>Lewis Graydon</>
+<body>Luis Rodrigo Roldan Romero</>
+<body>Pedro Costa</>
+<body>Ryan Swann</>
+<body>Samuel Steven Neesam</>
+<body>Tomasz Trzpil</>
+<body>Andrzej Serazetdinow</>
+<body>Alycia Carnall</>
+<body>Rodrigo Roldan</>
+<br></>
+<h3>UI Programmers</>
+<body>Matthew Gates</>
+<br></>
+<h3>Build Engineer</>
+<body>Jack Lowther</>
+<br></>
+<h2>Art</>
+<br></>
+<h3>Lead 3D Artist</>
+<body>Nick Patrick</>
+<br></>
+<h3>Senior Artists</>
+<body>Tim McCluskey</>
+<br></>
+<h3>3D Artists</>
+<body>Adrian Ionescu</>
+<body>Ben Exell</>
+<body>Luke Cole</>
+<body>Molly Entwistle</>
+<body>Rebecca Roe</>
+<body>Sam Faulkner</>
+<body>Stephen Sharples</>
+<body>Stewart Morrison</>
+<body>Tiago Martins</>
+<br></>
+<h3>2D Artist</>
+<body>Tom Buxton</>
+<br></>
+<h3>Texture Artist</>
+<body>Parul Maheshwari</>
+<br></>
+<h3>Animators</>
+<body>Richard Stubbs</>
+<body>Xinzheng (Cara) Ho</>
+<br></>
+<h3>Concept Artists</>
+<body>Bruno Henriques</>
+<body>Tay Fang Jing</>
+<br></>
+<h2>Audio</>
+<br></>
+<h3>Senior Audio Producer</>
+<body>Anthony Putson</>
+<br></>
+<h3>Audio Production Coordinator</>
+<body>Sam Ashley</>
+<br></>
+<h3>Senior Audio Designer</>
+<body>Benjamin Rooker</>
+<br></>
+<h3>Audio Designer</>
+<body>Andrew George</>
+<body>Benjamin Rooker</>
+<body>Toby Misselbrook</>
+<br></>
+<h3>Junior Audio Designer</>
+<body>Alistair Edmond</>
+<br></>
+<h2>Quality Assurance/Testing</>
+<br></>
+<h3>QA Lead</>
+<body>Daniel Schwendener</>
+<br></>
+<h3>Associate QA Lead</>
+<body>Ben Hitchinson</>
+<br></>
+<h3>Principal QA</>
+<body>Joe Rybak</>
+<br></>
+<h3>Senior QA Testers</>
+<body>Kalem Frost</>
+<br></>
+<h3>QA Testers</>
+<body>Abby Cleverdon</>
+<body>Adrian Kwan</>
+<body>Callum Giles</>
+<body>Craig Siberry</>
+<body>Damien Levi Park</>
+<body>Darren Arquette</>
+<body>David Miller</>
+<body>David Saville</>
+<body>Jack Jarvis</>
+<body>Jack Watson</>
+<body>John Barker-Challenor</>
+<body>Neil Arnison</>
+<body>Rob Doughty</>
+<body>Scott Wealleans</>
+<body>Luke Andrew</>
+<body>Michael Smith</>
+<body>Zachary Grace</>
+<br></>
+<h2>IT/Tech Support</>
+<br></>
+<h3>IT Manager</>
+<body>David Cumbor</>
+<br></>
+<h3>Support Engineers</>
+<body>Lewis Rafferty</>
+<body>Nikitas Skemvris</>
+<br></>
+<h3>Technical Support</>
+<body>Dhamachart Angkasuwapala</>
+<body>Nathan Williams</>
+<body>Ben Turton</>
+<br></>
+<h3>Domestic Assistant</>
+<body>Marie Horkan</>
+<br></>
+<h2>Radical Forge</>
+<br></>
+<body>Alex Earle</>
+<body>Alice Halley</>
+<body>Benjamin Thomas</>
+<body>Bruce Slater</>
+<body>Georg Engebakken</>
+<body>John Kavanagh</>
+<body>Lewis Arnett</>
+<body>Oliver William Walker</>
+<br></>
+<h1>Minecraft Dungeons Quality</>
+<br></>
+<h2>Studios Quality Team</>
+<br></>
+<h3>Microsoft</>
+<br></>
+<h3>Director of Quality</>
+<body>Jimmy Bischoff</>
+<br></>
+<h3>Senior Quality Manager</>
+<body>James Fry</>
+<br></>
+<h3>Quality Lead</>
+<body>Rich Levy</>
+<br></>
+<h3>Quality Analysts</>
+<body>Tom Brisbane</>
+<body>Agata Marciniak</>
+<br></>
+<h3>Platform Integration Quality Analyst</>
+<body>Aidan Bower</>
+<br></>
+<h3>Data Engineer</>
+<body>Jonathan Stacey</>
+<br></>
+<h3>Software Engineer</>
+<body>Sam Hanke</>
+<br></>
+<h3>Software Engineer Apprentice</>
+<body>Rory Claasen</>
+<br></>
+<h3>Special Thanks</>
+<body>Allen Horton - Quality Analyst</>
+<body>Andrew Franklin - Outsourcing Manager</>
+<body>Chris Henry - Senior Quality Manager</>
+<body>Dante Carrasco – Business Manager</>
+<body>David Boker - Director</>
+<body>Juli Gregg - Software Engineer</>
+<body>Moodie Ghaddar - Software Engineer</>
+<body>Stephanie Emidy - Senior Software Engineer</>
+<body>Zoe Harrop – Executive Business Administrator</>
+<br></>
+<h2>External Quality</>
+<br></>
+<h3>Lionbridge Gaming</>
+<br></>
+<h3>READING, ENGLAND</>
+<br></>
+<h3>Operations Manager</>
+<body>Richard Jones</>
+<br></>
+<h3>Compliance Software Test Engineers</>
+<body>Nick Dorsett</>
+<body>Lee-Roy Dunn</>
+<br></>
+<h3>WARSAW, POLAND</>
+<br></>
+<h3>Test Director</>
+<body>Michał Błoński</>
+<br></>
+<h3>Senior Test Manager</>
+<body>Grzegorz Kohorewicz</>
+<br></>
+<h3>Test Manager</>
+<body>Mateusz Kałuża</>
+<br></>
+<h3>Team Leads</>
+<body>Michał Sławek</>
+<body>Sebastian Polanica</>
+<br></>
+<h3>Compliance Team Lead</>
+<body>Kamil Bazydło</>
+<br></>
+<h3>Software Test Engineers</>
+<body>Damian Gabryś</>
+<body>Jan Zozman</>
+<body>Karim Zemirli</>
+<body>Piotr Gruszczyński</>
+<br></>
+<h3>Compliance Test Lead</>
+<body>Łukasz Mikusek</>
+<br></>
+<h3>Compliance Software Test Engineers</>
+<body>Adam Ronowski</>
+<body>Maciej Rodak</>
+<body>Piotr Orłowski</>
+<body>Szymon Okoń</>
+<body>Witold Januszewski-Skup</>
+<br></>
+<h3>Test Associates</>
+<body>Ada Kierzkowska</>
+<body>Adam Prażmo</>
+<body>Adam Wajner</>
+<body>Agata Bidelska</>
+<body>Agata Dzideczek</>
+<body>Aleksander Rogowski</>
+<body>Aleksander Tomasz Skiba</>
+<body>Anna Szafran</>
+<body>Antoni Wiatrowski</>
+<body>Arek Czarnecki</>
+<body>Arkadiusz Kondej</>
+<body>Artur Kulesza</>
+<body>Bartłomiej Dziurżyński </>
+<body>Bartłomiej Kowalik </>
+<body>Bartłomiej Słodkowski</>
+<body>Bartłomiej Walczak</>
+<body>Bartosz Jamroziński</>
+<body>Błażej Rajewski</>
+<body>Cezary Chobot</>
+<body>Cezary Krzysztof Kociński</>
+<body>Damian Golik</>
+<body>Daniel Kocęba</>
+<body>Daniel Niewiadomski</>
+<body>Daniel Wystyrk</>
+<body>Donard Rusiniak-Rossiński</>
+<body>Eliza Duda</>
+<body>Filip Gwarda</>
+<body>Filip Sobczak</>
+<body>Grzegorz Wilkołek</>
+<body>Horváth Éva</>
+<body>Hubert Karwicki</>
+<body>Iwona Cieśla</>
+<body>Jakub Kajetan Kwiatkowski</>
+<body>Jakub Kempisty</>
+<body>Jakub Tomczyński</>
+<body>Jakub Zgajewski</>
+<body>Jan Gąsiorowski</>
+<body>Jan Mańkowski</>
+<body>Jan Tworkowski</>
+<body>Jarosław Żebrowski</>
+<body>Juliusz Paszta</>
+<body>Justyna Gorzkowska</>
+<body>Kacper Andrzej Krupa</>
+<body>Kacper Szczepański</>
+<body>Kamil Kostrzewa</>
+<body>Karol Mikusek</>
+<body>Karol Samek</>
+<body>Karol Sobotka</>
+<body>Kinga Izdebska</>
+<body>Konrad Jówko</>
+<body>Krzysztof Łuczyński</>
+<body>Krzysztof Uściłowski</>
+<body>Łukasz Jankowski</>
+<body>Łukasz Marek</>
+<body>Łukasz Mętrak</>
+<body>Łukasz Stępkowski</>
+<body>Łukasz Walczyński</>
+<body>Maciej Goncz</>
+<body>Maciej Kienig</>
+<body>Maciej Matej</>
+<body>Maciej Ryznar</>
+<body>Maciej Siemieniec</>
+<body>Maciej Wojciech Piórnik</>
+<body>Magdalena Maciejewska</>
+<body>Marcin Bartmański</>
+<body>Marcin Klimek</>
+<body>Marco Paparella</>
+<body>Mateusz Damian Świecki</>
+<body>Mateusz Kaliszewski</>
+<body>Mateusz Majewski</>
+<body>Michał Aleksandrowicz</>
+<body>Michał Antosiak</>
+<body>Michał Maciejewski</>
+<body>Michał Nowak</>
+<body>Mikołaj Gruźliński</>
+<body>Nijat Aghamali</>
+<body>Olgierd Ruszkiewicz</>
+<body>Pamela Frąckowiak</>
+<body>Paulina Siewierska</>
+<body>Patryk Janicki</>
+<body>Patryk Rosiński</>
+<body>Paweł Gos</>
+<body>Piotr Karol Kolendo</>
+<body>Piotr Biernacki</>
+<body>Piotr Łatyński</>
+<body>Piotr Moskalewicz</>
+<body>Piotr Retel</>
+<body>Piotr Skorłutowski</>
+<body>Piotr Witkowski</>
+<body>Przemysław Goch</>
+<body>Rafał Pruszkowski</>
+<body>Rafał Dziedzic</>
+<body>Rajkumar Kulandaivelu</>
+<body>Robert Jordanek</>
+<body>Robert Szadkowski</>
+<body>Sandra Meister</>
+<body>Šimon Kravár</>
+<body>Stanisław Franciszek Grabowski</>
+<body>Stanisław Paweł Dmowski </>
+<body>Szczepan Grabowski</>
+<body>Szymon Artur Mazurek</>
+<body>Tomasz Jasiński</>
+<body>Tomasz Kościelniak </>
+<body>Tomasz Marcin Mirkiewicz</>
+<body>Tomasz Zderzalik</>
+<body>Wojciech Komada</>
+<body>Wojciech Kujawa</>
+<body>Wojciech Nieckarz</>
+<body>Wojciech Żukowski</>
+<br></>
+<h3>Compliance Test Associates</>
+<body>Adam Czajkowski</>
+<body>Adrian Zalewski</>
+<body>Bartosz Dąbrowski</>
+<body>Bartosz Staniak</>
+<body>Jakub Malinowski</>
+<body>Kaja Faber</>
+<body>Kamil Zakrzewski</>
+<body>Marcin Bała</>
+<body>Mateusz Madaj</>
+<body>Oskar Żurawski</>
+<body>Stanisław Świderski</>
+<br></>
+<h1>Mojang Studios</>
+<br></>
+<h2>Minecraft</>
+<br></>
+<h3>Head of Minecraft</>
+<body>Helen Chiang</>
+<br></>
+<h3>Chief Executive Officer</>
+<body>Jonas Mårtensson</>
+<br></>
+<h3>Chief Creative Officers</>
+<body>Jens Bergensten</>
+<body>Saxs Persson</>
+<br></>
+<h3>Chief Brand Officer</>
+<body>Lydia Winters</>
+<br></>
+<h3>Chief Content Officer</>
+<body>Vu Bui</>
+<br></>
+<h3>Chief Technology Officers</>
+<body>Michael Weilbacher</>
+<body>Mike Carlson</>
+<br></>
+<h3>Director of New Games</>
+<body>Patrick Liu</>
+<br></>
+<h2>Production</>
+<br></>
+<h3>Production Director</>
+<body>Olof Carlson Sandvik</>
+<br></>
+<h3>Production Manager</>
+<body>Klas Hammarström</>
+<br></>
+<h3>Executive Producer</>
+<body>Dennis Ries</>
+<br></>
+<h3>Release Management Lead</>
+<body>David Fries</>
+<br></>
+<h3>Release Managers</>
+<body>Andrew Pritchard (Lionbridge)</>
+<br></>
+<h2>Minecraft Launcher</>
+<br></>
+<h3>Producer</>
+<body>Dejan Dimic</>
+<br></>
+<h3>Developers</>
+<body>Linus Cumselius</>
+<body>Marc Neander</>
+<body>Márcio Oliveira</>
+<body>Martin Hesselborn</>
+<body>Mikael Malmqvist</>
+<body>Petr Mrázek</>
+<br></>
+<h3>Quality Assessment</>
+<body>David Zevallos</>
+<br></>
+<h3>UX Designers</>
+<body>Isabella Arningsmark</>
+<body>Lucas Morales</>
+<body>Sandra Bornemark</>
+<br></>
+<h2>Services and Infrastructure</>
+<br></>
+<h3>Services</>
+<body>Alen Voljevica</>
+<body>Alexandre Pretto Nunes</>
+<body>Anders Martini</>
+<body>Jonas Bergström</>
+<body>Petter Gisslen</>
+<body>Robert Sjödahl</>
+<body>Stefan Torstensson</>
+<br></>
+<h3>Infrastructure</>
+<body>Christoffer Hammarström</>
+<body>Jifeng Zhang</>
+<body>Wenlan Yang</>
+<br></>
+<h3>Core Apps</>
+<body>Maksim Ivanov</>
+<body>Maria Katsourani</>
+<body>Pär Axelsson</>
+<br></>
+<h2>Operations</>
+<br></>
+<h3>Chief Operations Officers</>
+<body>Annie Chen</>
+<body>Ulrika Höjgård</>
+<br></>
+<h3>Chief of Staff</>
+<body>Amy Stillion</>
+<br></>
+<h3>HR Directors</>
+<body>Maja Samuelsson</>
+<body>Adam Lemcio</>
+<br></>
+<h3>Human Resources</>
+<body>Aleksandra Zajac</>
+<body>Ida Utterström</>
+<body>Ludwig Moberg Edenbäck</>
+<body>Sofia Andersson</>
+<body>Ulrika Karlsson</>
+<br></>
+<h3>Office Manager</>
+<body>Siri Hoel Andersson</>
+<br></>
+<h3>Office Coordinator</>
+<body>Joël Älveroth</>
+<br></>
+<h3>Executive Business Administrator</>
+<body>Lisa Liu</>
+<br></>
+<h3>Front of House</>
+<body>Adam Blänning</>
+<br></>
+<h3>IT</>
+<body>Anton Wu</>
+<body>Cesar Sima Falck</>
+<body>Evelina Rollfelt</>
+<body>Shoghi Cervantes</>
+<br></>
+<h2>User Research</>
+<br></>
+<h3>User Research Studio Lead</>
+<body>Jerome Hagen</>
+<br></>
+<h3>User Researchers</>
+<body>Pablo Morales</>
+<body>Olga Zielinska</>
+<br></>
+<h2>Business & Licensing</>
+<br></>
+<h3>Head of Franchise Management</>
+<body>Scott Dell'Osso</>
+<br></>
+<h3>Head of Partnerships & Licensing</>
+<body>Kayleen Walters</>
+<br></>
+<h3>Directors of Business Development</>
+<body>Anne Quaranta</>
+<body>Bob Brennecke</>
+<body>Jeremy Snook</>
+<body>Patrick Geuder</>
+<body>Amy Zou</>
+<br></>
+<h3>Directors of Business Planning</>
+<body>Josh Bliggenstorfer</>
+<br></>
+<h3>Directors of Business Management</>
+<body>Aaron J Buckley</>
+<body>Saher M Hirji</>
+<body>Stephen McHugh</>
+<br></>
+<h3>Business Managers</>
+<body>Alina Skripnik</>
+<body>Ani Grey</>
+<body>Audrey Searcy</>
+<body>Bill Lindell</>
+<body>Bill Wu</>
+<body>Billie Gulam (Collabera)</>
+<body>Catherine Hendrix</>
+<body>Christy Weckner</>
+<body>Claudine Ursino (Simplicity Consulting Inc)</>
+<body>Daniel Beasley</>
+<body>David K Lau</>
+<body>Dennis Laviolette</>
+<body>Eileen Lee</>
+<body>Emily Clock (Simplicity Consulting Inc)</>
+<body>Georgia Marra</>
+<body>Hanna Willis (JeffreyM Consulting LLC)</>
+<body>Inga Chamberlain</>
+<body>Kasia Swica</>
+<body>Maru Zamora</>
+<body>Nedra Wilson (Simplicity Consulting Inc)</>
+<body>Rebecca A Miller</>
+<body>Stephanie Louie</>
+<body>Tess Opincarne (Amaxra)</>
+<body>Vanessa Dagnino (Simplicity Consulting Inc)</>
+<body>Yugang Jing (HUA YI JIA XIN ZHENG HE YING X)</>
+<br></>
+<h3>Country Manager</>
+<body>Yutaka Noma</>
+<br></>
+<h3>Data Science & Analytics Lead</>
+<body>Francisco Rius</>
+<br></>
+<h3>Data Science & Analytics</>
+<body>Abby Gaddis</>
+<body>Abby Jaloway (National Business Innovations)</>
+<body>Bhrigu Shree</>
+<body>Bill Chism</>
+<body>Bill Klees (Design Laboratory Inc)</>
+<body>Darin LaSota (Design Laboratory Inc)</>
+<body>Dhiraj Nilange (Design Laboratory Inc)</>
+<body>Eliot Scott Lee</>
+<body>Ethan Batson (Design Laboratory Inc)</>
+<body>Gil Darves (Design Laboratory Inc)</>
+<body>Jari Williams</>
+<body>Max Davidson</>
+<body>Murali Nagarajan (Design Laboratory Inc)</>
+<body>Nick Martin (Design Laboratory Inc)</>
+<body>Patrick Worthey (Design Laboratory Inc)</>
+<body>Sachin Dekate (Design Laboratory Inc)</>
+<body>Smita Menon (Design Laboratory Inc)</>
+<body>Swathi Sivadas (Design Laboratory Inc)</>
+<body>Tim Ross</>
+<br></>
+<h3>Senior Designers</>
+<body>Amanda Ström</>
+<body>Filip Thoms</>
+<body>Sherin Kwan</>
+<br></>
+<h3>Designer</>
+<body>Jennifer Hammervald</>
+<br></>
+<h3>Lead Producer</>
+<body>Åsa Skogström</>
+<br></>
+<h2>Communications</>
+<br></>
+<h3>Director of Creative Communications</>
+<body>Owen Jones</>
+<br></>
+<h3>Head of Marketing Communications</>
+<body>Thomas Wiborgh</>
+<br></>
+<h3>Creative Communications</>
+<body>Per Landin</>
+<br></>
+<h3>Global Public Relations Manager</>
+<body>Rebecca Gordius</>
+<br></>
+<h3>Public Relations</>
+<body>Adam Pannel (Assembly Media Inc)</>
+<body>Alli Cohen (Assembly Media Inc)</>
+<body>Cristian Delgado (Assembly Media Inc)</>
+<body>Erin Dwyer (Assembly Media Inc)</>
+<body>Jesse Steinberg (Assembly Media Inc)</>
+<body>Regan O'Leary</>
+<body>Richard Chen (Assembly Media Inc)</>
+<body>Vanessa Mora (Assembly Media Inc)</>
+<br></>
+<h3>Head of Community Relations</>
+<body>Karim Walldén</>
+<br></>
+<h3>Community Relations Coordinator</>
+<body>Josefin Olsson</>
+<br></>
+<h3>Head of Social Media</>
+<body>Alice Löfgren</>
+<br></>
+<h3>Social Media Manager</>
+<body>Julian Tunru</>
+<br></>
+<h3>Social Media Art Lead</>
+<body>Seung Sung</>
+<br></>
+<h3>Web Design</>
+<body>Paul Madlon (Ten Gun Design Inc)</>
+<br></>
+<h3>Web Content Manager</>
+<body>Joe Corrigan (Ten Gun Design Inc)</>
+<br></>
+<h2>Community</>
+<br></>
+<h3>Head of Community Management</>
+<body>Aubrey Norris</>
+<br></>
+<h3>Director of Community</>
+<body>Nea Aime Rollan</>
+<br></>
+<h3>Community Managers</>
+<body>Glory Robinson (Experis)</>
+<body>Helen Zbihlyj</>
+<body>Jay Wells</>
+<body>Joel Sasaki</>
+<body>Matt Gartzke</>
+<body>Nova Barlow (Experis)</>
+<body>Cameron Thomas</>
+<body>Kristina Horner</>
+<body>Lindsey Schaal (Apex Systems Inc)</>
+<body>Trella Rath (Corestaff)</>
+<br></>
+<h3>Heads of Customer Support</>
+<body>Anna Lundgren</>
+<body>Jen Pedersen</>
+<br></>
+<h3>Customer Support Program Manager</>
+<body>Jon-Eric L. Swigart (Collabera)</>
+<br></>
+<h2>Marketing</>
+<br></>
+<h3>Head of Marketing</>
+<body>Jessica Freeman</>
+<br></>
+<h3>Marketing Director</>
+<body>Fergus Lynch</>
+<br></>
+<h3>Lead Marketing Manager</>
+<body>Jaime Limon</>
+<br></>
+<h3>Marketing Managers</>
+<body>Anton Maslennikov</>
+<body>Austin Joseph</>
+<body>Emily Orrson</>
+<body>Eva Stefanac</>
+<body>Gabi Ibarra (Simplicity Consulting Inc)</>
+<body>Jeanie Dumont</>
+<body>Jeff Rivait</>
+<body>Katie Penza</>
+<body>Melissa Jenkins (Ten Gun Design)</>
+<body>Nick Ketter</>
+<body>Sara Cornish</>
+<body>Steven Hosey (Simplicity Consulting Inc)</>
+<br></>
+<h3>Minecraft Dungeons Diaries – Production</>
+<body>Adele Major</>
+<br></>
+<h3>Minecraft Dungeons Diaries – Filming</>
+<body>Rob Blom</>
+<br></>
+<h2>Legal</>
+<br></>
+<h3>Corporate Legal Affairs</>
+<body>Carl Brandt</>
+<body>Christi Davisson</>
+<body>Nick Morgan</>
+<br></>
+<h3>Intellectual Property Enforcement Agents</>
+<body>Johan Hedlund</>
+<body>Marcus Forss</>
+<body>Mathias Engst Andersson</>
+<body>Matilda Åkerman</>
+<body>Sylvia Chen</>
+<br></>
+<h2>Finance</>
+<br></>
+<h3>Finance Director</>
+<body>Marina Kostesic</>
+<br></>
+<h3>Finance Manager</>
+<body>Julie Olden</>
+<br></>
+<h3>Financial Accountants</>
+<body>Josefina Axelsson</>
+<body>Katarina Norlander</>
+<body>Natalie Levinsson</>
+<body>Stefan Lyrmark</>
+<br></>
+<h1>Xbox</>
+<br></>
+<h2>Studios DAM</>
+<br></>
+<h3>Principal Developer Program Manager</>
+<body>Nilesh Thakkar</>
+<br></>
+<h2>External Technology and Suppliers Team (XTS)</>
+<br></>
+<h3>Business Manager</>
+<body>Esteban Lora</>
+<br></>
+<h3>Sr. Program Manager, External Development</>
+<body>Sam Carlisle</>
+<br></>
+<h3>Sr. Licensing Manager</>
+<body>Jeff McCrory</>
+<br></>
+<h3>Business Analyst</>
+<body>Monisha Monikantarajan</>
+<br></>
+<h2>Xbox Game Studios Localization</>
+<br></>
+<h3>Senior Localization Producer</>
+<body>Chad Dylan Long</>
+<br></>
+<h3>Localization Audio Producer</>
+<body>Jason Shirley</>
+<br></>
+<h3>Localization Project Manager</>
+<body>Justin Hartsfield (Experis)</>
+<br></>
+<h3>Localization Service Engineer</>
+<body>Kevin Han (Lionbridge Technologies Inc)</>
+<br></>
+<h2>Xbox Research & Design</>
+<br></>
+<h3>Creative Director</>
+<body>Joe Wheeler</>
+<br></>
+<h3>Creative Technologist</>
+<body>Aron Chavez</>
+<br></>
+<h3>User Researcher</>
+<body>Chase Meusel</>
+<br></>
+<h2>Gaming Cloud</>
+<br></>
+<body>Arik Cohen</>
+<body>Brian Bowman</>
+<body>Daniel Kennett</>
+<body>Gordon Zhou</>
+<body>Morgan Brown</>
+<body>Nima Adibpour</>
+<body>Shawn Farkas</>
+<body>Xiao Zeng</>
+<br></>
+<h2>Xbox ATG</>
+<h2>Xbox Identity Services</>
+<h2>Xbox Live R&D</>
+<br></>
+<h1>External Teams</>
+<br></>
+<h2>Lionbridge Gaming - Translation</>
+<br></>
+<h3>Localization Project Manager</>
+<body>Adam Osman</>
+<br></>
+<h3>Production Manager</>
+<body>Katarzyna Druszcz</>
+<br></>
+<h3>PM Team Leader</>
+<body>Maciej Mamiński</>
+<br></>
+<h3>Associate Project Manager</>
+<body>Julia Sokołowska</>
+<br></>
+<h3>Project Coordinator</>
+<body>Beatriz Orantes Perez</>
+<br></>
+<h3>Project Coordinators</>
+<body>Igor Łankiewicz</>
+<body>Iris Zuo</>
+<body>Juliana Magno</>
+<br></>
+<h3>Language Leads</>
+<body>Aleksandra Dzielakowska</>
+<body>Anna Wojtkowska</>
+<body>Anne Westphal</>
+<body>Gary Wang</>
+<body>Moritz Kneuer </>
+<body>Nina Tran</>
+<body>Paul Wang</>
+<br></>
+<h3>Localization Engineers</>
+<body>Michał Wojciechowski </>
+<body>Piotr Siudziński</>
+<body>Radosław Pruszczyński</>
+<body>Rihei Li</>
+<br></>
+<h3>Technical Services Lead</>
+<body>Wojciech Ohorok</>
+<br></>
+<h2>Lionbridge Gaming - Quality Assurance</>
+<br></>
+<h3>Localization Test Manager</>
+<body>Konrad Lesiak</>
+<br></>
+<h3>Localization Test Leads</>
+<body>Christian Nielsen</>
+<body>Paweł Prykaszczyk</>
+<br></>
+<h3>Localization Test Associates</>
+<body>Diego Fernández Rodríguez - Spanish (Spain)</>
+<body>Ekaterini Ntouska - German</>
+<body>Eugenia Iwlewa - Russian</>
+<body>Gabriel Gliwic - Portuguese (Brazil)</>
+<body>João Meira - Portuguese (Portugal)</>
+<body>Julien Lorente - French</>
+<body>Marek Kopański - Polish</>
+<body>Michal Svensson - Swedish</>
+<body>Michele De Capua - Italian</>
+<body>Miguel Barragán Castro - Spanish (Mexico)</>
+<body>Shinjiro Azumi - Japanese</>
+<body>SongYee Han - Korean</>
+<body>Chen Wen-Yu - Chinese (Traditional)</>
+<body>Teng Chi - Chinese (Simplified)</>
+<br></>
+<h3>Voice Actors - Narrator Voice</>
+<body>Claudine Grémy - France</>
+<body>Isabel de Sá - Brazil</>
+<body>Kerigma Flores - Mexico</>
+<body>Mai Kawabata- Japan</>
+<body>Sabina Trooger - Germany</>
+<body>Sharon Dyall – Sweden</>
+<body>Jiang Yu Lin – China</>
+<br></>
+<h2>Lionbridge Gaming – Audio</>
+<br></>
+<h3>Audio Production Manager</>
+<body>Richard Saadat</>
+<br></>
+<h3>Project Manager</>
+<body>Marisol Fernández Velasco</>
+<br></>
+<h3>Audio Managers</>
+<body>Lemos Kaue - Brazil</>
+<body>Max Schaeffer - Germany</>
+<br></>
+<h3>Project Manager</>
+<body>Kei Matsumoto - Japan</>
+<br></>
+<h2>External Art</>
+<br></>
+<h3>Svep</>
+<body>David Weidemann</>
+<body>Elias Widerdal</>
+<body>Florian Raphael Panzer</>
+<body>Fredrik Ekholm</>
+<body>Jacob Danell</>
+<body>Johannes Sande</>
+<body>Linus Lundin</>
+<body>Magnus Jonason</>
+<body>Mattias Sandelius</>
+<body>Sander Van Wijk</>
+<body>Sven Ahlström</>
+<br></>
+<h3>Rascals - Art & Animation Band</>
+<body>Esteban Franco</>
+<body>Markus Hammarstedt</>
+<body>Martin Korman</>
+<body>Tom Roller</>
+<br></>
+<h2>External Audio</>
+<br></>
+<h3>Choirs</>
+<body>Hägersten A Capella</>
+<body>Adolf Fredriks kyrkas kammarkör</>
+<br></>
+<h3>Soloist</>
+<body>Emil Stenport</>
+<br></>
+<h1>Mojang Alumni</>
+<br></>
+<h2>Minecraft Dungeons Team</>
+<br></>
+<h3>Project Manager</>
+<body>Henrik Pettersson</>
+<br></>
+<h3>Game Developers</>
+<body>Christian Westman</>
+<body>Daniel Frisk</>
+<body>Isaac Vega</>
+<body>Jakob Pogulis</>
+<body>Magnus Bentling</>
+<body>Markus Arvidsson</>
+<body>Rikard Herlitz</>
+<br></>
+<h3>Data Engineers</>
+<body>Patrick Worthey</>
+<br></>
+<h3>Additional Art</>
+<body>Daniel Feldt</>
+<body>Elin Ölund Forsling</>
+<body>Jakob Gavelli</>
+<body>Jonatan Pöljö</>
+<body>Mariana Graham</>
+<br></>
+<h2>Minecraft</>
+<br></>
+<h3>Production Director</>
+<body>Daniel Kaplan</>
+<br></>
+<h2>Minecraft Launcher</>
+<br></>
+<h3>Developers</>
+<body>Anders Rosén</>
+<br></>
+<h3>UX Designers</>
+<body>Carl Westin</>
+<body>Lily Ekman</>
+<body>Tobias Ahlin</>
+<br></>
+<h2>Services and Infrastructure</>
+<br></>
+<h3>Services</>
+<body>Tom Miles</>
+<br></>
+<h3>Core Apps</>
+<body>Johannes Fridd</>
+<br></>
+<h2>Operations</>
+<br></>
+<h3>Human Resources</>
+<body>Petra Stenqvist</>
+<body>Tove Oldebäck</>
+<br></>
+<h3>Reception Managers</>
+<body>Chaimae Truving</>
+<br></>
+<h2>Communications</>
+<br></>
+<h3>Narrative</>
+<body>Marsh Davies</>
+<br></>
+<h3>Creative Communications</>
+<body>Emily Richardson</>
+<body>Tom Stone</>
+<br></>
+<h2>Community</>
+<br></>
+<h3>Customer Support Team Lead</>
+<body>Mattias Victorin</>
+<br></>
+<h3>Customer Support</>
+<body>Amelia Lindroth Henriksson</>
+<body>Antonia Kousathana</>
+<body>Carl William Ersgård	</>
+<body>Cecilia Flumé</>
+<body>Cim Borg</>
+<body>David Stuart Dahlgren</>
+<body>Eliza Hearsum</>
+<body>Ellie Ashrafi</>
+<body>Fredrik Sandström</>
+<body>Freja Fors</>
+<body>Isabell Ahron</>
+<body>Jonny Hair</>
+<body>Kyle McMurtry (TEKsystems)</>
+<body>Nasim Derakhshan</>
+<body>Nicole Jansson</>
+<body>Nima Tolouifar</>
+<body>Patrik Södergren</>
+<body>Rui Ribeiro</>
+<body>Sarah Mårtensson</>
+<body>Theodor Colbing</>
+<body>Valérie Beaubien</>
+<body>Viktor Persson</>
+<br></>
+<h2>Finance</>
+<br></>
+<h3>Chief Financial Officer</>
+<body>Karin Severinson</>
+<br></>
+<h2>Special Thanks</>
+<br></>
+<body>Adam Martinsson</>
+<body>Agnes Larsson</>
+<body>Andy Rich</>
+<body>Elias Bachaalany</>
+<body>Kasia Swica</>
+<body>Kelly Henkel</>
+<body>Kevin Grace </>
+<body>Magnus Nedfors</>
+<body>Marc Watson</>
+<body>Michael McManus</>
+<body>Mike Frost</>
+<body>Nathan Adams</>
+<body>Rog Carpenter</>
+<body>Ryan Cooper</>
+<body>Sara Lämpiäinen</>
+<br></>
+<br></>
+<body>Epic</>
+<body>Intel</>
+<body>Nintendo</>
+<body>Sony</>
+<br></>
+<br></>
+<h1>Thanks for playing!</>

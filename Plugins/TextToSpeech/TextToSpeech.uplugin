@@ -1,0 +1,25 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "0.1",
+	"FriendlyName" : "Text To Speech",
+	"Description" : "Text to Speech interface",
+	"Category" : "Accessibility",
+	"CreatedBy" : "Double Eleven.",
+	"CreatedByURL" : "http://doubleeleven.com",
+  "EnabledByDefault": true,
+  "CanContainContent": true,
+	"Modules" :
+	[
+		{
+			"Name" : "TextToSpeech",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TextToSpeechEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}

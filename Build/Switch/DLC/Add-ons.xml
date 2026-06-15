@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<NintendoSdkMeta>
+  <AddOnContent>
+    <Index>1</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Jungle Awakens Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  
+  <AddOnContent>
+    <Index>2</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Creeping Winter Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  <AddOnContent>
+    <Index>3</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Hero Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  <AddOnContent>
+    <Index>4</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Mountains Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  <AddOnContent>
+    <Index>5</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Nether Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  <AddOnContent>
+    <Index>6</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>Oceans Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+  <AddOnContent>
+    <Index>7</Index>
+    <ReleaseVersion>0</ReleaseVersion>
+    <ApplicationId>0x01006c100ec08000</ApplicationId>
+    <RequiredApplicationReleaseVersion>0</RequiredApplicationReleaseVersion>
+    <Tag>The End Add-On</Tag>
+    <DataPath>Data</DataPath>
+  </AddOnContent>
+</NintendoSdkMeta>

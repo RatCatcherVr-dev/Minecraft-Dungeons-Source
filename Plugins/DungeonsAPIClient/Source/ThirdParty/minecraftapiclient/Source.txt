@@ -1,0 +1,8 @@
+﻿Url: https://github.com/Mojang/minecraft.api.client.sdk
+Commit: 80bb3d306de3b6881a320f41f8452bac16996c8d
+Branch: feature/trials-theme
+Contact: Robert Sjödahl (robert@mojang.com)
+Note: To update, copy over the "core", "jwt," and "modules" folders into the "include" folder of this module. Files outside of those folders doesn't need to be copied over. 
+IMPORTANT! Make sure that you restore any ANTICHEAT_ macros that might have been removed by updating the files.
+
+Please update this file if you drop in a new version of the library!!!

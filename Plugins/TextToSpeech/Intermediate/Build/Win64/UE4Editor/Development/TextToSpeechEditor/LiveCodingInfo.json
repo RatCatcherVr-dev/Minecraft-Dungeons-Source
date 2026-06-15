@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.TextToSpeechEditor.cpp.obj": [
+			"TextToSpeechEditor.cpp.obj",
+			"TextToSpeechUtilityWidget.cpp.obj"
+		],
+		"Module.TextToSpeechEditor.gen.cpp.obj": [
+			"TextToSpeechEditor.init.gen.cpp.obj",
+			"TextToSpeechUtilityWidget.gen.cpp.obj"
+		]
+	}
+}

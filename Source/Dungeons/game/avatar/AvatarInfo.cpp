@@ -1,0 +1,6 @@
+#include "Dungeons.h"
+#include "AvatarInfo.h"
+#include "Materials/MaterialInstance.h"
+#include "game/actor/character/player/PlayerCharacter.h"
+#include "game/actor/character/player/BasePlayerState.h"
+#include "DungeonsGameInstance.h"

@@ -1,0 +1,36 @@
+#include "Dungeons.h"
+#include "UnrealNetwork.h"
+#include "MovementAttributeSet.h"
+#include "AbilitySystemComponent.h"
+
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(SpeedMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(FrictionMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RotationMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(DodgeCooldown, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(DodgeSpeed, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(DodgeCharges, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MaxDodgeCharges, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(Gravity, UMovementAttributeSet)
+
+void UMovementAttributeSet::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, SpeedMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, FrictionMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, RotationMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, DodgeCooldown, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, DodgeSpeed, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, DodgeCharges, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, MaxDodgeCharges, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMovementAttributeSet, Gravity, COND_None, REPNOTIFY_Always);
+}
+
+DEFINE_ATTRIBUTE_FUNCTION(SpeedMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(FrictionMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RotationMultiplier, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(DodgeCooldown, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(DodgeSpeed, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(DodgeCharges, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MaxDodgeCharges, UMovementAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(Gravity, UMovementAttributeSet)

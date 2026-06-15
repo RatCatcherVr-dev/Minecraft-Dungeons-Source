@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changeinfo>
+	<changes app_ver="01.19">
+		<![CDATA[
+			DLC 6 - The End release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.18">
+		<![CDATA[
+			General Improvements
+		]]>
+	</changes>
+	<changes app_ver="01.17">
+		<![CDATA[
+			General Improvements
+		]]>
+	</changes>
+	<changes app_ver="01.16">
+		<![CDATA[
+			DLC 5 - Hidden Depths release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.15">
+		<![CDATA[
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.14">
+		<![CDATA[
+			Cross-Platform Progression
+		]]>
+	</changes>
+	<changes app_ver="01.13">
+		<![CDATA[
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.12">
+		<![CDATA[
+			DLC 4 - Flames of the Nether release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.11">
+		<![CDATA[
+			Fixed Apocalypse+ prompt appearing repeatedly.
+			Fixed Night Mode not spawning mobs correctly.
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.10">
+		<![CDATA[
+			DLC 3 - Howling Peaks release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.09">
+		<![CDATA[
+			Local co-op save data fix.
+		]]>
+	</changes>
+	<changes app_ver="01.08">
+		<![CDATA[
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.07">
+		<![CDATA[
+			Cross platform play release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.06">
+		<![CDATA[
+			Apocalypse Plus release
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.05">
+		<![CDATA[
+			DLC 2 - Creeping Winter release
+			More bug fixes.
+		]]>
+	</changes>
+	<changes app_ver="01.04">
+		<![CDATA[
+			General Improvements.
+		]]>
+	</changes>
+	<changes app_ver="01.03">
+		<![CDATA[
+			DLC 1 - Jungle Awakens release
+			More bug fixes.
+		]]>
+	</changes>
+	<changes app_ver="01.02">
+		<![CDATA[
+			More general bug fixes.
+		]]>
+	</changes>
+    <changes app_ver="01.01">
+        <![CDATA[
+			General bug fixes.
+        ]]>
+    </changes>
+</changeinfo>

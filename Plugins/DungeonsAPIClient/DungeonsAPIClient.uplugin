@@ -1,0 +1,68 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"FriendlyName" : "Dungeons API Client",
+	"Description" : "An Unreal wrapper for the generated client libraries used to access the Dungeons backend APIs.",
+	"Category" : "Live-Ops",
+	"CreatedBy" : "Mojang AB",
+	"CreatedByURL" : "https://mojang.com",
+	"DocsURL" : "",
+	"MarketplaceURL" : "",
+	"SupportURL" : "",
+	"EnabledByDefault" : true,
+	"CanContainContent" : false,
+	"IsBetaVersion" : false,
+	"Installed" : false,
+  "Modules": [
+    {
+      "Name": "DungeonsAPIClient",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsAuth",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsClient",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsClientUtils",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsEntitlements",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsLiveOps",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsHTTP",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "DungeonsTrials",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "GDK",
+      "Enabled": true,
+      "WhitelistPlatforms": [
+        "Win64"
+      ]
+    }
+  ]
+}

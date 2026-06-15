@@ -1,0 +1,25 @@
+{
+  "name": "dungeons-validator",
+  "version": "1.0.0",
+  "description": "Dungeons level json validator tool",
+  "scripts": {
+    "start": "start node server/files.js && start node server/api.js",
+    "test": "mocha test.js -R xunit --reporter-options output=testoutput.xml ",
+    "test-xunit": "mocha test.js -R xunit --reporter-options output=testout.xml ",
+    "test-human": "mocha test.js -R list",
+    "test-readable": "node test-readable.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "eslint": "^6.8.0",
+    "esprima": "^4.0.1",
+    "express": "^4.16.3",
+    "fast-levenshtein": "^2.0.6",
+    "jslint": "^0.12.1",
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "js-beautify": "^1.8.6"
+  }
+}

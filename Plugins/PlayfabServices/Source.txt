@@ -1,0 +1,4 @@
+Contact: v-wiklee@microsoft.com
+Note: This code is no longer maintained outside of the dungeons repository.
+Since dungeons will not interact with the launcher for telemetry there is
+no reason to keep a seperate branch for UE4.

@@ -1,0 +1,34 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Mojang Services",
+  "Description": "Connects the game to Playfab",
+  "Category": "Networking",
+  "CreatedBy": "Mojang",
+  "CreatedByURL": "",
+  "DocsURL": "",
+  "EnabledByDefault": true,
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "PlayfabServices",
+      "Type": "RuntimeNoCommandlet",
+      "LoadingPhase": "PreLoadingScreen"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "OnlineSubsystem",
+      "Enabled": true
+    },
+    {
+      "Name": "OnlineSubsystemUtils",
+      "Enabled": true
+    }
+  ]
+}

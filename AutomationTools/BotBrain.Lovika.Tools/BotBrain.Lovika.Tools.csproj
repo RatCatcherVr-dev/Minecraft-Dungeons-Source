@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Microsoft.GNS.Botbrain.Lovika.Tools</RootNamespace>
+    <AssemblyName>Botbrain.Lovika.Tools</AssemblyName>
+    <TargetFramework>net472</TargetFramework>
+    <Platforms>x64</Platforms>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BotBrain.Tools" Version="$(BotBrainVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BotBrain.Lovika\BotBrain.Lovika.csproj" />
+  </ItemGroup>
+</Project>

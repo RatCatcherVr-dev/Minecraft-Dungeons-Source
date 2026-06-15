@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest"
+         xmlns:mx="http://schemas.microsoft.com/appx/2013/xbox/manifest"
+         IgnorableNamespaces="mx">
+
+  <Identity Name="Microsoft.594097A1B01A7"
+            Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>Creeping Winter Add-On</DisplayName>
+    <PublisherDisplayName>Microsoft Studios</PublisherDisplayName>
+    <Logo>PackageImages\Logo.png</Logo>
+    <Description>Creeping Winter Add-On</Description>
+    <mx:ContentPackage>true</mx:ContentPackage>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+    <mx:ApplicationEnvironment>title</mx:ApplicationEnvironment>
+    <mx:OSName>era</mx:OSName>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+  
+  <Extensions>
+    <mx:PackageExtension Category="xbox.contentpackage">
+      <mx:ContentPackage>
+        <mx:AllowedProduct Id="00000000-0000-0000-0000-000067acc3cd" />
+        <mx:ContentPackageVisualElements
+            DisplayName="Creeping Winter Add-On"
+            Logo="PackageImages\Logo.png"
+            SmallLogo="PackageImages\SmallLogo.png"
+            WideLogo="PackageImages\WideLogo.png"
+            Description="Ultimate Edition Add-On"
+            ForegroundText="dark"
+            BackgroundColor="#000040" />
+      </mx:ContentPackage>
+    </mx:PackageExtension>
+  </Extensions>
+
+</Package>

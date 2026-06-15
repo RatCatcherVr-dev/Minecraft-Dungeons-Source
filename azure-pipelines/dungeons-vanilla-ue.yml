@@ -1,0 +1,134 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(SourceBranchName)_$(Date:yyyy-MM-dd)
+
+parameters:
+- name: clean_dungeons
+  displayName: Clean Dungeons
+  type: boolean
+  default: true
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default: 
+  - SourceBuildCapable
+- name: timeoutInMinutes
+  type: number
+  default: 360
+- name: configuration
+  displayName: Configuration
+  type: string
+  default: development
+
+variables:
+- template: modules/variables.yml
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+pr: none
+
+
+jobs:
+- job: Job
+  displayName: Vanilla UE win64 ${{ parameters.configuration }}
+  variables:
+    BuildPlatform: win64
+    BuildConfiguration: ${{ parameters.configuration }}
+    UE4_ENGINE: '$(Agent.RootDirectory)\UE'
+  timeoutInMinutes: ${{ parameters.timeoutInMinutes }}
+
+  pool:
+    name: 'Dungeon Windows'
+    demands: ${{ parameters.demands }}
+
+  workspace:
+    clean: outputs
+
+  steps:
+  - checkout: none
+
+  - task: PowerShell@2
+    displayName: Add Build Tags
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host "##vso[build.addbuildtag]$(Build.Reason)"
+        Write-Host "##vso[build.addbuildtag]$(BuildPlatform) $(BuildConfiguration)"
+
+  - task: PowerShell@2
+    displayName: Print Env Vars
+    inputs:
+      targetType: 'inline'
+      script: Get-ChildItem 'env:'
+
+  - task: PowerShell@2
+    displayName: Disable Global LFS Hooks
+    inputs:
+      targetType: 'inline'
+      script: git lfs uninstall --system
+
+  - task: CmdLine@2
+    displayName: Terminate UnrealHeaderTool.exe
+    inputs:
+      script: wmic process where name="UnrealHeaderTool.exe" call terminate
+
+  - template: modules/checkout-shallow-fetch.yml
+    parameters:
+      name: Dungeons
+      clean: ${{ parameters.clean_dungeons }}
+
+  - task: PowerShell@2
+    displayName: UE4 Prereqs
+    inputs:
+      targetType: 'inline'
+      script: |
+        cmd /c "start /wait Engine\Extras\Redist\en-us\UE4PrereqSetup_x64.exe /quiet"
+      workingDirectory: $(UE4_ENGINE)
+
+  - task: PowerShell@2
+    displayName: Initialize SharedDataCache
+    inputs:
+      targetType: 'inline'
+      script: |
+        New-Item -ItemType Directory -Force -Path $(UE-SharedDataCachePath) | Out-Null
+        "$(UE-SharedDataCachePath)"
+        "{0:N2} GB" -f ((Get-ChildItem -Recurse $(UE-SharedDataCachePath) | Measure-Object -Sum Length).Sum / 1GB)
+
+  - task: PowerShell@2
+    displayName: SetEngineDevEnv.py
+    inputs:
+      targetType: 'inline'
+      script: |
+        $devEnv = "$(BuildConfiguration)" -Ne "retail"
+        .\BuildTools\SetEngineDevEnv.py .\Config\DefaultEngine.ini $devEnv
+      workingDirectory: 'Dungeons'
+      
+  - task: PowerShell@2
+    condition: succeeded()
+    displayName: D11\Build.py build
+    inputs:
+      targetType: 'inline'
+      script: |
+        $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+        $buildPlat = "$(BuildPlatform)"
+
+        $receiptFile = ".\Binaries\$buildPlat\Dungeons-$buildPlat-$buildConf.target"
+        if ($buildConf -Eq "development") {
+          $receiptFile = ".\Binaries\$buildPlat\Dungeons.target"
+        }
+
+        $attempt = 0
+        do {
+          py.exe BuildTools\D11\Build.py `
+              --stage-dir $env:RelativeStagingPath `
+              build $(BuildPlatform) $buildConf -skipEditor
+
+          Write-Output ("Exit code $LastExitCode on attempt {0}" -f ++$attempt)
+        } until($(Test-Path $receiptFile) -or ($LastExitCode -ne 0) -or ($attempt -eq $(RetryLimit)))
+      workingDirectory: 'Dungeons'
+
+  - template: modules/check-responsible.yml
+
+  - template: modules/slack-alert.yml

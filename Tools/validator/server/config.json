@@ -1,0 +1,6 @@
+{
+    "app-port": 8005,
+    "api-port": 8007,
+    "hostname": "localhost",
+    "level-path": "../../Content/data/lovika/levels"
+}

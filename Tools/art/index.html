@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            #drop-area {
+                border: 1px solid black;
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Drop image here</p>
+
+        <script>
+            window.art = {}
+        </script>
+
+        <script src="./art.js"></script>
+
+        <script>
+            function download (name, content) {
+                const anchor = document.createElement('a')
+                anchor.href = URL.createObjectURL(new Blob([content], { type: 'text' }))
+                anchor.download = `${name}.obj`
+
+                document.body.appendChild(anchor)
+                anchor.click()
+
+                document.body.removeChild(anchor)
+            }
+
+            function dropHandler (event) {
+                event.preventDefault()
+
+                const [ file ] = event.dataTransfer.files
+                read(file, (parsed) => {
+                    const stringed = art.extrude(parsed)
+                    download(file.name, stringed)
+                })
+            }
+
+            function read (file, callback) {
+                const reader = new FileReader()
+
+                reader.readAsDataURL(file)
+                reader.addEventListener('loadend', function (e) {
+                    // get the image
+                    const image = document.createElement('img')
+                    image.src = this.result
+
+                    image.addEventListener('load', () => {
+                        const canvas = document.createElement('canvas')
+                        canvas.width = image.width
+                        canvas.height = image.height
+
+                        const context = canvas.getContext('2d')
+                        context.drawImage(image, 0, 0)
+
+                        const { data } = context.getImageData(0, 0, image.width, image.height)
+
+                        callback({
+                            data,
+                            width: image.width,
+                            height: image.height,
+                        })
+                    })
+                })
+            }
+
+            function ignoreEvent (event) {
+                event.preventDefault()
+            }
+
+            document.addEventListener('dragover', ignoreEvent, false)
+            document.addEventListener('drop', dropHandler, false)
+        </script>
+    </body>
+</html>

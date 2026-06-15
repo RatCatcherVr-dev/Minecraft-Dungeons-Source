@@ -1,0 +1,16 @@
+{
+  "name": "packer",
+  "version": "1.0.0",
+  "description": "Util to pack/send level and their dependencies to devs",
+  "scripts": {
+    "start": "start node server/files.js && start node server/api.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "node-fetch": "^2.6.1",
+    "yazl": "^2.5.1"
+  }
+}

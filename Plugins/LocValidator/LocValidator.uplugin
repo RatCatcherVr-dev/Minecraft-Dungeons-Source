@@ -1,0 +1,25 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "0.1",
+	"FriendlyName" : "Localization Validator",
+	"Description" : "Checks if any FTexts that are scraped by editor contain default hash-keys.",
+	"Category" : "Tools",
+	"CreatedBy" : "Mojang AB.",
+	"CreatedByURL" : "http://mojang.com",
+	"DocsURL" : "",
+	"MarketplaceURL" : "",
+	"SupportURL" : "",
+	"EnabledByDefault" : false,
+	"CanContainContent" : false,
+	"IsBetaVersion" : false,
+	"Installed" : false,
+	"Modules" :
+	[
+		{
+			"Name" : "LocValidator",
+			"Type" : "Editor",
+			"LoadingPhase" : "Default"
+		}
+	]
+}

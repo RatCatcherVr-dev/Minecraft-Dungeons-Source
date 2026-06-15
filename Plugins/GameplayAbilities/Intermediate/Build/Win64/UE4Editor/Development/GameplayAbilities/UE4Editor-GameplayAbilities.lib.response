@@ -1,0 +1,23 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-GameplayAbilities.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\Development\UnrealEd\SharedPCH.UnrealEd.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.1_of_3.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.2_of_3.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.3_of_3.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.1_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.2_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.3_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.4_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.5_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.6_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.7_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Module.GameplayAbilities.gen.8_of_8.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Development\GameplayAbilities\UE4Editor-GameplayAbilities.lib"
+/INCLUDE:IMPLEMENT_MODULE_GameplayAbilities

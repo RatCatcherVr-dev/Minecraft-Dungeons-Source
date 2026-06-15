@@ -1,0 +1,12 @@
+#pragma once
+
+#include "game/ai/behavior/BehaviorTuple.h"
+#include "game/component/BehaviorOptionsComponent.h"
+
+namespace bt {namespace behavior { namespace entities {
+
+BehaviorTuple createLlama(class AMobCharacter&, const UBehaviorOptionsComponent&);
+
+BehaviorTuple createLlamaMob(class AMobCharacter&, const UBehaviorOptionsComponent&);
+
+}}}

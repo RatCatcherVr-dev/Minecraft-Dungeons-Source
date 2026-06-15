@@ -1,0 +1,108 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(SourceBranchName)_$(Date:yyyy-MM-dd)
+
+parameters:
+- name: BuildId
+  displayName: Build ID
+  type: string
+- name: BuildConfiguration
+  displayName: Build Configuration
+  type: string
+- name: Version
+  type: string
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default:
+  - SourceBuildCapable
+
+trigger: none
+pr: none
+
+jobs:
+- job: Job
+  pool:
+    name: 'Dungeon Windows'
+    demands: ${{ parameters.demands }}
+
+  steps:
+  - checkout: none
+  - task: PowerShell@2
+    displayName: Print Env Vars
+    inputs:
+      targetType: 'inline'
+      script: Get-ChildItem 'env:'
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'specific'
+      project: '5c58ce82-7d97-4568-9c44-0536a493758e'
+      pipeline: '2270'
+      specificBuildWithTriggering: true
+      buildVersionToDownload: 'specific'
+      buildId: '${{ parameters.BuildId }}'
+      downloadType: 'specific'
+      itemPattern: |
+        **/Dungeons_windows10_${{ parameters.BuildConfiguration }}_!(Themida_Original)*.zip
+        **/msixvc_tools.zip
+      downloadPath: '$(System.ArtifactsDirectory)'
+  - task: PowerShell@2
+    displayName: Extract Build and Tools
+    inputs:
+      targetType: 'inline'
+      script: |
+        Remove-Item -ErrorAction SilentlyContinue -Recurse -Path './**/*'
+        Expand-Archive -Force -Verbose -Path '$(System.ArtifactsDirectory)/**/Dungeons*.zip' -Destination .
+        Expand-Archive -Force -Verbose -Path '$(System.ArtifactsDirectory)/**/msixvc_tools.zip' -Destination .
+        Remove-Item -ErrorAction SilentlyContinue -Recurse -Path '$(System.ArtifactsDirectory)/**/*'
+        New-Item -ItemType Directory -Force -Path '.\WindowsStoreStaging'
+        New-Item -ItemType Directory -Force -Path '.\WindowsStorePackage'
+  - task: PowerShell@2
+    displayName: Set Version
+    inputs:
+      targetType: 'inline'
+      script: |
+        $template = Get-Content -Path '.\WindowsStore\MicrosoftGame.config.in'
+        $config = $template -Replace '@VERSION@', '${{ parameters.Version }}'
+        $config | Set-Content -Path '.\WindowsStore\MicrosoftGame.config'
+        Get-Content -Path '.\WindowsStore\MicrosoftGame.config'
+  - task: PowerShell@2
+    displayName: Package MSIXVC
+    inputs:
+      targetType: 'inline'
+      script: |
+        $attempt = 0
+        $validXml = $false
+        do {
+          Remove-Item .\WindowsStoreStaging\* -Recurse -Force -ErrorAction SilentlyContinue
+          Remove-Item .\WindowsStorePackage\* -Recurse -Force -ErrorAction SilentlyContinue
+          .\package_msixvc.bat `
+              .\WindowsNoEditor\ `
+              .\WindowsStore\ `
+              .\WindowsStoreStaging\ `
+              .\WindowsStorePackage
+          try {
+            [xml](Get-Content $(DUNGEONS_PATH)\WindowsStore\Validator*.xml)
+            $validXml = $true
+          } catch {}
+          Write-Output ("Valid XML: $validXml on attempt {0}" -f ++$attempt)
+        } until($validXml -or ($attempt -eq $(RetryLimit)))
+
+        Copy-Item -Verbose .\WindowsStorePackage\*.msixvc $(Build.ArtifactStagingDirectory)
+        Copy-Item -Verbose .\WindowsStorePackage\*.ekb $(Build.ArtifactStagingDirectory)
+        Copy-Item -Verbose .\WindowsStorePackage\Validator*.xml $(Build.ArtifactStagingDirectory)
+
+        if($attempt -eq $(RetryLimit)) {
+          throw "Invalid XML"
+        }
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'Dungeons_windows10_${{ parameters.BuildConfiguration }}_${{ parameters.BuildId }}'
+      publishLocation: 'Container'
+  - task: PowerShell@2
+    displayName: Clear folders
+    inputs:
+      targetType: 'inline'
+      script: |
+        Remove-Item -ErrorAction SilentlyContinue -Recurse -Path './**/*'
+        Remove-Item -ErrorAction SilentlyContinue -Recurse -Path '$(System.ArtifactsDirectory)/**/*'

@@ -1,0 +1,9 @@
+{
+  "name": "art",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "dependencies": {
+    "pngjs": "^3.3.3"
+  }
+}

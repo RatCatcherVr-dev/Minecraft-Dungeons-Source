@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-DungeonsClient.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\Development\Core\SharedPCH.Core.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsClient\Module.DungeonsClient.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsClient\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsClient\UE4Editor-DungeonsClient.lib"
+/INCLUDE:IMPLEMENT_MODULE_DungeonsClient

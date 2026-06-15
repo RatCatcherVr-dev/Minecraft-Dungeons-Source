@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gamePackage>
+  <language id="00" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m a j n k r a f t ___ d u n j e n z</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m a j n k r e f t ___ d u n j e n z</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="01" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m ay n k r ae f t ___ d ah n jh ax n z</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m ih n k r aa f t ___ d ah n jh ax n z</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="02" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n k R a f ___ d y n Z oN</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m a i n k R a f t ___ d O n d z AX n z</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="03" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k r a f t ___ d u n x e o n s</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k r a f t ___ d u N g e o n s</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="04" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k R a f t ___ d u n g e o n s</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k R a f t ___ d y g e o n s</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="05" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k r a f t ___ d u n dZ e o n s</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m i n e k r a f t ___ d u n g e o n s</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="08" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m a j n k ri a f t ___ d o n Z ae n z</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m a j n k ri ae f t ___ d o n Z ae n z</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="16" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m iy n e ts r a f t ___ d u n g e o n s</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m iy n ts r a f t ___ d u n g e o n s</pronunciation>
+    </speechRecognitionWords>
+  </language>
+  <language id="18" modified="0">
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m ih n k r aa f t ___ d ah n jh ax n z</pronunciation>
+    </speechRecognitionWords>
+    <speechRecognitionWords>
+      <text display="1">Minecraft Dungeons</text>
+      <pronunciation>m ay n k r ae f t ___ d ah n jh ax n z</pronunciation>
+    </speechRecognitionWords>
+  </language>
+</gamePackage>

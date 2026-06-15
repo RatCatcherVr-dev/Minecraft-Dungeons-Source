@@ -1,0 +1,149 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(SourceBranchName)_$(Date:yyyy-MM-dd)
+
+parameters:
+- name: clean_UE4
+  displayName: Clean UE4
+  type: boolean
+  default: false
+- name: clean_dungeons
+  displayName: Clean Dungeons
+  type: boolean
+  default: true
+- name: strip_levels
+  displayName: Strip levels
+  type: boolean
+  default: true
+- name: jobs
+  displayName: Jobs (YAML)
+  type: object
+  default:
+    switch: [shipping]
+    ps4: [shipping]
+    xboxone: [shipping]
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default: 
+  - SourceBuildCapable
+
+trigger: none
+schedules:
+- cron: '1 0 * * *'
+  displayName: Nightly
+  branches:
+    include:
+    - main
+pr: none
+
+extends:
+  template: dungeons-template.yml
+  parameters:
+    ${{ each parameter in parameters }}:
+      ${{ parameter.key }}: ${{ parameter.value }}
+
+    timeoutInMinutes: 720
+    preBuild:
+    - task: PowerShell@2
+      displayName: Setup CertBase
+      inputs:
+        targetType: inline
+        script: |
+          $baseurl = 'https://lovikaci.blob.core.windows.net/console-patching/CertBase'
+          switch -exact ('$(BuildPlatform)')
+          {
+              'switch' {
+                $consoleName = "Switch"
+              }
+              'xboxone' {
+                $consoleName = "XboxOne"
+              }
+              'ps4' {
+                $consoleName = "PS4"
+              }
+              default { throw 'Incorrect platform' }
+          }
+          Remove-Item -Recurse -Force "Releases/CertBase/$consoleName" -ErrorAction SilentlyContinue
+          $url = "$($baseurl)/$($consoleName)?sv=2020-04-08&st=2021-04-28T15%3A59%3A32Z&se=2121-04-29T15%3A59%3A00Z&sr=c&sp=rl&sig=A6GKEvH7BezlRHen94v9CJiG44%2FuNXM6MH3bnZSj9EI%3D"
+          azcopy copy $url 'Releases\CertBase' --from-to=BlobLocal --recursive
+        workingDirectory: 'Dungeons'
+
+    runEditor: false
+    runBuild: false
+    runCook: false
+    runPackage: false
+
+    postPackage:
+      - task: PowerShell@2
+        displayName: Build.py patch
+        inputs:
+          targetType: 'inline'
+          script: |
+            . BuildTools\D11\extraBuildArgs.ps1
+            $buildConf = 'shipping'
+            $format = @"
+            py.exe BuildTools\D11\Build.py `
+                patch $(BuildPlatform) $buildConf `
+                -createreleaseversion=$(Build.BuildId)_patch `
+                -basedonreleaseversion=CertBase `
+                {0}
+            "@ -replace '\s+', ' '
+
+            # Use package args as patch includes build + cook + package.
+            foreach($extraBuildArg in $extraBuildArgs['package']['$(BuildPlatform)']["$buildConf"]) {
+              $command = "$format" -f $extraBuildArg
+              Write-Output $command
+              Invoke-Expression $command
+            }
+          workingDirectory: 'Dungeons'
+
+      - task: PowerShell@2
+        displayName: Copy patch to artifact staging directory
+        inputs:
+          targetType: inline
+          script: |
+            switch -exact ('$(BuildPlatform)')
+            {
+                'switch' {
+                  $consoleName = "Switch"
+                  $filter = "*-patch.nsp"
+                }
+                'xboxone' {
+                  $consoleName = "XboxOne"
+                  $filter = (Get-ChildItem -Path $consoleName -Filter 'Microsoft.*.phd').BaseName
+                }
+                'ps4' {
+                  $consoleName = "PS4"
+                  $filter = "*.pkg"
+                }
+                default { throw 'Incorrect platform' }
+            }
+            New-Item "$(Build.ArtifactStagingDirectory)\$consoleName" -ItemType Directory
+            $files = Get-ChildItem -Path $consoleName -Filter $filter -Recurse
+            $files | Format-Table -Property Name
+            $files | Copy-Item -Destination "$(Build.ArtifactStagingDirectory)\$consoleName\"
+          workingDirectory: 'Dungeons\Releases\$(Build.BuildId)_patch'
+
+      - task: PowerShell@2
+        displayName: Print PatchSize
+        inputs:
+          targetType: 'inline'
+          script: |
+            switch -exact ('$(BuildPlatform)')
+            {
+                'switch' {
+                  $wildcard = "Switch\*.nsp"
+                }
+                'xboxone' {
+                  $wildcard = "XboxOne\*"
+                }
+                'ps4' {
+                  $wildcard = "PS4\EP*.pkg"
+                }
+                default { throw 'Incorrect platform' }
+            }
+            $source_branch = '$(Build.SourceBranch)' -replace 'refs/heads/', ''
+            'Platform="$(BuildPlatform)"'
+            "SourceBranch=`"$source_branch`""
+            "PatchSizeMB={0:F2}" -f ((Get-ChildItem $wildcard -Recurse | Measure-Object -Sum Length).Sum / 1MB)
+          workingDirectory: '$(Build.ArtifactStagingDirectory)'

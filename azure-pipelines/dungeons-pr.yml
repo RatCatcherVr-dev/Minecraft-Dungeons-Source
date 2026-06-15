@@ -1,0 +1,114 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(System.PullRequest.TargetBranch)_$(System.PullRequest.PullRequestNumber)
+
+parameters:
+- name: clean_dungeons
+  displayName: Clean Dungeons
+  type: boolean
+  default: false
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default:
+  - AzureVM
+
+variables:
+- template: modules/variables.yml
+
+resources:
+  repositories:
+  - repository: DungeonsDevOps
+    type: github
+    endpoint: Mojang
+    name: Mojang/DungeonsDevOps
+    ref: main
+
+trigger: none
+pr:
+  branches:
+    include:
+    - '*'
+
+jobs:
+- job: Job
+
+  pool:
+    name: 'Dungeon Windows'
+    demands: ${{ parameters.demands }}
+
+  steps:
+  - checkout: none
+
+  - template: modules/checkout-shallow-fetch.yml
+    parameters:
+      name: DungeonsDevOps
+      clean: false
+      lfs: false
+
+  - task: PowerShell@2
+    displayName: Print Env Vars
+    inputs:
+      targetType: 'inline'
+      script: Get-ChildItem 'env:'
+
+  - task: PowerShell@2
+    name: FileList
+    displayName: PR check files changed
+    inputs:
+      targetType: inline
+      script: |
+          if ('$(Build.Reason)' -eq 'PullRequest') {
+            . $(System.DefaultWorkingDirectory)/DungeonsDevOps/scripts/Get-PRFileList.ps1
+            $changed = Get-PRFileList $(Build.Repository.Name) $(System.PullRequest.PullRequestNumber) -Password $(GitHubPat)
+            Write-Output ""
+            $sourceChanged = $false
+            $contentChanged = $false
+            foreach($file in $changed) {
+              $sourceChanged = $sourceChanged -or $file.StartsWith("Source/");
+              $contentChanged = $contentChanged -or $file.StartsWith("Content/");
+              Write-Output $file
+            }
+            $skipCheckout = $(!$sourceChanged -and !$contentChanged)
+
+            Write-Output ""
+            Write-Output "SourceChanged $sourceChanged"
+            Write-Output "ContentChanged $contentChanged"
+            Write-Output "SkipCheckout $skipCheckout"
+            
+            Write-Output "##vso[task.setvariable variable=SourceChanged;isOutput=true]$sourceChanged"
+            Write-Output "##vso[task.setvariable variable=ContentChanged;isOutput=true]$contentChanged"
+            Write-Output "##vso[task.setvariable variable=SkipCheckout;isOutput=true]$skipCheckout"
+          }
+          else {
+            Write-Host "##vso[task.setvariable variable=SourceChanged;isOutput=true]True"
+            Write-Host "##vso[task.setvariable variable=ContentChanged;isOutput=true]True"
+            Write-Host "##vso[task.setvariable variable=SkipCheckout;isOutput=true]False"
+          }
+
+  - template: modules/checkout-shallow-fetch.yml
+    parameters:
+      name: Dungeons
+      clean: ${{ parameters.clean_dungeons }}
+      lfs: false
+      retries: 0
+
+  - task: PowerShell@2
+    condition: and(succeeded(), eq(variables['FileList.ContentChanged'], 'True'))
+    displayName: Validate Levels
+    inputs:
+      targetType: inline
+      script: |
+          .\validate_levels.bat -human
+      workingDirectory: 'Dungeons\Tools'
+      #failOnStderr: true
+      #ignoreLASTEXITCODE: true
+
+  - template: modules/devops-check.yml
+    parameters:
+      name: Find-MergeConflicts
+      condition: ne(variables['FileList.ContentChanged'], 'False')
+  
+  - template: modules/devops-check.yml
+    parameters:
+      name: Find-DuplicateClassfiles
+      condition: ne(variables['FileList.SourceChanged'], 'False')

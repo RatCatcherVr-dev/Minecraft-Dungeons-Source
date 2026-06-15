@@ -1,0 +1,27 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "EpicServices",
+  "Description": "Epic Online Services Integration",
+  "Category": "Other",
+  "CreatedBy": "Double11",
+  "CreatedByURL": "https://double11.com",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "EpicServices",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "WhitelistPlatforms": [
+        "Win64"
+      ]
+    }
+  ]
+}

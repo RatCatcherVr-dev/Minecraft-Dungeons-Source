@@ -1,0 +1,9 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.LocValidator.cpp.obj": [
+			"LocValidator.cpp.obj",
+			"LocValidatorCommands.cpp.obj"
+		]
+	}
+}

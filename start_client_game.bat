@@ -1,0 +1,1 @@
+@start Binaries\Win64\Dungeons.exe Dungeons 127.0.0.1 -game -log

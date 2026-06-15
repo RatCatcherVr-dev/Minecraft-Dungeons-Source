@@ -1,0 +1,6 @@
+#ifndef DUNGEONS_VERSION_H
+#define DUNGEONS_VERSION_H
+
+#define GAME_VERSION "LOCALBUILD:master:72b74aba29"
+#define STORE_VERSION "1.8.0.0"
+#endif /* DUNGEONS_VERSION_H */

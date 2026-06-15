@@ -1,0 +1,7 @@
+#pragma once
+
+#include "Engine.h"
+
+#if (!UE_BUILD_SHIPPING) && (!PLATFORM_PS4 && !PLATFORM_SWITCH) && (PLATFORM_XBOXONE || PLATFORM_WINDOWS)
+#define ENABLE_BOTAUTOMATION
+#endif

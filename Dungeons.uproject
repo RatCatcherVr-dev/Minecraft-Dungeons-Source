@@ -1,0 +1,192 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.22",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Dungeons",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"AIModule",
+				"Navmesh",
+				"GameplayTasks",
+				"NavigationSystem",
+				"UMG",
+				"GameplayAbilities",
+				"AudioMixer",
+				"Media",
+				"MediaAssets",
+				"CoreUObject"
+			]
+		},
+		{
+			"Name": "DungeonsEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TileDecorator",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		},
+		{
+			"Name": "UnrealToolsFramework",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32",
+				"XboxOne"
+			]
+		},
+		{
+			"Name": "BotAutomation",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Media",
+				"MediaAssets"
+			],
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32",
+				"XboxOne"
+			],
+			"BlacklistTargetConfigurations": [
+				"Shipping"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "AvfMedia",
+			"Enabled": false
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "HTTPChunkInstaller",
+			"Enabled": false
+		},
+		{
+			"Name": "GearVR",
+			"Enabled": false
+		},
+		{
+			"Name": "ARToolkitPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusVR",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusRift",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusInput",
+			"Enabled": false
+		},
+		{
+			"Name": "OculusLibrary",
+			"Enabled": false
+		},
+		{
+			"Name": "DungeonsAPIClient",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineSubsystemLive",
+			"Enabled": false,
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32"
+			]
+		},
+		{
+			"Name": "OnlineSubsystemDungeons",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win64",
+				"Win32"
+			]
+		},
+		{
+			"Name": "LocValidator",
+			"Enabled": true
+		},
+		{
+			"Name": "MfMedia",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"XBoxOne"
+			]
+		},
+		{
+			"Name": "SoundUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "Synthesis",
+			"Enabled": true
+		},
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": false
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		},
+		{
+			"Name": "MORT",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/f6a838d3c72b4d28b5635da50d3335e5"
+		},
+		{
+			"Name": "ReplicationGraph",
+			"Enabled": true
+		},
+		{
+			"Name": "SteamVR",
+			"Enabled": false
+		},
+		{
+			"Name": "GDK",
+			"Enabled": true,
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "WebBrowserWidget",
+			"Enabled": true
+		},
+		{
+			"Name": "EpicServices",
+			"Enabled": false,
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		}
+	],
+	"TargetPlatforms": [
+		"Android",
+		"AllDesktop",
+		"HTML5",
+		"IOS",
+		"LinuxNoEditor",
+		"MacNoEditor",
+		"PS4",
+		"Switch",
+		"TVOS",
+		"WindowsNoEditor",
+		"XboxOne"
+	]
+}

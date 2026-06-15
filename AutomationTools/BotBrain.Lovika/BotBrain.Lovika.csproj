@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Microsoft.GNS.BotBrain.Lovika</RootNamespace>
+    <AssemblyName>BotBrain.Lovika</AssemblyName>
+    <LangVersion>7.2</LangVersion>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BotBrain.DeviceConsoleFactory" Version="$(BotBrainVersion)" />
+    <PackageReference Include="BotBrain.Infrastructure" Version="$(BotBrainVersion)" />
+    <PackageReference Include="BotBrain.Operations" Version="$(BotBrainVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ObjectModel.Lovika\ObjectModel.Lovika.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\BotBrains\Parameters.Designer.cs">
+      <DependentUpon>Parameters.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\BotBrains\Parameters.tt">
+      <DependentUpon>parameters.json</DependentUpon>
+      <LastGenOutput>Parameters.resx</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <EmbeddedResource Update="Resources\BotBrains\Parameters.resx">
+      <DependentUpon>Parameters.tt</DependentUpon>
+      <LastGenOutput>Parameters.Designer.cs</LastGenOutput>
+      <DesignTime>True</DesignTime>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <AutoGen>True</AutoGen>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+</Project>

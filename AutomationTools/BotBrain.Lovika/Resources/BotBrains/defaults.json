@@ -1,0 +1,51 @@
+{
+  "BasedOn": "Blank",
+
+  // Custom Parameter defaults
+  "GameStateMaxAge": "00:00:00.5",
+  "PlayerMaxAge": "00:00:00.5",
+  "MaxDistance": 5000,
+  "AllowZAxis": false,
+  "IdleDistanceThreshold": 250,
+  "IdleWaitTime": "00:00:15",
+  "AttackRadius": 1500,
+  "RegexFilters": [],
+  "Hidden": false,
+  "Frequency": "00:00:15",
+  "SameFrequency": "00:00:30",
+
+  // Considerations increase the action's urgency.
+  "Consideration.Curve": "Linear", // Linear, Exponential, LogLogistic
+  "Consideration.Direction": "Increasing",
+  "Consideration.Significance": 1.0,
+  "Consideration.MaxWeight": 10.0,
+
+  "Consideration.UrgeWeight.Curve": "Linear",
+  "Consideration.UrgeWeight.Direction": "Increasing",
+  "Consideration.UrgeWeight.Significance": 0.9,
+
+  "Consideration.UrgeTotalDuration.Curve": "Exponential",
+  "Consideration.UrgeTotalDuration.Direction": "Decreasing",
+  "Consideration.UrgeTotalDuration.Significance": 0.4,
+
+  "Consideration.RandomNoise.Curve": "Linear",
+  "Consideration.RandomNoise.Direction": "Decreasing",
+  "Consideration.RandomNoise.Significance": 0.01,
+
+  "Consideration.DistanceToLocalPlayer.Curve": "Linear",
+  "Consideration.DistanceToLocalPlayer.Direction": "Decreasing",
+  "Consideration.DistanceToLocalPlayer.Significance": 1,
+  "Consideration.DistanceToLocalPlayer.MaxDistance": 10000,
+
+  "Consideration.LocalPlayerFacing.Curve": "Linear",
+  "ConsiderationsLocalPlayerFacing.Direction": "Increasing",
+  "Consideration.LocalPlayerFacing.Significance": 0.8,
+
+  "Consideration.TimeSpentAsCurrentAction.Curve": "Exponential",
+  "Consideration.TimeSpentAsCurrentAction.Direction": "Decreasing",
+  "Consideration.TimeSpentAsCurrentAction.Significance": 0.8,
+
+  "Consideration.IsRecentAction.Curve": "Linear",
+  "Consideration.IsRecentAction.Direction": "Decreasing",
+  "Consideration.IsRecentAction.Significance": 1
+}

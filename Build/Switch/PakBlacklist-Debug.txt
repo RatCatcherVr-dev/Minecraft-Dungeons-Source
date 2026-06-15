@@ -1,0 +1,8 @@
+../../../Dungeons/Content/UI/Materials/GamePad/_ps4/
+../../../Dungeons/Content/UI/Materials/GamePad/_pc/
+../../../Dungeons/Content/UI/Materials/GamePad/_xbox/
+../../../Dungeons/Content/UI/Materials/Settings/controlMap_xbox
+../../../Dungeons/Content/UI/Materials/Settings/controlmap_PS4
+../../../Dungeons/Content/UI/Materials/Menu/PS4_icon
+../../../Dungeons/Content/UI/Materials/Menu/XBOX_icon
+../../../Dungeons/Content/UI/Materials/Chests/High

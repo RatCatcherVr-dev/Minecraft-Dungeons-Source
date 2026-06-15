@@ -1,0 +1,90 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(SourceBranchName)_$(Date:yyyy-MM-dd)
+
+parameters:
+- name: clean_UE4
+  displayName: Clean UE4
+  type: boolean
+  default: false
+- name: clean_dungeons
+  displayName: Clean Dungeons
+  type: boolean
+  default: false
+- name: strip_levels
+  displayName: Strip levels
+  type: boolean
+  default: true
+- name: jobs
+  displayName: Jobs (YAML)
+  type: object
+  default:
+    win64: [test]
+    windows10: [shipping]
+    winsteam: [test]
+    switch: [test]
+    xboxone: [test]
+    ps4: [test]
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default: 
+  - SourceBuildCapable
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+schedules:
+- cron: '0 22 * * *'
+  displayName: Nightly
+  branches:
+    include:
+    - main
+- cron: '0 22 * * 6'
+  displayName: Saturday
+  branches:
+    include:
+    - futurework/*
+pr: none
+
+extends:
+  template: dungeons-template.yml
+  parameters:
+
+    ${{ if in(variables['Build.Reason'], 'Schedule') }}:
+      clean_UE4: true
+      clean_dungeons: true
+    ${{ if not(in(variables['Build.Reason'], 'Schedule')) }}:
+      clean_UE4: ${{ parameters.clean_UE4 }}
+      clean_dungeons: ${{ parameters.clean_dungeons }}
+
+    strip_levels: ${{ parameters.strip_levels }}
+
+    ${{ if in(variables['Build.Reason'], 'Schedule') }}:
+      jobs:
+        win64: [development, test, shipping, retail]
+        windows10: [development, test, shipping, retail]
+        winsteam: [test, retail]
+        switch: [development, test]
+        xboxone: [development, test]
+        ps4: [development, test]
+    ${{ if not(in(variables['Build.Reason'], 'Schedule')) }}:
+      jobs: ${{ parameters.jobs }}
+
+    demands: 
+    - ${{ each demand in parameters.demands }}:
+      - ${{ demand }}
+    - ${{ if not(in(variables['Build.Reason'], 'Schedule', 'Manual')) }}:
+      - NonPriorityQueue
+
+    preCheck:
+    - template: modules/devops-check.yml
+      parameters:
+        name: Find-MergeConflicts
+        continueOnError: true
+    
+    - template: modules/devops-check.yml
+      parameters:
+        name: Find-DuplicateClassfiles
+        continueOnError: true

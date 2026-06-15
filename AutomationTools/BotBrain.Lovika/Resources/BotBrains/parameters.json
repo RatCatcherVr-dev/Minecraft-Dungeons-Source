@@ -1,0 +1,71 @@
+[ // In order to add or modify parameters:
+  // Check out these 3 files: Parameters.json, Parameters.resx, Parameters.Designer.cs
+  // Add or modify the parameters you want below
+  // Run the Parameters.tt template to update the Parameters.resx file
+  // Run the Parameters.resx to generate the resource file so the parameters will be available through Brains.Parameters
+  // Add the parameter and a default value to defaults.json (otherwise you will need to declare it per brain)
+  {
+    "name": "GameStateMaxAge",
+    "comment": "Used to adjust how often game state queries are made.",
+    "displayType": "timespan"
+  },
+
+  {
+    "name": "PlayerMaxAge",
+    "comment": "Used to adjust how often player queries are made.",
+    "displayType": "timespan"
+  },
+
+  {
+    "name": "MaxDistance",
+    "comment": "The maximum distance.",
+    "displayType": "integer"
+  },
+
+  {
+    "name": "AllowZAxis",
+    "comment": "Whether or not to allow using the Z axis.",
+    "displayType": "flag"
+  },
+
+  {
+    "name": "IdleDistanceThreshold",
+    "comment": "Maximum distance moved to still be considered idle.",
+    "displayType": "integer"
+  },
+
+  {
+    "name": "IdleWaitTime",
+    "comment": "Time to wait to detect if player idle.",
+    "displayType": "timespan"
+  },
+
+  {
+    "name": "AttackRadius",
+    "comment": "Radius for the player to attack.",
+    "displayType": "integer"
+  },
+
+  {
+    "name": "RegexFilters",
+    "comment": "List of regex filters, empty to match all."
+  },
+
+  {
+    "name": "Hidden",
+    "comment": "Should use hidden actors.",
+    "displayType": "flag"
+  },
+
+  {
+    "name": "Frequency",
+    "comment": "How often can an action run.",
+    "displayType": "timespan"
+  },
+
+  {
+    "name": "SameFrequency",
+    "comment": "How often can the same action run.",
+    "displayType": "timespan"
+  }
+]

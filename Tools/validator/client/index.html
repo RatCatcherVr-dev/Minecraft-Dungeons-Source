@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>validator</title>
+
+    <style>
+        body {
+            background-color: hsl(70, 8%, 10%);
+            color: white;
+            font-family: monospace;
+        }
+
+        #app {
+            width: 1380px;
+            margin: auto;
+        }
+
+        #editor-in {
+            width: 900px;
+            height: 1200px;
+            display: inline-block;
+        }
+
+        #files-container {
+            vertical-align: top;
+            width: 220px;
+            display: inline-block;
+            background-color: hsl(70, 8%, 15%);
+        }
+
+        #files {
+            padding: 10px;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        #files > li {
+            padding: 3px 0 3px 10px;
+        }
+
+        .selected {
+            background-color: hsl(70, 8%, 25%);
+        }
+
+        #status {
+            padding: 2px 10px;
+        }
+
+        .clickable:hover {
+            filter: brightness(125%);
+        }
+
+        .ok {
+            background-color: hsl(150, 50%, 40%);
+        }
+
+        .error {
+            background-color: hsl(350, 50%, 40%);
+        }
+
+        .warning {
+            background-color: hsl(60, 50%, 40%);
+        }
+
+        #outline-container {
+            vertical-align: top;
+            width: 220px;
+            display: inline-block;
+            background-color: hsl(70, 8%, 15%);
+        }
+
+        #outline {
+            padding: 10px;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        #outline > li {
+            padding: 3px 0 3px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="files-container">
+            <ul id="files"></ul>
+
+            <div id="status" class="clickable">...</div>
+        </div>
+
+        <div id="editor-in"></div>
+
+        <div id="outline-container">
+            <ul id="outline"></ul>
+        </div>
+    </div>
+
+    <script src="lib/ace/ace.js"></script>
+    <script src="lib/ace/mode-json.js"></script>
+    <script src="lib/ace/theme-monokai.js"></script>
+    <script src="lib/ace/ext-searchbox.js"></script>
+
+    <script src="lib/esprima.js"></script>
+
+    <script>window.validator = {}</script>
+    <script src="src/converter.js"></script>
+    <script src="src/validators/core.js"></script>
+    <script src="src/validators/core-ast.js"></script>
+    <script src="src/validators/common.js"></script>
+    <script src="src/validators/mob-groups.js"></script>
+    <script src="src/validators/objective.js"></script>
+    <script src="src/validators/level.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>

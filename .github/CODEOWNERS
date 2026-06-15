@@ -1,0 +1,139 @@
+# If you desire to be auto-added to pull requests that
+# edit a particular folder location, file, or file type,
+# add yourself to this file
+
+# Global
+
+#
+# Quasi-alphabetical from here.  Last match wins, so in addition to alpha
+# sort, one must sort in order of increasing specificity.
+#
+/azure-pipelines/*                              @jsundqvist @simonfagerholm
+
+/BuildTools/*.bat                               @jsundqvist @simonfagerholm
+/BuildTools/*.ps1                               @jsundqvist @simonfagerholm
+/BuildTools/*.py                                @jsundqvist @simonfagerholm
+/BuildTools/D11/Build.py                        @jsundqvist @simonfagerholm
+
+
+# jakobbohem CODEOWNER for loc files to quench edits that will kill loc/cert
+/Content/Decor/Text/*                                   @jakobbohem @seriema
+/Content/Decor/Text/*.csv                               @kehow
+/Content/Content_DLC4/Text/*                            @jakobbohem @seriema
+/Content/Content_DLC4/Text/*.csv                        @kehow
+/Content/Content_DLC5/Decor/Text/*                      @jakobbohem @seriema
+/Content/Content_DLC5/Decor/Text/*.csv                  @kehow
+/Content/Content_DLC6/Decor/Text/*                      @jakobbohem @seriema
+/Content/Content_DLC6/Decor/Text/*.csv                  @kehow
+/Content/Content_Season1/Decor/Text/*                   @jakobbohem @seriema
+/Content/Content_Season1/Decor/Text/*.csv               @kehow
+/Content/Content_Spooky2021/Decor/Text/*                @jakobbohem @seriema
+/Content/Content_Spooky2021/Decor/Text/*.csv            @kehow
+
+/Source/Dungeons/game/affector/AffectorTypes.cpp        @jakobbohem
+/Source/Dungeons/game/item/ItemTypeDefs.cpp             @jakobbohem
+/Source/Dungeons/game/mission/MissionDefs.cpp           @jakobbohem
+/Source/Dungeons/game/Enchantments/EnchantmentUtil.cpp  @jakobbohem
+/Source/Dungeons/game/util/ValueFormat.cpp              @jakobbohem
+
+/Source/Dungeons/game/actor/BeaconBeam.*             @adrianton3
+/Source/Dungeons/game/actor/BlazeFire.*              @adrianton3
+/Source/Dungeons/game/actor/DarkSpawner.*            @adrianton3
+/Source/Dungeons/game/actor/Dimmer.*                 @adrianton3
+/Source/Dungeons/game/actor/DynamicBeam.*            @adrianton3
+/Source/Dungeons/game/actor/HorsemenTargetProvider.* @adrianton3
+/Source/Dungeons/game/actor/MeleeTicketProvider.*    @adrianton3
+
+/Source/Dungeons/game/component/AwarenessComponent.*       @adrianton3
+/Source/Dungeons/game/component/BackpackComponent.*        @adrianton3
+/Source/Dungeons/game/component/BeaconAttackComponent.*    @adrianton3
+/Source/Dungeons/game/component/BehaviorOptionsComponent.* @adrianton3
+/Source/Dungeons/game/component/CorpseAttractorComponent.* @adrianton3
+/Source/Dungeons/game/component/CospawnComponent.*         @adrianton3
+/Source/Dungeons/game/component/DebugComponent.*           @adrianton3
+/Source/Dungeons/game/component/FlashlightComponent.*      @adrianton3
+/Source/Dungeons/game/component/GrowAttackComponent.*      @adrianton3
+/Source/Dungeons/game/component/GrowComponent.*            @adrianton3
+/Source/Dungeons/game/component/LeapComponent.*            @adrianton3
+/Source/Dungeons/game/component/MassComponent.*            @adrianton3
+/Source/Dungeons/game/component/MasterTeleportComponent.*  @adrianton3
+/Source/Dungeons/game/component/PickupComponent.*          @adrianton3
+/Source/Dungeons/game/component/SplitComponent.*           @adrianton3
+/Source/Dungeons/game/component/TurnComponent.*            @adrianton3
+
+/Source/Dungeons/world/entity/EntityTypes.*         @adrianton3
+/Source/Dungeons/world/entity/MobTags.*             @adrianton3
+/Source/Dungeons/game/ai/behavior/BehaviorFactory.* @adrianton3
+
+/Source/Dungeons/game/ai/behavior/entities/AnimalBehavior.*              @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/ArchIllagerBehavior.*         @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/ArchVesselBehavior.*          @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/BabyKeyBehavior.*             @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/BabyZombieBehavior.*          @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/BlazeBehavior.*               @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/BlazeSpawnerBehavior.*        @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/CauldronBossBehavior.*        @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/CreeperBehavior.*             @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/EnchanterBehavior.*           @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/EnchanterMultiBehavior.*      @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/EndermanBehavior.*            @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/EvokerBehavior.*              @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/EvokerFangBehavior.*          @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/FalseKingBehavior.*           @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/GeomancerBehavior.*           @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/GeomancerBombBehavior.*       @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/GeomancerWallBehavior.*       @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/GhastBehavior.*               @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/JackOLanternBehavior.*        @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/LlamaBehavior.*               @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/MagmaCubeBehavior.*           @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/MobSpawnerBehavior.*          @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/NamelessKingBehavior.*        @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/NecromancerBehavior.*         @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/OrdinaryHorseBehavior.*       @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/PetBehavior.*                 @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/PiggyBankBehavior.*           @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/RedstoneGolemBehavior.*       @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/RedstoneMonstrosityBehavior.* @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/SheepRedBehavior.*            @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/SkeletonBehavior.*            @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/SkeletonHorsemanBehavior.*    @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/SlimeCauldronBehavior.*       @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/SpiderBehavior.*              @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/VanguardBehavior.*            @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/VexBehavior.*                 @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/VindicatorBehavior.*          @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/WitchBehavior.*               @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/WolfBehavior.*                @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/WraithBehavior.*              @adrianton3
+/Source/Dungeons/game/ai/behavior/entities/ZombieBehavior.*              @adrianton3
+
+/Source/Dungeons/game/ai/task/attack/formations/ArchIllagerFormations.*  @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/CauldronFormations.*     @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/EvokerFormations.*       @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/GeomancerFormations.*    @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/HorsemenFormations.*     @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/NamelessKingFormations.* @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/RedstoneFormations.*     @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/VesselFormations.*       @adrianton3
+/Source/Dungeons/game/ai/task/attack/formations/WraithFormations.*       @adrianton3
+
+/Tools/art/                       @adrianton3
+/Tools/clean-refs/                @adrianton3
+/Tools/codeowners-validator/      @adrianton3
+/Tools/diff-objectgroup.js        @adrianton3
+/Tools/ls-tiles.js                @adrianton3
+/Tools/packer/                    @adrianton3
+/Tools/run_validator.bat          @adrianton3
+/Tools/soggy-death.js             @adrianton3
+/Tools/splice-all.js              @adrianton3
+/Tools/splice-level-includes.js   @adrianton3
+/Tools/splice.bat                 @adrianton3
+/Tools/splice_all.bat             @adrianton3
+/Tools/validator/cli.js           @adrianton3
+/Tools/validator/client/          @adrianton3
+/Tools/validator/common/          @adrianton3
+/Tools/validator/extras/          @adrianton3
+/Tools/validator/package.json     @adrianton3
+/Tools/validator/server/          @adrianton3
+/Tools/validator/test-readable.js @adrianton3

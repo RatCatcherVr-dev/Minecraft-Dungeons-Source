@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsEntitlements.cpp.obj": [
+			"DungeonsEntitlements.cpp.obj",
+			"EntitlementsClient.cpp.obj",
+			"EntitlementsRequest.cpp.obj"
+		]
+	}
+}

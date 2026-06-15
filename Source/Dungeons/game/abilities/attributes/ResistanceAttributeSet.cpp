@@ -1,0 +1,33 @@
+#include "Dungeons.h"
+#include "UnrealNetwork.h"
+#include "ResistanceAttributeSet.h"
+#include "AbilitySystemComponent.h"
+
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(SlowResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(WindResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(CurrentResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(PushbackResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(EnvironmentalProtectionMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(PushbackZClampMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(FallResistanceMagnitude, UResistanceAttributeSet)
+
+void UResistanceAttributeSet::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, SlowResistanceMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, WindResistanceMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, CurrentResistanceMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, PushbackResistanceMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, EnvironmentalProtectionMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, PushbackZClampMagnitude, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UResistanceAttributeSet, FallResistanceMagnitude, COND_None, REPNOTIFY_Always);
+}
+
+DEFINE_ATTRIBUTE_FUNCTION(SlowResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(WindResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(CurrentResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(PushbackResistanceMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(EnvironmentalProtectionMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(PushbackZClampMagnitude, UResistanceAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(FallResistanceMagnitude, UResistanceAttributeSet)

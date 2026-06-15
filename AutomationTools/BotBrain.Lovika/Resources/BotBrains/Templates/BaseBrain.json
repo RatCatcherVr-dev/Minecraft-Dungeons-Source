@@ -1,0 +1,23 @@
+{
+  "Urges": [
+    {
+
+      "Name": "WorkaroundTracker",
+      "SaveDirectory": null,
+      "LogNoWorkarounds": false,
+      "CaptureWorkaround": true
+    },
+    { "Name": "EnsureGamepad" },
+    { "Name": "PlayerIdle" }
+  ],
+
+  "Considerations": [
+    { "Name": "UrgeWeight" },
+    { "Name": "RandomNoise" }
+  ],
+
+  "Parameters": {
+    "PlayerIdle.MaxDistance": 2000,
+    "PlayerIdle.Consideration.DistanceToLocalPlayer.Significance": 0
+  }
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Game configVersion="0">
+    <!-- Find your package's Name and your Publisher string on the Game setup -> Identity details section of your product's Partner Center page.-->
+    <Identity Name="Microsoft.Lovika"
+        Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+        Version="@VERSION@"/>
+        <!-- The fourth digit of the version number is reserved for Microsoft Store use -->
+    <!--  Optional: Use StoreId if your product will offer durable downloadable content (DLC) packages.
+    Look up the Store ID (12 character alphanumeric string) of your main application package in the Game Setup page for your main game product. (Example: 9PNX12345AAA)  -->
+
+    <StoreId>9P8MK4NC0LJB</StoreId>
+    <TitleId>67ACC3CD</TitleId>
+    <MSAFullTrust>true</MSAFullTrust>
+
+    <!--  Include any additional languages your title supports as appropriate -->
+    <Resources>
+      <Resource Language="en-US" />
+      <Resource Language="sv-SE" />
+      <Resource Language="es-MX" />
+      <Resource Language="es-ES" />
+      <Resource Language="pt-BR" />
+      <Resource Language="pt-PT" />
+      <Resource Language="en-GB" />
+      <Resource Language="fr-FR" />
+      <Resource Language="it-IT" />
+      <Resource Language="de-DE" />
+      <Resource Language="ja-JP" />
+      <Resource Language="pl-PL" />
+      <Resource Language="ru-RU" />
+      <Resource Language="ko-KR" />
+		</Resources>
+
+     <!-- Use override display name if you want to display a different title in the shell than the DefaultDisplayName from the ShellVisuals section, or if you need to localize it. -->
+    <ExecutableList>
+      <Executable Name="Dungeons\Binaries\Win64\Dungeons.exe"
+                  Id="Game"
+                  />
+    </ExecutableList>
+
+    <!-- DefaultDisplayName should use the exact value provided in the "Package/Identity/Name" field of the Package Setup -> Identity section of your product's configuration area in Partner Center.
+         PublisherDisplayName should use the exact value provided in the "Package/Identity/Publisher" field of the Package Setup -> Identity section of your product's configuration area in Partner Center.-->
+    
+    <!-- The following asset sizes apply
+         StoreLogo - 100x100
+         Square150x150Logo - 150x150
+         Square44x44Logo - 44x44
+         SplashScreenImage - 1920x1080 or 3840x2160
+    -->
+    <ShellVisuals DefaultDisplayName="Minecraft Dungeons" 
+                  PublisherDisplayName="Microsoft Studios"
+                  StoreLogo="Assets\StoreLogo.png"
+                  Square150x150Logo="Assets\Logo.png"
+                  Square44x44Logo="Assets\SmallLogo.png"
+                  Description="Minecraft Dungeons"
+                  BackgroundColor="#000040"
+                  SplashScreenImage="Assets\SplashScreen.png"/>
+    <DesktopRegistration>
+	  <!-- Include this section if you need to run a custom installer action with Administrator privileges the first time that your game runs.
+	       Any executable you specify must be located under the "Installers" folder in the base folder of your game. Don't include any other files in the
+		   Installers folder.
+      <CustomInstallActions>
+        <Folder>Installers</Folder>
+        <InstallActionList>
+          <InstallAction File="CustomInstaller.exe" Name="UniqueInstallTaskName" Arguments="/silent /example" />
+        </InstallActionList>
+      </CustomInstallActions>
+	  -->
+      <DependencyList>
+	    <!-- Omit the Dependency items if your game doesn't need them, or the entire DependencyList element. Note that your version of VCLibs may be different. See the Framework package dependencies topic of the documentation for details and guidance. -->
+        <Dependency Name="Microsoft.DirectXRuntime" MinVersion="9.29.952.0"/>
+        <Dependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.27810.0"/>
+      </DependencyList>
+  	  <!-- Select the ProcessorArchitecture that matches your game executables. -->
+      <ProcessorArchitecture>x64</ProcessorArchitecture>
+      <!--<ProcessorArchitecture>x86</ProcessorArchitecture>-->
+
+      <MultiplayerProtocol>true</MultiplayerProtocol>
+
+      <!-- If you want to enable end-user mods to your game files, uncomment this line and update the Name attribute to a value unique to your game
+      <ModFolder Name="**REPLACE_MyGameName**"/> -->
+	  
+	  <!-- Uncomment these lines ONLY if your game must make operating system-wide registry writes or file writes.
+      <DisableRegistryWriteVirtualization>true</DisableRegistryWriteVirtualization>
+      <DisableFilesystemWriteVirtualization>true</DisableFilesystemWriteVirtualization>
+	  -->
+  </DesktopRegistration>
+
+    <!-- Include this section if your game writes files to its installation directory, and you're unable to change this by altering your source code and recompiling your game.
+	<ExtendedAttributeList>
+      <ExtendedAttribute Name="RestrictedCapability" Value="packageWriteRedirectionCompatibilityShim"/>
+  </ExtendedAttributesList>
+	-->
+</Game>

@@ -1,0 +1,89 @@
+steps:
+  - task: PowerShell@2
+    condition: |
+      and(in(variables['Agent.JobStatus'], 'Failed', 'SucceededWithIssues'),
+          in(variables['Build.DefinitionName'], 'Mojang.Dungeons', 'Mojang.Dungeons.Non-Unity', 'Mojang.Dungeons.Vanilla-UE'),
+          in(variables['Build.Reason'], 'Schedule', 'BatchedCI', 'IndividualCI'))
+    displayName: Slack Alert
+    inputs:
+      targetType: 'inline'
+      ignoreLASTEXITCODE: true
+      script: |
+        # Import-Module PSSlack
+        # Temporary solution until new PSSlack is released:
+        # https://github.com/RamblingCookieMonster/PSSlack/pull/115
+        Import-Module -Name (Resolve-Path '$(Agent.WorkFolder)/PSSlack/PSSlack')
+        Set-PSSlackConfig -Token '$(DungeonsDevopsSlackbotToken)'
+
+        $jobStatus = '$(Agent.JobStatus)'
+        $baseUrl = '$(System.TeamFoundationCollectionUri)$(System.TeamProject)/_build'
+        $buildId = '$(Build.BuildId)'
+        $branchName = '$(Build.SourceBranch)' -replace 'refs/heads/'
+        $pipelineName = '$(Build.DefinitionName)'
+        if ($jobStatus -eq 'Failed') {
+            $icon = ':fire:'
+        } else {
+            $icon = ':warning:'
+        }
+        $title = "Build $buildId $jobStatus"
+        $alertText = @"
+        $icon *$title* $icon
+        Pipeline: ``$pipelineName``
+        Branch: ``$branchName``
+        $baseUrl/results?buildId=$buildId
+        "@
+
+        $bot = Get-SlackAuth
+        $channel = Get-SlackChannel -Types private_channel -Name 'dungeons_devops'
+        $messages = Get-SlackHistory -ChannelID $channel.ID
+        $blamedUsers = Get-Content '$(Agent.TempDirectory)/slackBlame.json' -ErrorAction 'Continue' | ConvertFrom-Json
+
+        if ($null -ne $blamedUsers) {
+            $slackUserList = @(Get-SlackUser -Paging)
+            $userMatches = New-Object System.Collections.Generic.List[System.String]
+            $temp = New-Object System.Collections.Generic.List[System.String]
+            foreach ($user in $blamedUsers) {
+                $temp.Clear() | Out-Null
+                $temp.AddRange(
+                    [System.Collections.Generic.List[System.String]] `
+                    @(($slackUserList | Where-Object -Property RealName -EQ -Value "$($user.name)").ID)
+                    )  | Out-Null
+                $temp.AddRange(
+                    [System.Collections.Generic.List[System.String]] `
+                    @(($slackUserList | Where-Object -Property Email -EQ -Value "$($user.email)").ID)
+                    ) | Out-Null
+                $temp.RemoveAll({ param($item) $item -eq '' }) | Out-Null
+                if ($temp.Count -gt 0) {
+                    $userMatches.AddRange($temp) | Out-Null
+                }
+                else {
+                    Write-Host "Found no matching slack user for $user"
+                }
+            }
+            $userMatches = $userMatches | Select-Object -Unique
+            if ($userMatches.Count -gt 0) {
+                $ErrorActionPreference = 'Continue'
+                Send-SlackChannelInvite -Channel $channel.id -User ([string[]] $userMatches) | Out-Null
+                $ErrorActionPreference = 'Stop'
+                $alertText += "`n<@" + ($userMatches -join ">`n<@") + '>'
+            }
+        }
+        else {
+            Write-Host 'Skipping tagging of users, as "$(Agent.TempDirectory)/slackBlame.json" is empty.'
+        }
+
+        # Check alert for this build not sent in last messages in channel.
+        $send = $true
+        foreach ($message in $messages) {
+            if  (($message.User -eq $bot.UserID) -and $message.Text.contains($title)) {
+                Write-Host "Don't send alert"
+                $send = $false
+                break
+            }
+        }
+        if ($send) {
+            Write-Host 'Send alert'
+            Send-SlackMessage `
+                -Channel 'dungeons_devops' `
+                -Text $alertText | Out-Null
+        }

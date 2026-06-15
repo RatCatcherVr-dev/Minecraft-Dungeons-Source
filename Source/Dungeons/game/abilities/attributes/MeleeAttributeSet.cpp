@@ -1,0 +1,43 @@
+#include "Dungeons.h"
+#include "UnrealNetwork.h"
+#include "MeleeAttributeSet.h"
+#include "AbilitySystemComponent.h"
+
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackItemPowerFactor, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeHealItemPowerFactor, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackDamageMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackSpeedMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackAngleMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackRangeMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackPushbackMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackLifeStealAmount, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackHitChanceMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(MeleeAttackDamageIncrease, UMeleeAttributeSet)
+
+void UMeleeAttributeSet::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackItemPowerFactor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeHealItemPowerFactor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackDamageMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackSpeedMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackAngleMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackRangeMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackPushbackMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackLifeStealAmount, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackHitChanceMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UMeleeAttributeSet, MeleeAttackDamageIncrease, COND_None, REPNOTIFY_Always);
+}
+
+
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackItemPowerFactor, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeHealItemPowerFactor, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackDamageMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackSpeedMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackAngleMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackRangeMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackPushbackMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackLifeStealAmount, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackHitChanceMultiplier, UMeleeAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(MeleeAttackDamageIncrease, UMeleeAttributeSet)

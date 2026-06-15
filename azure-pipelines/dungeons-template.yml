@@ -1,0 +1,86 @@
+# https://aka.ms/yaml
+parameters:
+- name: clean_UE4
+  type: boolean
+- name: clean_dungeons
+  type: boolean
+- name: strip_levels
+  type: boolean
+- name: jobs
+  type: object
+- name: build_flags
+  displayName: Build flags
+  type: string
+  default:
+- name: demands
+  type: object
+  default:
+  - SourceBuildCapable
+- name: 'preCheck'
+  type: stepList
+  default: []
+- name: 'preBuild'
+  type: stepList
+  default: []
+- name: 'runEditor'
+  type: boolean
+  default: true
+- name: 'runBuild'
+  type: boolean
+  default: true
+- name: 'runCook'
+  type: boolean
+  default: true
+- name: 'runPackage'
+  type: boolean
+  default: true
+- name: 'postPackage'
+  type: stepList
+  default: []
+- name: timeoutInMinutes
+  type: number
+  default: 360
+
+variables:
+- template: modules/variables.yml
+
+resources:
+  repositories:
+  - repository: UE4
+    type: github
+    endpoint: Mojang
+    name: Mojang/UE4
+    ref: "dungeons-4.22.3"
+
+  - repository: DungeonsDevOps
+    type: github
+    endpoint: Mojang
+    name: Mojang/DungeonsDevOps
+    ref: main
+
+jobs:
+- job: Job
+  strategy:
+    matrix:
+      ${{ each job in parameters.jobs }}:
+        ${{ each config in job.value }}:
+          "${{ job.key }} ${{ config }}":
+            BuildPlatform: ${{ job.key }}
+            BuildConfiguration: ${{ config }}
+  timeoutInMinutes: ${{ parameters.timeoutInMinutes }}
+
+  pool:
+    name: 'Dungeon Windows'
+    demands: ${{ parameters.demands }}
+
+  workspace:
+    clean: outputs
+
+  steps:
+  - template: dungeons-steps.yml
+    parameters: ${{ parameters }}
+
+  - template: modules/check-responsible.yml
+
+  - template: modules/slack-alert.yml
+

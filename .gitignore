@@ -1,0 +1,47 @@
+# Visual Studio user specific files
+.vs/
+.vscode/
+*.VC.db
+*.pdb
+*.log
+*.tlog
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+
+# Static libraries and assets (BLOCKED TO PREVENT CRASH)
+*.a
+*.lib
+*.uasset
+*.wav
+*.exe
+*.out
+*.app
+*.ipa
+
+# Heavy Game Folders
+/Content/
+/Binaries/
+/Intermediate/
+/Saved/
+/BuildTools/
+/DerivedDataCache/
+/Deps/
+SourceArt/
+Raw/
+LovikaAutomated/
+LovikaPacked/
+EditorPacked/
+Releases/
+
+# Temp files
+*.TMP
+__pycache__
+*.pyc
+*.pyo

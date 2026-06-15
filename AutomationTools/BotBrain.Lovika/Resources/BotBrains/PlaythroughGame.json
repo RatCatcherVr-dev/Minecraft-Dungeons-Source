@@ -1,0 +1,156 @@
+{
+  "Name": "PlaythroughGame",
+  "BasedOn": "BaseBrain",
+  "Urges": [
+    {
+      "Name": "DefaultLevelCommands",
+      "Type": "OnMapLoadedConsoleCommands",
+      "Commands": [ "Dungeons.QA.Immortal 1" ]
+    },
+    { "Name": "TraverseMenu" },
+    { "Name": "LobbyAnnouncements" },
+    { "Name": "OpenLobbyChests" },
+    { "Name": "PlayNextMission" },
+    // {
+    //   "Name": "PlayMissionCommand",
+    //   "Missions": [ "pumpkinpastures 2 5" ]
+    // },
+    { "Name": "ActivateHealthPotion" },
+    { "Name": "ActivateRandomSlot" },
+    {
+      "Name": "GetAppropriateGear",
+      "Type": "FrequencyConsoleCommands",
+      "World": "Ingame",
+      "Commands": [
+        "Dungeons.Player.Progress",
+        "Dungeons.Items.AddSouls 100"
+      ]
+    },
+    { "Name": "ActivateObjective" },
+    { "Name": "ActivateBeacons" },
+    // { "Name": "OpenSupplyStations" },
+    // { "Name": "OpenLootChests" },
+    {
+      "Name": "OpenGenericLockedKeyDoors",
+      "Type": "OpenLockedKeyDoors",
+      "LockedDoors": [
+        "BP_DoorLocked_Gold_CactiCanyon_C",
+        "BP_DoorLocked_Silver_CactiCanyon_C",
+        "BP_DoorLocked_Gold_HighblockHalls_C"
+      ]
+    },
+    {
+      "Name": "OpenDesertTempleLockedKeyDoors",
+      "Type": "OpenLockedKeyDoors",
+      "LockedDoors": [
+        "BP_DoorLocked_Gold_DesertTemple_C",
+        "BP_DoorLocked_Silver_DesertTemple_C"
+      ]
+    },
+    { "Name": "KillMobsInRadius" },
+    // { "Name": "PickupItems" },
+    // { "Name": "SmashUrns" },
+    { "Name": "WalkOnJumpTrap" },
+    { "Name": "TravelThroughDoors" },
+    { "Name": "TraverseLevel" },
+    { "Name": "TeleportForwardAfter" },
+    { "Name": "SkipObjectivesAfter" },
+    { "Name": "WinAfter" },
+    // { "Name": "MoveRandomly" },
+    { "Name": "WorkaroundTracker" }
+  ],
+
+  "Considerations": [
+    { "Name": "DistanceToLocalPlayer" },
+    { "Name": "LocalPlayerFacing" },
+    { "Name": "TimeSpentAsCurrentAction" },
+    { "Name": "UrgeTotalDuration" },
+    { "Name": "IsRecentAction" }
+  ],
+
+  "Parameters": {
+    "OpenLobbyChests.Consideration.LocalPlayerFacing.Significance": 0,
+
+    "PlayNextMission.Weight": 0.1,
+
+    "PlayMissionCommand.Weight": 0.1,
+
+    "GetAppropriateGear.Frequency": "00:05:00",
+    "GetAppropriateGear.Consideration.RandomNoise.Significance": 0.1,
+
+    "ActivateHealthPotion.Frequency": "00:02:30",
+    "ActivateHealthPotion.Consideration.RandomNoise.Significance": 0.3,
+
+    "ActivateRandomSlot.Frequency": "00:02:30",
+    "ActivateRandomSlot.Consideration.RandomNoise.Significance": 0.3,
+
+    "ActivateObjective.Weight": 0.79,
+    "ActivateObjective.Consideration.DistanceToLocalPlayer.Significance": 0.9,
+
+    "ActivateBeacons.Weight": 0.8,
+    "ActivateBeacons.MaxDistance": 7500,
+    "ActivateBeacons.Consideration.DistanceToLocalPlayer.MaxDistance": 7500,
+    "ActivateBeacons.Consideration.DistanceToLocalPlayer.Significance": 0.9,
+    "ActivateBeacons.Consideration.LocalPlayerFacing.Significance": 0,
+
+    "OpenSupplyStations.Weight": 0.6,
+    "OpenSupplyStations.Consideration.LocalPlayerFacing.Significance": 0.3,
+
+    "OpenLootChests.Weight": 0.5,
+    "OpenLootChests.Hidden": false,
+    "OpenLootChests.Consideration.LocalPlayerFacing.Significance": 0.3,
+
+    "OpenGenericLockedKeyDoors.Weight": 0.9,
+    "OpenGenericLockedKeyDoors.MaxDistance": 7500,
+    "OpenGenericLockedKeyDoors.Consideration.DistanceToLocalPlayer.MaxDistance": 7500,
+    "OpenGenericLockedKeyDoors.Consideration.DistanceToLocalPlayer.Significance": 0.5,
+    "OpenGenericLockedKeyDoors.Consideration.LocalPlayerFacing.Significance": 0,
+
+    "OpenDesertTempleLockedKeyDoors.Weight": 0.95,
+    "OpenDesertTempleLockedKeyDoors.MaxDistance": 7500,
+    "OpenDesertTempleLockedKeyDoors.Consideration.DistanceToLocalPlayer.MaxDistance": 7500,
+    "OpenDesertTempleLockedKeyDoors.Consideration.DistanceToLocalPlayer.Significance": 0.6,
+    "OpenDesertTempleLockedKeyDoors.Consideration.LocalPlayerFacing.Significance": 0,
+
+    "KillMobsInRadius.Weight": 1,
+    "KillMobsInRadius.MaxDistance": 3500,
+    "KillMobsInRadius.AttackRadius": 2000,
+    "KillMobsInRadius.Consideration.DistanceToLocalPlayer.MaxDistance": 3500,
+    "KillMobsInRadius.Consideration.DistanceToLocalPlayer.Significance": 1,
+
+    "PickupItems.Weight": 0.5,
+    "PickupItems.Consideration.LocalPlayerFacing.Significance": 0.4,
+    "PickupItems.Consideration.DistanceToLocalPlayer.MaxDistance": 5000,
+    //"PickupItems.RegexFilters": [
+    //  // "Food",
+    //  "Arrow" //,
+    //  // "Potion",
+    //  // "Brew"
+    //],
+
+    "SmashUrns.Weight": 0.5,
+    "SmashUrns.Consideration.LocalPlayerFacing.Significance": 0.3,
+
+    "WalkOnJumpTrap.Weight": 0.8,
+    "WalkOnJumpTrap.Frequency": "00:00:30",
+
+    "TravelThroughDoors.Weight": 0.35,
+    "TravelThroughDoors.MaxDistance": 7500,
+    "TravelThroughDoors.Consideration.DistanceToLocalPlayer.MaxDistance": 7500,
+    "TravelThroughDoors.Frequency": "00:00:30",
+
+    "TraverseLevel.Weight": 0.3,
+    "TraverseLevel.Consideration.DistanceToLocalPlayer.MaxDistance": 10000,
+
+    "SkipObjectivesAfter.Frequency": "00:15:00",
+
+    "TeleportForwardAfter.Frequency": "00:25:00",
+
+    "WinAfter.Frequency": "02:00:00",
+
+    "MoveRandomly.Weight": 0.01,
+    "MoveRandomly.MaxDistance": 2000,
+    "MoveRandomly.Consideration.DistanceToLocalPlayer.MaxDistance": 2000,
+    "MoveRandomly.Consideration.DistanceToLocalPlayer.Significance": 0.10
+  }
+}

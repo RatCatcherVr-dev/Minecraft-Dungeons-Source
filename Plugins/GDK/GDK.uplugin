@@ -1,0 +1,21 @@
+{
+  "FileVersion": 3,
+  "FriendlyName": "GDK Module",
+  "Version": 1,
+  "VersionName": "1.0",
+  "Description": "Module for Microsoft GDK",
+  "Category": "API Extension",
+  "CreatedBy": "Mojang AB",
+  "CreatedByURL": "http://mojang.com",
+  "EnabledByDefault": false,
+
+  "Modules": [
+    {
+      "Name": "GDK",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault"
+    }
+  ],
+  "Plugins": [
+  ]
+}

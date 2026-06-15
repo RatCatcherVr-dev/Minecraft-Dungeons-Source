@@ -1,0 +1,8 @@
+{
+    "app-port": 8011,
+    "api-port": 8013,
+    "hostname": "localhost",
+    "bundle-path": "../bundles",
+    "level-path": "../../Content/data/lovika/levels",
+    "objectgroup-path": "../../Content/data/lovika/objectgroups"
+}

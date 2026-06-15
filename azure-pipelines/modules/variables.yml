@@ -1,0 +1,38 @@
+variables:
+- group: global-vars-all-projects
+- name: DevShellRepo
+  value: $(Agent.RootDirectory)\devshell
+- name: DUNGEONS_PATH
+  value: $(System.DefaultWorkingDirectory)\Dungeons\$(RelativeOutputPath)
+- name: GIT_LFS_PROGRESS
+  value: $(Build.ArtifactStagingDirectory)\lfs.log
+- name: MirrorPath
+  value: $(USERPROFILE)\mirrors
+- name: NugetSecurityAnalysisWarningLevel
+  value: warn
+- name: PYTHONIOENCODING
+  value: utf-8
+- name: PYTHONLEGACYWINDOWSSTDIO
+  value: utf-8
+- name: RelativeOutputPath
+  value: LovikaAutomated422
+- name: RelativeStagingPath
+  value: Saved/LovikaStaging
+- name: RetryLimit
+  value: 5
+- name: SENTRY_ORG
+  value: mojang-studios
+- name: System.PreferGitFromPath
+  value: true
+- name: UE4_ENGINE
+  value: '$(Build.SourcesDirectory)\UE4'
+- name: UE-SharedDataCachePath
+  value: $(Agent.RootDirectory)\SharedDataCache\
+
+# Repo references:
+- name: Dungeons_Ref
+  value: $[ resources.repositories['self'].ref ]
+- name: UE4_Ref
+  value: $[ resources.repositories['UE4'].ref ]
+- name: DungeonsDevOps_Ref
+  value: $[ resources.repositories['DungeonsDevOps'].ref ]

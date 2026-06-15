@@ -1,0 +1,8 @@
+{
+	"BuildId": "5660361",
+	"Modules": 
+	{
+		"TextToSpeech": "UE4Editor-TextToSpeech.dll",
+		"TextToSpeechEditor": "UE4Editor-TextToSpeechEditor.dll"
+	}
+}

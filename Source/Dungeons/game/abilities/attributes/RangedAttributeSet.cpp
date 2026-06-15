@@ -1,0 +1,39 @@
+#include "Dungeons.h"
+#include "UnrealNetwork.h"
+#include "RangedAttributeSet.h"
+#include "AbilitySystemComponent.h"
+#include <GameplayEffectExtension.h>
+#include "game/component/HealthComponent.h"
+#include <LogMacros.h>
+
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackItemPowerFactor, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedHealItemPowerFactor, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackDamageMultipler, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackSpeedMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackPushbackMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackLifeStealAmount, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackHitChanceMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_REPLICATION_FUNCTION(RangedAttackDamageIncrease, URangedAttributeSet)
+
+void URangedAttributeSet::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackItemPowerFactor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedHealItemPowerFactor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackDamageMultipler, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackSpeedMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackPushbackMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackLifeStealAmount, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackHitChanceMultiplier, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URangedAttributeSet, RangedAttackDamageIncrease, COND_None, REPNOTIFY_Always);
+
+}
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackItemPowerFactor, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedHealItemPowerFactor, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackDamageMultipler, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackSpeedMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackPushbackMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackLifeStealAmount, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackHitChanceMultiplier, URangedAttributeSet)
+DEFINE_ATTRIBUTE_FUNCTION(RangedAttackDamageIncrease, URangedAttributeSet)

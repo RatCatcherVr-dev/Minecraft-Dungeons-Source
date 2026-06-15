@@ -1,0 +1,455 @@
+# https://aka.ms/yaml
+parameters:
+- name: clean_UE4
+  type: boolean
+- name: clean_dungeons
+  type: boolean
+- name: strip_levels
+  type: boolean
+- name: jobs
+  type: object
+- name: build_flags
+  displayName: Build flags
+  type: string
+  default:
+- name: demands
+  type: object
+  default:
+  - SourceBuildCapable
+- name: 'preCheck'
+  type: stepList
+  default: []
+- name: 'preBuild'
+  type: stepList
+  default: []
+- name: 'runEditor'
+  type: boolean
+  default: true
+- name: 'runBuild'
+  type: boolean
+  default: true
+- name: 'runCook'
+  type: boolean
+  default: true
+- name: 'runPackage'
+  type: boolean
+  default: true
+- name: 'postPackage'
+  type: stepList
+  default: []
+- name: timeoutInMinutes
+  type: number
+  default: 360
+
+steps:
+- checkout: none
+
+- task: PowerShell@2
+  continueOnError: true
+  displayName: Add Build Tags
+  inputs:
+    targetType: 'inline'
+    errorActionPreference: 'continue'
+    ignoreLASTEXITCODE: true
+    script: |
+      Write-Host "##vso[build.addbuildtag]$(Build.Reason)"
+      Write-Host "##vso[build.addbuildtag]$(BuildPlatform) $(BuildConfiguration)"
+
+- task: PowerShell@2
+  displayName: Print Env Vars
+  inputs:
+    targetType: 'inline'
+    script: Get-ChildItem 'env:'
+
+- task: PowerShell@2
+  displayName: Disable Global LFS Hooks
+  inputs:
+    targetType: 'inline'
+    script: git lfs uninstall --system
+
+- task: CmdLine@2
+  displayName: Terminate UnrealHeaderTool.exe
+  inputs:
+    script: wmic process where name="UnrealHeaderTool.exe" call terminate
+
+- template: modules/checkout-shallow-fetch.yml
+  parameters:
+    name: DungeonsDevOps
+    clean: false
+    lfs: false
+
+- template: modules/checkout-shallow-fetch.yml
+  parameters:
+    name: UE4
+    clean: ${{ parameters.clean_UE4 }}
+
+- template: modules/checkout-shallow-fetch.yml
+  parameters:
+    name: Dungeons
+    clean: ${{ parameters.clean_dungeons }}
+
+- ${{ parameters.preCheck }}
+
+- task: PowerShell@2
+  displayName: UE4 Deps and Prereqs
+  inputs:
+    targetType: 'inline'
+    script: |
+      Engine\Binaries\DotNET\GitDependencies.exe --force
+      cmd /c "start /wait Engine\Extras\Redist\en-us\UE4PrereqSetup_x64.exe /quiet"
+    workingDirectory: 'UE4'
+
+- task: PowerShell@2
+  displayName: UE4 Make Build Tools
+  inputs:
+    targetType: 'inline'
+    script: |
+      $attempt = 0
+      do {
+        #Engine\Build\BatchFiles\RunUAT.bat BuildGraph -Script="Engine\Build\InstalledEngineBuild.xml" -Target="Build Tools Win64"
+        Engine\Build\BatchFiles\RunUAT.bat BuildGraph -Script="Engine\Build\EditorAndTools.xml" -Target="Compile Tools Win64"
+
+        Write-Output ("Exit code $LastExitCode on attempt {0}" -f ++$attempt)
+      } until(($LastExitCode -eq 0) -or ($attempt -eq $(RetryLimit)))
+    workingDirectory: 'UE4'
+
+- task: PowerShell@2
+  displayName: UE4 Make UE4Editor
+  condition: false # disabled until windows10 does not rebuild the editor. see Build.py
+  inputs:
+    targetType: 'inline'
+    script: |
+      $attempt = 0
+      do {
+        Engine\Build\BatchFiles\RunUAT.bat BuildGraph -Script="Engine\Build\EditorAndTools.xml" -Target="Strip To OutputDir"
+
+        Write-Output ("Exit code $LastExitCode on attempt {0}" -f ++$attempt)
+      } until(($LastExitCode -eq 0) -or ($attempt -eq $(RetryLimit)))
+    workingDirectory: 'UE4'
+
+- task: PowerShell@2
+  displayName: 'Remove Darwinwork History'
+  inputs:
+    filePath: 'Dungeons\BuildTools\remove_darwinwork_history.ps1'
+
+- task: PowerShell@2
+  displayName: 'Remove errorfiles.txt'
+  inputs:
+    targetType: 'inline'
+    script: |
+      Remove-Item -ErrorAction SilentlyContinue -Path 'errorfiles.txt'
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Initialize SharedDataCache
+  inputs:
+    targetType: 'inline'
+    script: |
+      New-Item -ItemType Directory -Force -Path $(UE-SharedDataCachePath) | Out-Null
+      "$(UE-SharedDataCachePath)"
+      "{0:N2} GB" -f ((Get-ChildItem -Recurse $(UE-SharedDataCachePath) | Measure-Object -Sum Length).Sum / 1GB)
+
+- task: PowerShell@2
+  displayName: Sentry\Update-Config.ps1
+  inputs:
+    targetType: 'inline'
+    script: '.\BuildTools\Sentry\Update-Config.ps1 -SentryUrl "https://sentry.io/api/2958848/unreal/77aa7013e786418c9a4a7625c27563d8/"'
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: SetEngineDevEnv.py
+  inputs:
+    targetType: 'inline'
+    script: |
+      $devEnv = "$(BuildConfiguration)" -Ne "retail"
+      .\BuildTools\SetEngineDevEnv.py .\Config\DefaultEngine.ini $devEnv
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  condition: and(succeeded(), or(${{ parameters.runEditor }}, eq(variables['SourceChanged'], 'True'), eq(variables['ContentChanged'], 'True')))
+  displayName: D11\Build.py editor
+  inputs:
+    targetType: 'inline'
+    script: |
+      $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+
+      $attempt = 0
+      do {
+        py.exe BuildTools\D11\Build.py `
+            --stage-dir $env:RelativeStagingPath `
+            editor $(BuildPlatform) $buildConf
+
+        Write-Output ("Exit code $LastExitCode on attempt {0}" -f ++$attempt)
+      } until(($LastExitCode -eq 0) -or ($attempt -eq $(RetryLimit)))
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  condition: and(succeeded(), ${{ parameters.runBuild }})
+  displayName: WriteLevelPackageMap
+  inputs:
+    targetType: 'inline'
+    script: |
+      $(UE4_ENGINE)\Engine\Binaries\Win64\UE4Editor-Cmd.exe $(System.DefaultWorkingDirectory)\Dungeons\Dungeons.uproject -run=WriteLevelPackageMap
+    workingDirectory: 'Dungeons'
+
+- ${{ parameters.preBuild }}
+
+- task: PowerShell@2
+  condition: and(succeeded(), or(${{ parameters.runBuild }}, eq(variables['SourceChanged'], 'True')))
+  displayName: D11\Build.py build ${{ parameters.build_flags }}
+  inputs:
+    targetType: 'inline'
+    script: |
+      . BuildTools\D11\extraBuildArgs.ps1
+      $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+      if ("$(BuildPlatform)" -in @("winepicstore", "winsteam", "windows10", "win64")) {
+        $buildPlat = 'win64'
+      } else {
+        $buildPlat = "$(BuildPlatform)"
+      }
+
+      $receiptFile = ".\Binaries\$buildPlat\Dungeons-$buildPlat-$buildConf.target"
+      if ($buildConf -Eq "development") {
+        $receiptFile = ".\Binaries\$buildPlat\Dungeons.target"
+      }
+
+      $attempt = 0
+      do {
+        py.exe BuildTools\D11\Build.py `
+            --stage-dir $env:RelativeStagingPath `
+            build $(BuildPlatform) $buildConf -skipEditor `
+            $extraBuildArgs["build"]["$(BuildPlatform)"]["$buildConf"] ${{ parameters.build_flags }}
+
+        Write-Output ("Exit code $LastExitCode on attempt {0}" -f ++$attempt)
+      } until($(Test-Path $receiptFile) -or ($LastExitCode -ne 0) -or ($attempt -eq $(RetryLimit)))
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: IniEditor/merge_ini.py
+  condition: false #|
+#      and(succeeded(),
+#        ${{ parameters.runCook }},
+#        ${{ parameters.strip_levels }},
+#        in(variables['BuildPlatform'], 'win64', 'windows10', 'winsteam', 'winepicstore'),
+#        in(variables['BuildConfiguration'], 'shipping', 'retail'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      py.exe merge_ini.py Config/DefaultGame.ini tmp/test_template.ini -v
+    workingDirectory: 'Dungeons\BuildTools\IniEditor'
+
+- task: PowerShell@2
+  displayName: D11\Build.py cook
+  condition: and(succeeded(), or(${{ parameters.runCook }}, eq(variables['ContentChanged'], 'True')))
+  inputs:
+    targetType: 'inline'
+    script: |
+      . BuildTools\D11\extraBuildArgs.ps1
+      $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+
+      py.exe BuildTools\D11\Build.py `
+          --stage-dir $env:RelativeStagingPath `
+          cook $(BuildPlatform) $buildConf -skipEditor `
+          $extraBuildArgs["cook"]["$(BuildPlatform)"]["$buildConf"]
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Strip-Content-Data.ps1
+  condition: |
+      and(succeeded(),
+          ${{ parameters.strip_levels }},
+          in(variables['BuildPlatform'], 'win64', 'windows10', 'winsteam', 'winepicstore'),
+          in(variables['BuildConfiguration'], 'shipping', 'retail', 'test'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      .\BuildTools\Strip-Content-Data.ps1
+      if(!$?) {
+        exit $LastExitCode
+      }
+      git status
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Clear Artifact Staging and WindowsStore Directories
+  inputs:
+    targetType: 'inline'
+    script: |
+      Remove-Item -ErrorAction SilentlyContinue -Recurse -Path $env:RelativeOutputPath
+      Remove-Item -ErrorAction SilentlyContinue -Recurse -Path $(DUNGEONS_PATH)\WindowsStoreStaging\
+      Remove-Item -ErrorAction SilentlyContinue -Recurse -Path $(DUNGEONS_PATH)\WindowsStore
+      New-Item -ItemType Directory -Force -Path $(Build.ArtifactStagingDirectory) 
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: D11\Build.py package
+  condition: and(succeeded(), ${{ parameters.runPackage }})
+  inputs:
+    targetType: 'inline'
+    script: |
+      . BuildTools\D11\extraBuildArgs.ps1
+      $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+
+      $format = @"
+      py.exe BuildTools\D11\Build.py `
+          --stage-dir "{0}" `
+          --archive-dir "{1}" `
+          package $(BuildPlatform) $buildConf -skipEditor `
+          {2}
+      "@ -replace '\s+', ' '
+
+      foreach($extraBuildArg in $extraBuildArgs["package"]["$(BuildPlatform)"]["$buildConf"]) {
+        $stageDir = $env:RelativeStagingPath
+        $archiveDir = $env:RelativeOutputPath
+        if($extraBuildArg) {
+          $region = $extraBuildArg.Split('=')[1].Substring(0, 2)
+          $stageDir += "\" + $region
+          $archiveDir += "\" + $region
+        }
+
+        $command = "$format" -f $stageDir, $archiveDir, $extraBuildArg
+        Write-Output $command
+        Invoke-Expression $command
+      }
+    workingDirectory: 'Dungeons'
+
+- ${{ parameters.postPackage }}
+
+- task: PowerShell@2
+  displayName: Archive logs
+  condition: always()
+  inputs:
+    targetType: 'inline'
+    errorActionPreference: 'continue'
+    ignoreLASTEXITCODE: true
+    script: |
+      7z a -tzip '$(Build.ArtifactStagingDirectory)\Logs_UE4.zip' '$(UE4_ENGINE)\Engine\Programs\AutomationTool\Saved\Logs'
+      7z a -tzip '$(Build.ArtifactStagingDirectory)\Logs_Dungeons.zip' '$(Build.SourcesDirectory)\Dungeons\Saved\Logs'
+
+- task: BatchScript@1
+  condition: and(succeeded(), ${{ parameters.runPackage }})
+  displayName: Verify output and clean directories for test
+  inputs:
+    filename: 'Dungeons\BuildTools\verify_output_and_clean_test_dirs.bat'
+    workingFolder: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Run-Themida.ps1
+  condition: |
+      and(succeeded(),
+          ${{ parameters.runPackage }},
+          in(variables['BuildPlatform'], 'win64', 'windows10', 'winsteam', 'winepicstore'),
+          in(variables['BuildConfiguration'], 'shipping', 'retail'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      .\BuildTools\Run-Themida.ps1 -ConfigFile .\BuildTools\ThemidaAntiCheat\Shipping.tmd `
+          -InputPath .\$(RelativeOutputPath)\shipping\WindowsNoEditor\Dungeons\Binaries\Win64\Dungeons-Win64-Shipping.exe
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Archive-Output.ps1
+  condition: and(succeeded(), ${{ parameters.runPackage }})
+  inputs:
+    filePath: 'Dungeons\BuildTools\Archive-Output.ps1'
+    pwsh: true
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Confirm-LauncherPackageContent.ps1
+  condition: |
+      and(succeeded(),
+          ${{ parameters.runPackage }},
+          in(variables['BuildPlatform'], 'win64', 'windows10', 'winsteam', 'winepicstore'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      $InformationPreference = 'Continue'
+      . '$(System.DefaultWorkingDirectory)\DungeonsDevOps\scripts\checks\Confirm-LauncherPackageContent.ps1'
+      $result = Confirm-LauncherPackageContent 'Dungeons' '$(BuildPlatform)' '$(BuildConfiguration)' '$(Build.BuildNumber)'
+      $result.PrintErrorsADO()
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+
+- task: PowerShell@2
+  displayName: Create Windows MSIXVC Package
+  condition: |
+      and(succeeded(),
+          ${{ parameters.runPackage }},
+          eq(variables['BuildPlatform'], 'windows10'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      $buildConf = "$(BuildConfiguration)".Replace("retail", "shipping")
+
+      $attempt = 0
+      $validXml = $false
+      do {
+        Remove-Item $(DUNGEONS_PATH)\WindowsStoreStaging\* -Recurse -Force -ErrorAction SilentlyContinue
+        Remove-Item $(DUNGEONS_PATH)\WindowsStore\* -Recurse -Force -ErrorAction SilentlyContinue
+        .\BuildTools\package_msixvc.bat `
+            $(DUNGEONS_PATH)\$buildConf\WindowsNoEditor\ `
+            $(System.DefaultWorkingDirectory)\Dungeons\Build\WindowsStore\ `
+            $(DUNGEONS_PATH)\WindowsStoreStaging\ `
+            $(DUNGEONS_PATH)\WindowsStore
+        try {
+          [xml](Get-Content $(DUNGEONS_PATH)\WindowsStore\Validator*.xml)
+          $validXml = $true
+        } catch {}
+        Write-Output ("Valid XML: $validXml on attempt {0}" -f ++$attempt)
+      } until($validXml -or ($attempt -eq $(RetryLimit)))
+      Copy-Item -Verbose $(DUNGEONS_PATH)\WindowsStore\*.msixvc $(Build.ArtifactStagingDirectory)
+      Copy-Item -Verbose $(DUNGEONS_PATH)\WindowsStore\*.ekb $(Build.ArtifactStagingDirectory)
+      Copy-Item -Verbose $(DUNGEONS_PATH)\WindowsStore\Validator*.xml $(Build.ArtifactStagingDirectory)
+
+      Add-Type -assembly "system.io.compression.filesystem"
+      $paths = @(".\Build\WindowsStore", ".\BuildTools\package_msixvc.bat")
+      $destination = "$(Build.ArtifactStagingDirectory)\msixvc_tools.zip"
+      foreach($path in $paths) {
+        Compress-Archive -Path $path -DestinationPath $destination -Update
+      }
+
+      if($attempt -eq $(RetryLimit)) {
+        throw "Invalid XML"
+      }
+    workingDirectory: 'Dungeons'
+
+- task: PublishBuildArtifacts@1
+  condition: always()
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Dungeons_$(BuildPlatform)_$(BuildConfiguration)_$(Build.BuildNumber)'
+    publishLocation: 'Container'
+
+- task: PowerShell@2
+  displayName: Sentry\Upload-Dif.ps1
+  condition: |
+      and(succeeded(), 
+          ${{ parameters.runPackage }},
+          in(variables['BuildPlatform'], 'win64', 'windows10', 'winsteam', 'winepicstore'))
+  env:
+    SENTRY_AUTH_TOKEN: $(DungeonsSentryAuthToken)
+  inputs:
+    targetType: 'inline'
+    script: '.\BuildTools\Sentry\Upload-Dif.ps1 -SentryProject dungeons-crashes'
+    workingDirectory: 'Dungeons'
+
+- task: PowerShell@2
+  displayName: Calculate disk usage
+  condition: always()
+  inputs:
+    targetType: 'inline'
+    errorActionPreference: 'continue'
+    ignoreLASTEXITCODE: true
+    script: |
+      $WorkDir = Get-Item '$(Agent.RootDirectory)'
+      Write-Output "WorkDir: $WorkDir"
+      if ([bool]($WorkDir.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+        Write-Output "WorkDir was symlinked... Resolving"
+        $WorkDir = Get-Item $WorkDir.Target
+        Write-Output "WorkDir: $WorkDir"
+      }
+      $DriveLetter = ("$WorkDir" -split ":")[0]
+      Write-Output "DriveLetter: $DriveLetter"
+      $Volume = Get-Volume -DriveLetter $DriveLetter
+      Write-Output "DiskSizeUsedPercent=$([math]::round(($Volume.Size - $Volume.SizeRemaining)/$Volume.Size * 100, 2))"
+      Write-Output "DiskSizeRemainingGB=$([math]::round($Volume.SizeRemaining/1GB, 2))"

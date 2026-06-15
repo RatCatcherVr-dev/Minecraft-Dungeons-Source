@@ -1,0 +1,51 @@
+# https://aka.ms/yaml
+name: $(BuildId)_$(SourceBranchName)_$(Date:yyyy-MM-dd)
+
+parameters:
+- name: clean_UE4
+  displayName: Clean UE4
+  type: boolean
+  default: true
+- name: clean_dungeons
+  displayName: Clean Dungeons
+  type: boolean
+  default: true
+- name: jobs
+  displayName: Jobs (YAML)
+  type: object
+  default:
+    win64: [shipping]
+    xboxone: [shipping]
+    ps4: [shipping]
+    switch: [shipping]
+- name: build_flags
+  displayName: Build flags (-DisableUnity -NoPCH -NoSharedPCH)
+  type: string
+  default: -DisableUnity #-NoPCH -NoSharedPCH
+- name: demands
+  displayName: Agent Demands (YAML)
+  type: object
+  default: 
+  - SourceBuildCapable
+
+trigger: none
+schedules:
+- cron: "0 0 * * 6"
+  displayName: Saturday
+  branches:
+    include:
+    - main
+pr: none
+
+extends:
+  template: dungeons-template.yml
+  parameters:
+    ${{ each parameter in parameters }}:
+      ${{ parameter.key }}: ${{ parameter.value }}
+
+    timeoutInMinutes: 720
+    runEditor: true
+    runBuild: true
+    runCook: false
+    runPackage: false
+    strip_levels: false

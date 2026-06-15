@@ -1,0 +1,1 @@
+node %~dp0\splice-all.js

@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{1f397d47-7cb3-4e65-9101-1f501a0a5d7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\include">
+      <UniqueIdentifier>{f468af6a-2c7c-4ab4-8442-69e99fac75db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang">
+      <UniqueIdentifier>{660b5e78-2397-4055-9e3f-5fc124f7f8b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src">
+      <UniqueIdentifier>{1cd6833b-3c29-4f50-bfc5-d602dcfe8974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\tools">
+      <UniqueIdentifier>{35cf3f39-ab84-4b3a-abb8-341ccc38a9cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\windows">
+      <UniqueIdentifier>{8b583644-3eb2-4f10-a9ce-e74d28a474cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\audio">
+      <UniqueIdentifier>{45b5e7f2-d61c-42ee-a6f1-aedcd05fe523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\cg">
+      <UniqueIdentifier>{ac6d7d6d-d19b-4625-ac5d-3c644c83054f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\hrg">
+      <UniqueIdentifier>{007ff61f-6916-4bd2-9d20-7f3a988a8b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\lexicon">
+      <UniqueIdentifier>{76e79bdc-afb5-44b1-8c56-52948ab0c5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\regex">
+      <UniqueIdentifier>{7721a435-f0d1-4478-a5c0-dc93978f2f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\speech">
+      <UniqueIdentifier>{895ec9d9-56a7-4a50-be61-b6b3b7ffa51a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\stats">
+      <UniqueIdentifier>{1f09a1e2-a769-41b3-a29a-fba0e051a684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\synth">
+      <UniqueIdentifier>{788db402-bf1d-45d9-8d53-e24dad089b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\utils">
+      <UniqueIdentifier>{caae3e5b-c176-4d57-b66e-4b9aebc4d74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\src\wavesynth">
+      <UniqueIdentifier>{dc451d4b-51d4-465f-8b29-ba63529cffa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\main">
+      <UniqueIdentifier>{37da8ea6-616e-454b-b07f-64cf148eb2ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang\cmu_us_awb">
+      <UniqueIdentifier>{20d0f358-1cff-4515-88c5-6c29233bc1bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang\cmu_us_kal">
+      <UniqueIdentifier>{a8901894-49ce-46da-93d0-620083c170c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang\cmulex">
+      <UniqueIdentifier>{47cebe4b-8e0f-4463-9751-cb89b15e67fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang\cmu_us_kal16">
+      <UniqueIdentifier>{3dca025c-6e89-48b5-b605-e987d182a40c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lang\usenglish">
+      <UniqueIdentifier>{91351547-704c-4745-8bd9-54a416df99ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_alloc.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_args.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_audio.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_cart.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_cg.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_clunits.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_diphone.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_endian.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_error.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_features.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_ffeatures.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_file.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_hrg.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_item.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_lexicon.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_lts.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_lts_rewrites.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_math.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_phoneset.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_regex.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_relation.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_sigpr.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_socket.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_ss.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_string.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_sts.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_synth.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_tokenstream.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_track.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_units.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_utterance.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_utt_utils.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_val.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_val_const.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_val_defs.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_viterbi.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_voice.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_wave.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\cst_wchar.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\include\flite.h">
+      <Filter>Source\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\windows\stdafx.h">
+      <Filter>Source\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\audio\native_audio.h">
+      <Filter>Source\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\cg\cst_cg_map.h">
+      <Filter>Source\src\cg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\cg\cst_mlpg.h">
+      <Filter>Source\src\cg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\cg\cst_mlsa.h">
+      <Filter>Source\src\cg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\cg\cst_spamf0.h">
+      <Filter>Source\src\cg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\cg\cst_vc.h">
+      <Filter>Source\src\cg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\regex\cst_regex_defs.h">
+      <Filter>Source\src\regex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\src\speech\g72x.h">
+      <Filter>Source\src\speech</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lex.h">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lts_model.h">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_durz_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_f0.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_ffeatures.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_int_accent_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_int_tone_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_nums_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_phrasing_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_pos_cart.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_regexes.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\us_text.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\SourceDeps\flite\lang\usenglish\usenglish.h">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\SourceDeps\flite\tools\find_sts_main.c">
+      <Filter>Source\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\tools\flite_sort_main.c">
+      <Filter>Source\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\au_command.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\au_none.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\au_streaming.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\auclient.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\audio.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\audio\auserver.c">
+      <Filter>Source\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_cg.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_cg_dump_voice.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_cg_load_voice.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_cg_map.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_mlpg.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_mlsa.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_spamf0.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\cg\cst_vc.c">
+      <Filter>Source\src\cg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\hrg\cst_ffeature.c">
+      <Filter>Source\src\hrg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\hrg\cst_item.c">
+      <Filter>Source\src\hrg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\hrg\cst_rel_io.c">
+      <Filter>Source\src\hrg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\hrg\cst_relation.c">
+      <Filter>Source\src\hrg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\hrg\cst_utterance.c">
+      <Filter>Source\src\hrg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\lexicon\cst_lexicon.c">
+      <Filter>Source\src\lexicon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\lexicon\cst_lts.c">
+      <Filter>Source\src\lexicon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\lexicon\cst_lts_rewrites.c">
+      <Filter>Source\src\lexicon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\regex\cst_regex.c">
+      <Filter>Source\src\regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\regex\regexp.c">
+      <Filter>Source\src\regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\regex\regsub.c">
+      <Filter>Source\src\regex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_lpcres.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_track.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_track_io.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_wave.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_wave_io.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\cst_wave_utils.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\g72x.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\g721.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\g723_24.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\g723_40.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\speech\rateconv.c">
+      <Filter>Source\src\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\stats\cst_cart.c">
+      <Filter>Source\src\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\stats\cst_ss.c">
+      <Filter>Source\src\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\stats\cst_viterbi.c">
+      <Filter>Source\src\stats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_ffeatures.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_phoneset.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_ssml.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_synth.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_utt_utils.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\cst_voice.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\synth\flite.c">
+      <Filter>Source\src\synth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_alloc.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_args.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_endian.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_error.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_features.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_file_stdio.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_mmap_none.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_mmap_posix.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_mmap_win32.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_socket.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_string.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_tokenstream.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_url.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_val.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_val_const.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_val_user.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\utils\cst_wchar.c">
+      <Filter>Source\src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_clunits.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_diphone.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_reflpc.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_sigpr.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_sts.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\wavesynth\cst_units.c">
+      <Filter>Source\src\wavesynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\flite_lang_list.c">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\src\flite_voice_list.c">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg_f0_trees.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg_phonestate.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg_single_mcep_trees.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg_single_params.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_spamf0_accent.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_spamf0_accent_params.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_spamf0_phrase.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_awb\cmu_us_awb_cg_durmodel.c">
+      <Filter>Source\lang\cmu_us_awb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal_diphone.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal_lpc.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal_res.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal_residx.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal\cmu_us_kal_ressize.c">
+      <Filter>Source\lang\cmu_us_kal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lex_data.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lex_entries.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lts_model.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lts_rules.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_postlex.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmulex\cmu_lex.c">
+      <Filter>Source\lang\cmulex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal16\cmu_us_kal16.c">
+      <Filter>Source\lang\cmu_us_kal16</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal16\cmu_us_kal16_diphone.c">
+      <Filter>Source\lang\cmu_us_kal16</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal16\cmu_us_kal16_lpc.c">
+      <Filter>Source\lang\cmu_us_kal16</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal16\cmu_us_kal16_res.c">
+      <Filter>Source\lang\cmu_us_kal16</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\cmu_us_kal16\cmu_us_kal16_residx.c">
+      <Filter>Source\lang\cmu_us_kal16</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_aswd.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_dur_stats.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_durz_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_expand.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_f0_model.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_f0lr.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_ffeatures.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_gpos.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_int_accent_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_int_tone_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_nums_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_phoneset.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_phrasing_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_pos_cart.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\us_text.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SourceDeps\flite\lang\usenglish\usenglish.c">
+      <Filter>Source\lang\usenglish</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\SourceDeps\flite\src\cg\Makefile">
+      <Filter>Source\src\cg</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\hrg\Makefile">
+      <Filter>Source\src\hrg</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\lexicon\Makefile">
+      <Filter>Source\src\lexicon</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\regex\Makefile">
+      <Filter>Source\src\regex</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\speech\Makefile">
+      <Filter>Source\src\speech</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\stats\Makefile">
+      <Filter>Source\src\stats</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\synth\Makefile">
+      <Filter>Source\src\synth</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\utils\Makefile">
+      <Filter>Source\src\utils</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\wavesynth\Makefile">
+      <Filter>Source\src\wavesynth</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\src\Makefile">
+      <Filter>Source\src</Filter>
+    </None>
+    <None Include="..\..\..\SourceDeps\flite\lang\usenglish\us_pos.tree">
+      <Filter>Source\lang\usenglish</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-TextToSpeech.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Intermediate\Build\Win64\UE4Editor\Development\TextToSpeech\Module.TextToSpeech.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Intermediate\Build\Win64\UE4Editor\Development\TextToSpeech\Module.TextToSpeech.gen.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Intermediate\Build\Win64\UE4Editor\Development\TextToSpeech\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Intermediate\Build\Win64\UE4Editor\Development\TextToSpeech\UE4Editor-TextToSpeech.lib"
+/INCLUDE:IMPLEMENT_MODULE_TextToSpeech

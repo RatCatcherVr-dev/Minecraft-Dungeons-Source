@@ -1,0 +1,98 @@
+parameters:
+- name: name
+  type: string
+- name: clean
+  type: boolean
+- name: lfs
+  type: boolean
+  default: true
+- name: retries
+  type: number
+  default: 5
+
+steps:
+
+- task: PowerShell@2
+  condition: and(succeeded(), ne(variables['FileList.SkipCheckout'], 'True'))
+  displayName: ${{ parameters.name }}\Verify GitHub Credentials
+  inputs:
+    targetType: 'inline'
+    script: $(DevShellRepo)\github\Verify-Credentials.ps1 -Password $(GitHubPat)
+
+- task: PowerShell@2
+  condition: and(succeeded(), ne(variables['FileList.SkipCheckout'], 'True'))
+  displayName: ${{ parameters.name }}\Fetch and Checkout
+  timeoutInMinutes: 60
+  inputs:
+    targetType: 'inline'
+    script: |
+      $Name = '${{ parameters.name }}'
+      $Ref = '$(${{ parameters.name }}_Ref)'
+      if([string]::IsNullOrWhiteSpace($Ref)) {
+        throw "Expected ${{ parameters.name }}_Ref to be set."
+      }
+      $Ref   
+      $Repo = "https://github.com/Mojang/$Name.git"
+      $Clean = ('${{ parameters.clean }}' -eq 'true')
+      $Retries = ${{ parameters.retries }}
+      Write-Output "$(DevShellRepo)\github\Fetch-ShallowRef.ps1 -Depth 1 -Path `"$(Build.SourcesDirectory)\$Name`" -Repo $Repo -Ref $Ref -Clean $Clean -Retries $Retries"
+      $(DevShellRepo)\github\Fetch-ShallowRef.ps1 -Depth 1 -Path "$(Build.SourcesDirectory)\$Name" -Repo $Repo -Ref $Ref -Clean $Clean -Retries $Retries
+      "$Name=$(git rev-parse HEAD)" | Add-Content '$(Agent.TempDirectory)\versions.txt'
+
+- task: PowerShell@2
+  condition: and(succeeded(), ne(variables['FileList.SkipCheckout'], 'True'), or(${{ parameters.lfs }}, eq(variables['FileList.ContentChanged'], 'True')))
+  displayName: ${{ parameters.name }}\Link LFS Cache to Mirror
+  timeoutInMinutes: 90
+  inputs:
+    targetType: 'inline'
+    script: |
+      $Name = '${{ parameters.name }}'
+      Remove-Item -Path $(GIT_LFS_PROGRESS) -ErrorAction SilentlyContinue -Verbose
+      $(DevShellRepo)\github\Link-LFSCache.ps1 `
+          -Repo $Name -TargetRepo $(MirrorPath)\$Name.git -Verbose -Force
+      if(!$?) {
+        exit $LastExitCode
+      }
+      $(DevShellRepo)\builds\Print-LfsStats.ps1 $(GIT_LFS_PROGRESS)
+
+- task: PowerShell@2
+  condition: and(succeeded(), ne(variables['FileList.SkipCheckout'], 'True'))
+  displayName: ${{ parameters.name }}\Set Repo Maintenance
+  inputs:
+    workingDirectory: ${{ parameters.name }}
+    targetType: 'inline'
+    script: |
+      $Name = '${{ parameters.name }}'
+      $Path = "$(Build.SourcesDirectory)\$Name"
+      # Test if scheduled tasks exist.  If not, use "git maintenance start".
+      # You only need to do this once per agent.
+      Get-ScheduledTask -TaskName "Git Maintenance (daily)" -ErrorAction SilentlyContinue
+
+      if ($? -eq $true) {
+          #
+          # Git escapes backslashes with an additional backslash when it
+          # writes a value to .gitconfig.  Unfortunately, it doesn't do
+          # the same when you provide a value for a regex match, so we
+          # have to do it ourselves.  Note that we see different behavior
+          # in inline scripts in ADO than we do at the command prompt!
+          #
+          # We use split and join rather than Replace() so that we
+          # don't do strange things to paths that might already contain
+          # escaped backslashes as path separators.
+          #
+          $normalizedPath = $Path.Split('\', [System.StringSplitOptions]::RemoveEmptyEntries) -Join '\\'
+          $mr = git config --get maintenance.repo $normalizedPath
+
+          if ($mr -eq $null) {
+              git config --global --add maintenance.repo $Path
+          }
+      }
+      else {
+          #
+          # We disable the hourly pre-fetch in the DSC.  Maybe we want it,
+          # maybe we don't--we have to measure its impact, as it will generate
+          # standing passive network traffic that may not be suitable for
+          # large pools.
+          #
+          git maintenance start
+      }

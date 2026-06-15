@@ -1,0 +1,36 @@
+parameters:
+- name: name
+  type: string
+- name: condition
+  type: string
+  default: always()
+- name: continueOnError
+  type: boolean
+  default: false
+
+steps:
+  - task: PowerShell@2
+    condition: ${{ parameters.condition }}
+    displayName: ${{ parameters.name }}
+    inputs:
+      targetType: inline
+      script: |
+          . '$(System.DefaultWorkingDirectory)\DungeonsDevOps\scripts\checks\${{ parameters.name }}.ps1'
+          $issues = ${{ parameters.name }}
+
+          . '$(System.DefaultWorkingDirectory)\DungeonsDevOps\scripts\util\Write-IssuesADO.ps1'
+          if ('${{ parameters.continueOnError }}' -eq 'true') { # main
+            Write-Warnings $issues
+            Write-ErrorFiles $issues
+          } else { # PR
+            if('$(Build.Reason)' -eq 'PullRequest') {
+              . $(System.DefaultWorkingDirectory)/DungeonsDevOps/scripts/Get-PRFileList.ps1
+              $changed = Get-PRFileList $(Build.Repository.Name) $(System.PullRequest.PullRequestNumber) -Password $(GitHubPat)
+            } else {
+              $changed = $issues
+            }
+            Write-Failures $issues $changed
+          }
+      workingDirectory: 'Dungeons'
+      continueOnError: ${{ parameters.continueOnError }}
+      ignoreLASTEXITCODE: true

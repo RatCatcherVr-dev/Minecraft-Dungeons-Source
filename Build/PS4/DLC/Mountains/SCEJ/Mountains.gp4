@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<psproject fmt="gp4" version="0990">
+  <volume>
+    <volume_type>pkg_ps4_ac_data</volume_type>
+    <volume_id></volume_id>
+    <volume_ts>2013-04-12 22:56:10</volume_ts>
+    <package content_id="JP0127-CUSA18811_00-DUNGEONSPS4DLC30" passcode="xiB6LnPxcxIDl2CrCJC7eBnZ1wQXvjNm"/>
+  </volume>
+  <files img_no="0">
+    <file targ_path="data/sample.dat" orig_path="addcont\data\sample.dat"/>
+    <file targ_path="sce_sys/param.sfo" orig_path="addcont\sce_sys\param.sfo"/>
+    <file targ_path="sce_sys/icon0.png" orig_path="addcont\sce_sys\icon0.png"/>
+  </files>
+  <rootdir>
+    <dir targ_name="data"/>
+    <dir targ_name="sce_sys"/>
+  </rootdir>
+</psproject>

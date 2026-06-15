@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-DungeonsLiveOps.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\Development\Core\SharedPCH.Core.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsLiveOps\Module.DungeonsLiveOps.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsLiveOps\Module.DungeonsLiveOps.gen.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsLiveOps\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\Development\DungeonsLiveOps\UE4Editor-DungeonsLiveOps.lib"
+/INCLUDE:IMPLEMENT_MODULE_DungeonsLiveOps

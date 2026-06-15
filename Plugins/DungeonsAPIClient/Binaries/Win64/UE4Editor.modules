@@ -1,0 +1,14 @@
+{
+	"BuildId": "5660361",
+	"Modules": 
+	{
+		"DungeonsAPIClient": "UE4Editor-DungeonsAPIClient.dll",
+		"DungeonsAuth": "UE4Editor-DungeonsAuth.dll",
+		"DungeonsClient": "UE4Editor-DungeonsClient.dll",
+		"DungeonsClientUtils": "UE4Editor-DungeonsClientUtils.dll",
+		"DungeonsEntitlements": "UE4Editor-DungeonsEntitlements.dll",
+		"DungeonsHTTP": "UE4Editor-DungeonsHTTP.dll",
+		"DungeonsLiveOps": "UE4Editor-DungeonsLiveOps.dll",
+		"DungeonsTrials": "UE4Editor-DungeonsTrials.dll"
+	}
+}

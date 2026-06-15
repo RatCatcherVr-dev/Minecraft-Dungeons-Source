@@ -1,0 +1,31 @@
+steps:
+  - task: PowerShell@2
+    displayName: 'Check responsible for build fail'
+    condition: in(variables['Agent.JobStatus'], 'Failed', 'SucceededWithIssues')
+    inputs:
+      targetType: 'inline'
+      errorActionPreference: 'continue'
+      ignoreLASTEXITCODE: true
+      script: |
+        if (Test-Path 'errorfiles.txt') {
+            $authors = New-Object -TypeName 'System.Collections.Generic.List[PSCustomObject]'
+            $errorFiles = Get-Content 'errorfiles.txt' | Select-Object -Unique
+            . $(System.DefaultWorkingDirectory)/DungeonsDevOps/scripts/Get-Authors.ps1
+            foreach ($filename in $errorFiles) {
+                if (-not (Test-Path $filename)) {
+                    continue
+                }
+                $gitPath = (Resolve-Path $filename -Relative).ToString().TrimStart('.\').Replace('\', '/')
+                $blame = (Get-Authors -Repo "Mojang/Dungeons" -Ref '$(Build.SourceVersion)' -Path "$gitPath" -PAT '$(GitHubPat)')
+                $blame | ForEach-Object { $_ | Add-Member -NotePropertyName 'file' -NotePropertyValue "$filename"}
+                $authors.AddRange([System.Collections.Generic.List[PSCustomObject]] $blame)
+            }
+            $authors
+            $authors = $authors | Group-Object 'file' | ForEach-Object { $_.Group | Select-Object -First 1}
+            if (Test-Path '$(Agent.TempDirectory)/slackBlame.json') {
+                $oldAuthors = Get-Content '$(Agent.TempDirectory)/slackBlame.json' | ConvertFrom-Json
+                $authors.AddRange([System.Collections.Generic.List[PSCustomObject]] $oldAuthors)
+            }
+            $authors | ConvertTo-Json | Out-File '$(Agent.TempDirectory)/slackBlame.json'
+        }
+      workingDirectory: 'Dungeons'
