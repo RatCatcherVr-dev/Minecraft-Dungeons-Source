@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsTrials.cpp.obj": [
+			"AnonymousTrialsClient.cpp.obj",
+			"DungeonsTrials.cpp.obj",
+			"TimezoneUtil.cpp.obj",
+			"TrialsClient.cpp.obj",
+			"TrialsClientManager.cpp.obj"
+		]
+	}
+}

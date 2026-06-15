@@ -1,0 +1,105 @@
+/MANIFEST:NO
+/NOLOGO
+/DEBUG
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/FIXED:No
+/NXCOMPAT
+/STACK:5000000
+/DELAY:UNLOAD
+/DLL
+/PDBALTPATH:%_PDB%
+/OPT:NOREF
+/OPT:NOICF
+/INCREMENTAL:NO
+/ignore:4199
+/ignore:4099
+/DELAYLOAD:"d3d12.dll"
+/DELAYLOAD:"DBGHELP.DLL"
+/LIBPATH:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Source\SourceDepsModule\Libraries\webrtc\Release"
+/LIBPATH:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Source\SourceDepsModule\Libraries\xsapi\Win64\Release"
+/LIBPATH:"C:\Program Files\Epic Games\UE_4.22\Engine\Source\ThirdParty\OpenSSL\1.1.1\lib\Win64\VS2015\Release"
+/LIBPATH:"C:\Program Files\Epic Games\UE_4.22\Engine\Source\ThirdParty\libstrophe\libstrophe-0.9.1\Win64\VS2015\Release"
+/LIBPATH:"C:\Program Files\Epic Games\UE_4.22\Engine\Source\ThirdParty\Expat\expat-2.2.0\Win64\VS2015\Release"
+/LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio\2017\WDExpress\VC\Tools\MSVC\14.16.27023\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6\lib\um\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\um\x64"
+/NODEFAULTLIB:"LIBCMT"
+/NODEFAULTLIB:"LIBCPMT"
+/NODEFAULTLIB:"LIBCMTD"
+/NODEFAULTLIB:"LIBCPMTD"
+/NODEFAULTLIB:"MSVCRTD"
+/NODEFAULTLIB:"MSVCPRTD"
+/NODEFAULTLIB:"LIBC"
+/NODEFAULTLIB:"LIBCP"
+/NODEFAULTLIB:"LIBCD"
+/NODEFAULTLIB:"LIBCPD"
+/FUNCTIONPADMIN
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Intermediate\Build\Win64\UE4Editor\DebugGame\OnlineSubsystemDungeons\Module.OnlineSubsystemDungeons.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Intermediate\Build\Win64\UE4Editor\DebugGame\OnlineSubsystemDungeons\Module.OnlineSubsystemDungeons.gen.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Intermediate\Build\Win64\UE4Editor\DebugGame\OnlineSubsystemDungeons\Default.rc2.res"
+"delayimp.lib"
+"wininet.lib"
+"rpcrt4.lib"
+"ws2_32.lib"
+"dbghelp.lib"
+"comctl32.lib"
+"Winmm.lib"
+"kernel32.lib"
+"user32.lib"
+"gdi32.lib"
+"winspool.lib"
+"comdlg32.lib"
+"advapi32.lib"
+"shell32.lib"
+"ole32.lib"
+"oleaut32.lib"
+"uuid.lib"
+"odbc32.lib"
+"odbccp32.lib"
+"netapi32.lib"
+"iphlpapi.lib"
+"setupapi.lib"
+"dwmapi.lib"
+"imm32.lib"
+"webrtc.lib"
+"LibSRTP.lib"
+"UsrSCTPLib.lib"
+"Microsoft.Xbox.Services.141.Win32.Cpp.lib"
+"libHttpClient.141.Win32.C.lib"
+"Xal.Win32-RelWI64.lib"
+"CompactCoreCLL.Win32-RelWI64.lib"
+"libcrypto.lib"
+"libssl.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Source/../../../Source/SourceDepsModule/Libraries/Zlib/x64/Zlib.lib"
+"Winhttp.lib"
+"Version.lib"
+"Crypt32.lib"
+"Secur32.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Source/../../../Source/SourceDepsModule/Libraries/json/x64/json.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Source\TextToSpeech/../../../../Source/SourceDepsModule/Libraries/atlmfc/x64/atls.lib"
+"strophe.lib"
+"expat.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\UE4Editor\DebugGame\Dungeons\UE4Editor-Dungeons-Win64-DebugGame.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\UE4Editor-Engine.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Sockets\UE4Editor-Sockets.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystem\UE4Editor-OnlineSubsystem.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystemUtils\UE4Editor-OnlineSubsystemUtils.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Json\UE4Editor-Json.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Networking\UE4Editor-Networking.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\PlayfabServices\Intermediate\Build\Win64\UE4Editor\DebugGame\PlayfabServices\UE4Editor-PlayfabServices-Win64-DebugGame.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\TextToSpeech\Intermediate\Build\Win64\UE4Editor\DebugGame\TextToSpeech\UE4Editor-TextToSpeech-Win64-DebugGame.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\HTTP\UE4Editor-HTTP.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\WebBrowser\UE4Editor-WebBrowser.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\WebSockets\UE4Editor-WebSockets.lib"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\DebugGame\DungeonsAuth\UE4Editor-DungeonsAuth-Win64-DebugGame.lib"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Binaries\Win64\UE4Editor-OnlineSubsystemDungeons-Win64-DebugGame.dll"
+/IMPLIB:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Intermediate\Build\Win64\UE4Editor\DebugGame\OnlineSubsystemDungeons\UE4Editor-OnlineSubsystemDungeons-Win64-DebugGame.suppressed.lib"
+/PDB:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\OnlineSubsystemDungeons\Binaries\Win64\UE4Editor-OnlineSubsystemDungeons-Win64-DebugGame.pdb"
+/ignore:4078
+/INCLUDE:IMPLEMENT_MODULE_OnlineSubsystemDungeons

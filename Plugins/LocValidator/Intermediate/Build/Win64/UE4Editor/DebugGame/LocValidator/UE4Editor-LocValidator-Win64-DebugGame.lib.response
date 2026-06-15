@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-LocValidator-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\LocValidator\Intermediate\Build\Win64\UE4Editor\DebugGame\LocValidator\Module.LocValidator.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\LocValidator\Intermediate\Build\Win64\UE4Editor\DebugGame\LocValidator\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\LocValidator\Intermediate\Build\Win64\UE4Editor\DebugGame\LocValidator\UE4Editor-LocValidator-Win64-DebugGame.lib"
+/INCLUDE:IMPLEMENT_MODULE_LocValidator

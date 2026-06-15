@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsAuth.cpp.obj": [
+			"AuthListener.cpp.obj",
+			"DungeonsAuth.cpp.obj",
+			"DungeonsAuthenticator.cpp.obj",
+			"MinecraftAPIAuthData.cpp.obj",
+			"XAuthData.cpp.obj"
+		]
+	}
+}

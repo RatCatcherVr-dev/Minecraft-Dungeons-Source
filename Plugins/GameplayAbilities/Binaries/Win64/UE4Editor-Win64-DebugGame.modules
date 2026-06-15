@@ -1,0 +1,8 @@
+{
+	"BuildId": "5660361",
+	"Modules": 
+	{
+		"GameplayAbilities": "UE4Editor-GameplayAbilities-Win64-DebugGame.dll",
+		"GameplayAbilitiesEditor": "UE4Editor-GameplayAbilitiesEditor-Win64-DebugGame.dll"
+	}
+}

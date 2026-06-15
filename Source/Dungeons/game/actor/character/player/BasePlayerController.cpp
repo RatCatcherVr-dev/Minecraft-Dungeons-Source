@@ -140,16 +140,16 @@ void ABasePlayerController::OnActorChannelOpen(class FInBunch& InBunch, class UN
 	ServerSetNetConnectionSpeed(GetDefault<UPlayer>()->ConfiguredInternetSpeed);
 }
 
+// Line 181 should look exactly like this:
 void ABasePlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	// D11.DB - This binding was originally done in BeginPlayer but apparently was causing occasional crashes.
-	//			This is the way it's done in the sample projects.
-	//			I've added a check here for sanity reaseons.
 	check(InputComponent);
 
-	// D11.DB - Bind actions and axes.
+	InputComponent->BindAxis("MoveForward", this, &ABasePlayerController::MoveForward);
+	InputComponent->BindAxis("MoveRight", this, &ABasePlayerController::MoveRight);
+
 	InputComponent->BindAxis("RangeAttackAxisSecondary", this, &ABasePlayerController::OnRangeAttackAxisSecondary);
 	InputComponent->BindAction<FOnRangeAttackPrimary>("AlternativeAttackGamepad", IE_Pressed, this, &ABasePlayerController::OnRangeAttackPrimary, true);
 	InputComponent->BindAction<FOnRangeAttackPrimary>("AlternativeAttackGamepad", IE_Released, this, &ABasePlayerController::OnRangeAttackPrimary, false);
@@ -160,7 +160,6 @@ void ABasePlayerController::SetupInputComponent()
 	InputComponent->BindAction("RootPlayerGamepad", IE_Pressed, this, &ABasePlayerController::OnRootPlayerGamepadPressed);
 	InputComponent->BindAction("RootPlayerGamepad", IE_Released, this, &ABasePlayerController::OnRootPlayerGamepadReleased);
 
-	//Hotbar input
 	InputComponent->BindAction("Use Potion Slot", IE_Pressed, this, &ABasePlayerController::OnWantsToActivateSlot<ESlotType::HealthPotion, 0, true>);
 	InputComponent->BindAction("Use Potion Slot", IE_Released, this, &ABasePlayerController::OnWantsToActivateSlot<ESlotType::HealthPotion, 0, false>);
 
@@ -172,9 +171,12 @@ void ABasePlayerController::SetupInputComponent()
 
 	InputComponent->BindAction("Use Item Slot 3", IE_Pressed, this, &ABasePlayerController::OnWantsToActivateSlot<ESlotType::ActivePermanent, 2, true>);
 	InputComponent->BindAction("Use Item Slot 3", IE_Released, this, &ABasePlayerController::OnWantsToActivateSlot<ESlotType::ActivePermanent, 2, false>);
+
 }
 
-void ABasePlayerController::OnGamepadActiveChanged(bool GamepadActive) 
+
+
+void ABasePlayerController::OnGamepadActiveChanged(bool GamepadActive)
 {
 	APlayerControllerBase::OnGamepadActiveChanged(GamepadActive);
 
@@ -183,8 +185,7 @@ void ABasePlayerController::OnGamepadActiveChanged(bool GamepadActive)
 		bShowMouseCursor = false;
 		bEnableMouseOverEvents = false;
 		FSlateApplication::Get().OnCursorSet();
-		
-		// D11.DB - This clears any existing mouse pathing commands.
+
 		StopMovement();
 	}
 	else
@@ -192,7 +193,7 @@ void ABasePlayerController::OnGamepadActiveChanged(bool GamepadActive)
 		bShowMouseCursor = true;
 		bEnableMouseOverEvents = true;
 
-		if ( mAutoTarget )
+		if (mAutoTarget)
 		{
 			mAutoTarget->Clear(*this);
 		}
@@ -247,15 +248,14 @@ TArray<APlayerCharacter*> ABasePlayerController::GetTeleportDependents() const
 	return dependents;
 }
 
-void ABasePlayerController::SetInputCapturedByUI(bool Captured, bool CaptureLocalPlayers){
+void ABasePlayerController::SetInputCapturedByUI(bool Captured, bool CaptureLocalPlayers) {
 	bInputCapturedByUI = Captured;
 	if (Captured) {
 		CancelCurrentInputActions();
-		mTargetController.ResetTarget();		
+		mTargetController.ResetTarget();
 		mTargetController.ResetTargetCandidate();
 	}
 
-	// #D11.CM
 	if (CaptureLocalPlayers) {
 		UICaptureLocalPlayers(Captured);
 	}
@@ -264,7 +264,6 @@ void ABasePlayerController::SetInputCapturedByUI(bool Captured, bool CaptureLoca
 void ABasePlayerController::SetTeleportListOpen(bool listOpen) {
 	bTeleportUIListOpen = listOpen;
 
-	// #D11.CM - Push to our Dependents
 	if (IsPrimaryPlayer()) {
 		for (auto dependent : GetTeleportDependents()) {
 			if (dependent->GetPlayerController()) {
@@ -276,7 +275,7 @@ void ABasePlayerController::SetTeleportListOpen(bool listOpen) {
 
 int32 ABasePlayerController::GetLocalPlayerIndex() const
 {
-	if(ULocalPlayer* localPlayer = GetLocalPlayer())
+	if (ULocalPlayer* localPlayer = GetLocalPlayer())
 	{
 		return GetGameInstance()->GetLocalPlayers().Find(localPlayer);
 	}
@@ -292,11 +291,10 @@ void ABasePlayerController::OnPlayerDeath() {
 
 	if (!IsLocalController()) return;
 
-	// #D11.CM - Clear targeting and highlight information
 	CancelCurrentInputActions();
 	mTargetController.Update();
 	mAutoTarget->Clear(*this);
-	
+
 	ResetAllStates();
 
 	playerIsImmovable = true;
@@ -307,11 +305,11 @@ void ABasePlayerController::OnPlayerRespawned() {
 	playerIsImmovable = false;
 }
 
-void ABasePlayerController::OnPawnTeleported(){
-	if (AHighlightController* highlightController = AHighlightController::CheckHighlightControllerExists(GetWorld())){
+void ABasePlayerController::OnPawnTeleported() {
+	if (AHighlightController* highlightController = AHighlightController::CheckHighlightControllerExists(GetWorld())) {
 		highlightController->DisableHighlightsForOneFrame();
 	}
-	ResetAllStates(); // D11.SSN
+	ResetAllStates();
 }
 
 void ABasePlayerController::ClientWasKicked_Implementation(const FText& KickReason) {
@@ -331,24 +329,19 @@ void ABasePlayerController::ResetAllStates() {
 	playerCharacter->SetAttackState(EAttackState::None);
 	GetControlledPlayerCharacter()->GetCharacterMovement()->StopMovementImmediately();
 
-	// D11.SSN
 	mMouseInputStateMachine.Reset(*this, mTargetController);
 }
 
-FVector ABasePlayerController::ProjectInputAxesFromPlayer(const FVector& Axes, float Distance /*= 100.0f*/, bool ProjectFromPlayerPos /*= true*/)
+FVector ABasePlayerController::ProjectInputAxesFromPlayer(const FVector& Axes, float Distance, bool ProjectFromPlayerPos)
 {
-	// Project a point from the player in the direction that they're trying to move.
-	// Create a vector from the player's input
 	auto delta = FVector(Axes.Y, Axes.X, 0.0f);
 
-	// D11.DJB - Normalise and project point at a set distance in front of the player pawn
 	if (!mLocalPlayerInHardBoundary)
 	{
 		delta.Normalize();
 	}
 	delta *= Distance;
 
-	// Transform relative to the camera 
 	float cameraYaw = PlayerCameraManager->GetCameraRotation().Yaw;
 	delta = delta.RotateAngleAxis(cameraYaw, FVector::UpVector);
 
@@ -362,7 +355,7 @@ FVector ABasePlayerController::ProjectInputAxesFromPlayer(const FVector& Axes, f
 
 FVector ABasePlayerController::ProjectCursorDirectionFromPlayer()
 {
-	if(auto character = GetControlledPlayerCharacter()){
+	if (auto character = GetControlledPlayerCharacter()) {
 		FHitResult hitResult;
 		if (GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType((ECollisionChannel)ECustomTraceChannels::PlayerPlane), false, hitResult)) {
 			const auto source = character->GetActorLocation();
@@ -395,7 +388,6 @@ void ABasePlayerController::CenterMouseCursor() {
 			const int32 X = static_cast<int32>(ViewportSize.X * 0.5f);
 			const int32 Y = static_cast<int32>(ViewportSize.Y * 0.5f);
 
-			// D11.SSN - Prevent switching to M/K when using a gamepad
 			auto manager = Cast<UDungeonsGameInstance>(GetWorld()->GetGameInstance())->GetControllerTypeManager();
 			manager->SetPrevMousePos(X, Y);
 			Viewport->SetMouse(X, Y);
@@ -404,7 +396,6 @@ void ABasePlayerController::CenterMouseCursor() {
 }
 
 void ABasePlayerController::ResetMouseCursorToLastPosition() {
-	// D11.SSN - Prevent switching to M/K when using a gamepad
 	auto manager = Cast<UDungeonsGameInstance>(GetWorld()->GetGameInstance())->GetControllerTypeManager();
 	manager->SetPrevMousePos(mSavedMouseX, mSavedMouseY);
 	SetMouseLocation(mSavedMouseX, mSavedMouseY);
@@ -449,11 +440,11 @@ void ABasePlayerController::SpawnPlayerCameraManager() {
 void ABasePlayerController::PostSeamlessTravel() {
 	Super::PostSeamlessTravel();
 	if (auto gameState = Cast<ADungeonsGameState>(GetWorld()->GetGameState()))
-	{	
-		if(IsLocalController()){
-			if (auto game = actorquery::getGame(GetWorld())){
+	{
+		if (IsLocalController()) {
+			if (auto game = actorquery::getGame(GetWorld())) {
 				gameState->OnPostSeamlessTravel.Broadcast(game->levelName().c_str());
-			}		
+			}
 		}
 	}
 	OnPostSeamlessTravel();
@@ -466,20 +457,17 @@ void ABasePlayerController::PreClientTravel(const FString & PendingURL, ETravelT
 	gi->GetFriendsInterface()->SetPresenceStatus(gi->Configuration.GetLevelDisplayName());
 
 	if (bIsSeamlessTravel) {
-
-		if(IsLocalController()){
-			if (auto gameState = Cast<ADungeonsGameState>(GetWorld()->GetGameState())){
+		if (IsLocalController()) {
+			if (auto gameState = Cast<ADungeonsGameState>(GetWorld()->GetGameState())) {
 				gameState->OnPreSeamlessTravel.Broadcast();
 			}
 			if (auto gameInstance = Cast<UDungeonsGameInstance>(GetWorld()->GetGameInstance())) {
 				gameInstance->BeginLoadingScreen(PendingURL, bIsSeamlessTravel);
 			}
 		}
-
 		OnPreSeamlessTravel();
 	}
 }
-
 void ABasePlayerController::GetSeamlessTravelActorList(bool bToEntry, TArray<AActor*>& ActorList)  {
 	Super::GetSeamlessTravelActorList(bToEntry, ActorList);
 	ActorList.Add(GetGameInstance<UDungeonsGameInstance>()->GetAudioMusicManager());
@@ -2205,4 +2193,60 @@ FVector ABasePlayerController::GetAudioListenerLocation() {
 
 void ABasePlayerController::ResetMouseStates() {
 	mMouseInputStateMachine.Reset(*this, mTargetController);
+}
+
+// --- PASTE PART 2 DIRECTLY BELOW HERE ---
+
+void ABasePlayerController::MoveForward(float Value)
+{
+	if (Value != 0.0f && !playerIsImmovable)
+	{
+		if (PlayerCameraManager != nullptr)
+		{
+			const FRotator Rotation = PlayerCameraManager->GetCameraRotation();
+			const FRotator YawRotation(0, Rotation.Yaw, 0);
+			const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+
+			if (APawn* ControlledPawn = GetPawn())
+			{
+				ControlledPawn->AddMovementInput(Direction, Value);
+
+				if (APlayerCharacter* PlayerChar = Cast<APlayerCharacter>(ControlledPawn))
+				{
+					FVector FutureLocation = PlayerChar->GetActorLocation() + (Direction * Value * 100.0f);
+					PlayerChar->RotatePlayerTowardsLocation(FutureLocation);
+				}
+
+				OnAnyPlayerActionPerformed();
+				OnPlayerMovement.Broadcast(this);
+			}
+		}
+	}
+}
+
+void ABasePlayerController::MoveRight(float Value)
+{
+	if (Value != 0.0f && !playerIsImmovable)
+	{
+		if (PlayerCameraManager != nullptr)
+		{
+			const FRotator Rotation = PlayerCameraManager->GetCameraRotation();
+			const FRotator YawRotation(0, Rotation.Yaw, 0);
+			const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+			if (APawn* ControlledPawn = GetPawn())
+			{
+				ControlledPawn->AddMovementInput(Direction, Value);
+
+				if (APlayerCharacter* PlayerChar = Cast<APlayerCharacter>(ControlledPawn))
+				{
+					FVector FutureLocation = PlayerChar->GetActorLocation() + (Direction * Value * 100.0f);
+					PlayerChar->RotatePlayerTowardsLocation(FutureLocation);
+				}
+
+				OnAnyPlayerActionPerformed();
+				OnPlayerMovement.Broadcast(this);
+			}
+		}
+	}
 }

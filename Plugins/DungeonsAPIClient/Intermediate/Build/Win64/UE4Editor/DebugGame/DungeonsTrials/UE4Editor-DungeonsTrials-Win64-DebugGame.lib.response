@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-DungeonsTrials-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Intermediate\Build\Win64\DungeonsEditor\DebugGame\Core\SharedPCH.Core.NonOptimized.h.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\DebugGame\DungeonsTrials\Module.DungeonsTrials.cpp.obj"
+"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\DebugGame\DungeonsTrials\Default.rc2.res"
+/OUT:"C:\Users\littl\Downloads\Minecraft Dungeons Source\Plugins\DungeonsAPIClient\Intermediate\Build\Win64\UE4Editor\DebugGame\DungeonsTrials\UE4Editor-DungeonsTrials-Win64-DebugGame.lib"
+/INCLUDE:IMPLEMENT_MODULE_DungeonsTrials

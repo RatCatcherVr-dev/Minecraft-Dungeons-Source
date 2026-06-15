@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.TextToSpeech.cpp.obj": [
+			"BufferPlayerSynthComponent.cpp.obj",
+			"TextToSpeechImplFlite.cpp.obj",
+			"ITextToSpeech.cpp.obj",
+			"TextToSpeechBPLibrary.cpp.obj",
+			"TextToSpeechImplWin.cpp.obj"
+		],
+		"Module.TextToSpeech.gen.cpp.obj": [
+			"BufferPlayerSynthComponent.gen.cpp.obj",
+			"TextToSpeech.init.gen.cpp.obj",
+			"TextToSpeechBPLibrary.gen.cpp.obj"
+		]
+	}
+}

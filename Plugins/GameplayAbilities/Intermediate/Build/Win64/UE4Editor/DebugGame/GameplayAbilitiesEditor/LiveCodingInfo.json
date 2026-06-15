@@ -1,0 +1,37 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.GameplayAbilitiesEditor.cpp.obj": [
+			"AssetTypeActions_GameplayAbilitiesBlueprint.cpp.obj",
+			"AttributeBasedFloatDetails.cpp.obj",
+			"AttributeDetails.cpp.obj",
+			"GameplayAbilitiesBlueprintFactory.cpp.obj",
+			"GameplayAbilitiesEditor.cpp.obj",
+			"GameplayAbilitiesEditorModule.cpp.obj",
+			"GameplayAbilityGraph.cpp.obj",
+			"GameplayAbilityGraphSchema.cpp.obj",
+			"GameplayCueTagDetails.cpp.obj",
+			"GameplayEffectCreationMenu.cpp.obj",
+			"GameplayEffectDetails.cpp.obj",
+			"GameplayEffectExecutionDefinitionDetails.cpp.obj",
+			"GameplayEffectExecutionScopedModifierInfoDetails.cpp.obj",
+			"GameplayEffectModifierMagnitudeDetails.cpp.obj",
+			"GameplayModEvaluationChannelSettingsDetails.cpp.obj",
+			"InheritableGameplayTagContainerDetails.cpp.obj",
+			"K2Node_GameplayCueEvent.cpp.obj",
+			"K2Node_LatentAbilityCall.cpp.obj",
+			"SGameplayAttributeGraphPin.cpp.obj",
+			"SGameplayAttributeWidget.cpp.obj",
+			"SGameplayCueEditor.cpp.obj"
+		],
+		"Module.GameplayAbilitiesEditor.gen.cpp.obj": [
+			"GameplayAbilitiesBlueprintFactory.gen.cpp.obj",
+			"GameplayAbilitiesEditor.init.gen.cpp.obj",
+			"GameplayAbilityGraph.gen.cpp.obj",
+			"GameplayAbilityGraphSchema.gen.cpp.obj",
+			"GameplayEffectCreationMenu.gen.cpp.obj",
+			"K2Node_GameplayCueEvent.gen.cpp.obj",
+			"K2Node_LatentAbilityCall.gen.cpp.obj"
+		]
+	}
+}

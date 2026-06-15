@@ -110,25 +110,25 @@ class DUNGEONS_API ABasePlayerController : public APlayerControllerBase
 	friend class UWalkPickupComponent;
 	GENERATED_BODY()
 public:
-	ABasePlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());	
+	ABasePlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 	void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	void OnActorChannelOpen(class FInBunch& InBunch, class UNetConnection* Connection) override;
-	
+
 	// D11.DB
 	void SetupInputComponent() override;
 
 	void OnGamepadActiveChanged(bool GamepadActive) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	UPathFollowingComponent* GetPathFollowingComponent() const;
+		UPathFollowingComponent* GetPathFollowingComponent() const;
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "Post Seamless Travel"), Category = "Dungeons|Online")
-	void OnPostSeamlessTravel();
+		void OnPostSeamlessTravel();
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "Pre Seamless Travel"), Category = "Dungeons|Online")
-	void OnPreSeamlessTravel();
+		void OnPreSeamlessTravel();
 
 	void SpawnPlayerCameraManager() override;
 
@@ -139,57 +139,57 @@ public:
 	void PreClientTravel(const FString & PendingURL, ETravelType TravelType, bool bIsSeamlessTravel) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player", Meta = (AdvancedDisplay = "bStopOnOverlap,bCanStrafe,bAllowPartialPath"))
-	EPathFollowingRequestResult::Type MoveToLocation(const FVector& Dest, float AcceptanceRadius = -1, bool bStopOnOverlap = true,
-	                                                 bool bUsePathfinding = true, bool bProjectDestinationToNavigation = false, bool bCanStrafe = true,
-	                                                 TSubclassOf<UNavigationQueryFilter> FilterClass = nullptr, bool bAllowPartialPath = true);
+		EPathFollowingRequestResult::Type MoveToLocation(const FVector& Dest, float AcceptanceRadius = -1, bool bStopOnOverlap = true,
+			bool bUsePathfinding = true, bool bProjectDestinationToNavigation = false, bool bCanStrafe = true,
+			TSubclassOf<UNavigationQueryFilter> FilterClass = nullptr, bool bAllowPartialPath = true);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player", Meta = (AdvancedDisplay = "bStopOnOverlap,bCanStrafe,bAllowPartialPath"))
-	EPathFollowingRequestResult::Type MoveToActor(AActor* Goal, float AcceptanceRadius = -1, bool bStopOnOverlap = true,
-	                                              bool bUsePathfinding = true, bool bCanStrafe = true,
-	                                              TSubclassOf<UNavigationQueryFilter> FilterClass = nullptr, bool bAllowPartialPath = true);
+		EPathFollowingRequestResult::Type MoveToActor(AActor* Goal, float AcceptanceRadius = -1, bool bStopOnOverlap = true,
+			bool bUsePathfinding = true, bool bCanStrafe = true,
+			TSubclassOf<UNavigationQueryFilter> FilterClass = nullptr, bool bAllowPartialPath = true);
 
 	void AbortPathFollowing();
-	
+
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void DodgeInDirection(FVector direction);
+		void DodgeInDirection(FVector direction);
 
 	void Tick(float DeltaSecs) override;
 	void TickWantsToDodge(float DeltaSeconds);
 
 	void ClearDodge();
-	
-	void BeginPlay() override;	
+
+	void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool IsInputCapturedByUI() const;
+		bool IsInputCapturedByUI() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool IsTeleportListOpen() const;
+		bool IsTeleportListOpen() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	void SetInputCapturedByUI(bool Captured, bool CaptureLocalPlayers = true);
+		void SetInputCapturedByUI(bool Captured, bool CaptureLocalPlayers = true);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	void SetTeleportListOpen(bool ListOpen);
+		void SetTeleportListOpen(bool ListOpen);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool IsInputCapturedByTeleport() const;
+		bool IsInputCapturedByTeleport() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool IsTeleporting() const;
+		bool IsTeleporting() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	TArray<APlayerCharacter*> GetTeleportCandidates() const;
+		TArray<APlayerCharacter*> GetTeleportCandidates() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	TArray<APlayerCharacter*> GetTeleportDependents() const;
+		TArray<APlayerCharacter*> GetTeleportDependents() const;
 
 	UFUNCTION()
-	void OnPlayerDeath();
+		void OnPlayerDeath();
 
 	UFUNCTION()
-	void OnPlayerRespawned();
-	
+		void OnPlayerRespawned();
+
 	void OnPawnTeleported();
 
 	void Reset() override;
@@ -210,7 +210,7 @@ public:
 	void OnControllerReceivedPlayerOnce(APlayerController* InController);
 
 	class AGameBP* GetCachedGameBP();
-	
+
 	void PostInitializeComponents() override;
 
 	bool IsCustomMovementTypeActive(ECustomMovementType movementType);
@@ -218,76 +218,76 @@ public:
 	template<ESlotType type, int index, bool activate>
 	void OnWantsToActivateSlot(FKey key)
 	{
-		if(IsInputTypeAllowed(EPlayerInputType::Hotbar, key.IsGamepadKey())){
+		if (IsInputTypeAllowed(EPlayerInputType::Hotbar, key.IsGamepadKey())) {
 			SetWantsToActivateSlot(type, index, activate);
 		}
 	}
 
 	UItemSlot* GetItemSlotOfType(ESlotType type, int index) const;
-	
+
 	UFUNCTION(BlueprintImplementableEvent)
-	bool IsChatWheelVisible();
+		bool IsChatWheelVisible();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void SetWantsToActivateSlot(ESlotType type, int index, bool wantsToActivate);
+		void SetWantsToActivateSlot(ESlotType type, int index, bool wantsToActivate);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnDodgeButton(bool pressed);
+		void OnDodgeButton(bool pressed);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnDodgeForwardButton(bool pressed);
+		void OnDodgeForwardButton(bool pressed);
 
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnMoveButton(bool pressed);
+		void OnMoveButton(bool pressed);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedAttackButton(bool pressed);
+		void OnRangedAttackButton(bool pressed);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedAttackButtonGamepadPressed();
+		void OnRangedAttackButtonGamepadPressed();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedAttackButtonGamepadReleased();
+		void OnRangedAttackButtonGamepadReleased();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnMeleeAttackButton(bool pressed, bool gamepad = false);
+		void OnMeleeAttackButton(bool pressed, bool gamepad = false);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnMeleeAttackButtonPressed();
+		void OnMeleeAttackButtonPressed();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnMeleeAttackButtonReleased();
+		void OnMeleeAttackButtonReleased();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedTargetingModeToggle(bool pressed, bool gamepad = false);
+		void OnRangedTargetingModeToggle(bool pressed, bool gamepad = false);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedTargetingModePressed();
+		void OnRangedTargetingModePressed();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRangedTargetingModeReleased();
+		void OnRangedTargetingModeReleased();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRootPlayerGamepadPressed();
+		void OnRootPlayerGamepadPressed();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRootPlayerGamepadReleased();
+		void OnRootPlayerGamepadReleased();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnDebugPointer(bool pressed);
+		void OnDebugPointer(bool pressed);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnRootPlayer(bool pressed);
+		void OnRootPlayer(bool pressed);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnHotbarItemUsed();
+		void OnHotbarItemUsed();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void OnDebugState();
+		void OnDebugState();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	bool HasValidLocalPlayer();
+		bool HasValidLocalPlayer();
 
 	//UFUNCTION(Server, Reliable, WithValidation)
 	//void ServerDestroyDestroyableComponent(UPrimitiveComponent* component);
@@ -297,37 +297,37 @@ public:
 	//void MulticastDestroyedDestroyableComponent(UPrimitiveComponent* component, FVector location);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	int32 GetPlayerId() const;
-	
+		int32 GetPlayerId() const;
+
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	int32 GetLocalPlayerIndex() const;
+		int32 GetLocalPlayerIndex() const;
 
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FServerOnLogout OnServerLogout;
-	
+		FServerOnLogout OnServerLogout;
+
 	FOnPlayerMovement OnPlayerMovement;
 	FOnAnyPlayerAction OnAnyPlayerAction;
 
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FOnAnyPlayerActionFixed ReceiveOnAnyPlayerAction; //for interfaces, doesnt care about death
+		FOnAnyPlayerActionFixed ReceiveOnAnyPlayerAction; //for interfaces, doesnt care about death
 
-	// #D11.CM
+		// #D11.CM
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FOnPlayerIdleChanged OnPlayerIdleChanged;
+		FOnPlayerIdleChanged OnPlayerIdleChanged;
 
-	UPROPERTY(BlueprintAssignable, Category="Dungeons")
-	FOnTriggerPopup OnTriggerPopup;
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FOnTriggerPopupGlobal OnTriggerPopupGlobal;
-	
+		FOnTriggerPopup OnTriggerPopup;
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FOnTriggerAchievement OnTriggerAchivement;
+		FOnTriggerPopupGlobal OnTriggerPopupGlobal;
+
+	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
+		FOnTriggerAchievement OnTriggerAchivement;
 
 	FOnPreSeamlessTravelMessage OnPreSeamlessTravelMessage;
 	FOnPostSeamlessTravelMessage OnPostSeamlessTravelMessage;
 
 	UPROPERTY(BlueprintCallable)
-	FOnPlayerTeleportButton OnPlayerTeleportButton;
+		FOnPlayerTeleportButton OnPlayerTeleportButton;
 
 	AAutoTarget* GetAutoTargetSystem() { return mAutoTarget; }
 
@@ -338,92 +338,92 @@ public:
 
 
 	UPROPERTY()
-	float mLastMouseX;
+		float mLastMouseX;
 	UPROPERTY()
-	float mLastMouseY;
+		float mLastMouseY;
 
 	UPROPERTY()
-	float mLastMoveX;
+		float mLastMoveX;
 	UPROPERTY()
-	float mLastMoveY;
+		float mLastMoveY;
 
 	UPROPERTY()
-	float mLastRollX;
+		float mLastRollX;
 	UPROPERTY()
-	float mLastRollY;
+		float mLastRollY;
 
 	UPROPERTY()
-	float mTargetCameraFOV = -1.0f;
+		float mTargetCameraFOV = -1.0f;
 
 	UPROPERTY()
-	float mCurrentCameraFOV;
+		float mCurrentCameraFOV;
 
 	// D11.DB - Required by some in-game menus to override right stick functionality.
 	UPROPERTY(BlueprintReadWrite)
-	bool RightStickDodgingEnabled = true;
+		bool RightStickDodgingEnabled = true;
 
 	// D11.SSN - used to stop immediate rolling when coming out of some menus.
 	UPROPERTY(BlueprintReadWrite)
-	bool RightStickHasReset = true;
+		bool RightStickHasReset = true;
 
 	UPROPERTY(BlueprintReadWrite)
-	bool bIsUIInputAllowed = true;
+		bool bIsUIInputAllowed = true;
 
 	UFUNCTION()
-	bool GetIsMoving();
+		bool GetIsMoving();
 
 	// #D11.CM - How many inactive seconds until the player is classed as "Idling".
 	UPROPERTY(BlueprintReadWrite, Category = "Dungeons|Idling")
-	float mPlayerIdleTime = 8.0f;
+		float mPlayerIdleTime = 8.0f;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void SetPlayerIsImmovable(bool immovable);
+		void SetPlayerIsImmovable(bool immovable);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void CenterMouseCursor();
+		void CenterMouseCursor();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player")
-	void ResetMouseCursorToLastPosition();	
+		void ResetMouseCursorToLastPosition();
 
 	bool GetDebugState();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player|Debug")
-	void ShowDebugInfo(bool showDebug);
+		void ShowDebugInfo(bool showDebug);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons|Player|Camera")
-	void AdjustCameraFovBasedOnCharacterSpeed();
+		void AdjustCameraFovBasedOnCharacterSpeed();
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Dungeons")
-	void ReceiveOnPawnPossessed(APawn* possessedPawn);
+		void ReceiveOnPawnPossessed(APawn* possessedPawn);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Dungeons")
-	void ReceiveOnEnchantmentTriggered(EEnchantmentTypeID typeID, bool canCombo = true) const;
+		void ReceiveOnEnchantmentTriggered(EEnchantmentTypeID typeID, bool canCombo = true) const;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Dungeons")
-	void ReceiveOnArmorPropertyTriggered(EArmorPropertyID typeID);
+		void ReceiveOnArmorPropertyTriggered(EArmorPropertyID typeID);
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Dungeons")
-	void ReceiveOnObjectiveSettingsChange(bool toogleNarrator);	
+		void ReceiveOnObjectiveSettingsChange(bool toogleNarrator);
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	UItemStashComponent* GetItemStashComponent() const;	
-	
+		UItemStashComponent* GetItemStashComponent() const;
+
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	class UWalletComponent* GetWalletComponent() const;
-	
+		class UWalletComponent* GetWalletComponent() const;
+
 	bool IsTargetHighlightingAllowed() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	void CancelCurrentInputActions();
+		void CancelCurrentInputActions();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool IsInputTypeAllowed(EPlayerInputType InputType, bool gamepad = false) const;
+		bool IsInputTypeAllowed(EPlayerInputType InputType, bool gamepad = false) const;
 
 	void ToggleTargetingState(bool enter);
 	int32 GetEmeraldsCount() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	FString GetPlayerDisplayName() const;
+		FString GetPlayerDisplayName() const;
 	FString GetPlayerPrimaryDisplayName() const;
 	FString GetPlayerSecondaryDisplayName() const;
 
@@ -432,11 +432,11 @@ public:
 	class UAutoAimRangedAttackComponent* GetRangedAttackComponent();
 
 	UCharacterSerializeComponent* GetCharacterSerializeComponent() const;
-	
+
 	UMeleeAttackComponent* GetMeleeAttackComponent() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	APlayerCharacter* GetControlledPlayerCharacter() const;
+		APlayerCharacter* GetControlledPlayerCharacter() const;
 
 	void RotatePlayerTowardsCursor();
 
@@ -445,49 +445,49 @@ public:
 	class UPickupStorableComponent* GetPickupStorableComponent() const;
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnLocationClicked(FVector location);
+		void OnLocationClicked(FVector location);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnActorClicked(AActor* actor, EClickTargetType type);
+		void OnActorClicked(AActor* actor, EClickTargetType type);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnHighlightTargetChanged(AActor* newTarget, AActor* oldTarget);	
+		void OnHighlightTargetChanged(AActor* newTarget, AActor* oldTarget);
 
 	void OnRangeAttackPrimary(bool isPressed);
 
 	// D11.DB
 	UFUNCTION(BlueprintCallable)
-	void OnRangeAttackAxisSecondary(float value);
+		void OnRangeAttackAxisSecondary(float value);
 
 	// #D11.CM
 	UFUNCTION(BlueprintCallable)
-	void OnCancelTeleport(bool forceCancel);
+		void OnCancelTeleport(bool forceCancel);
 
 	// D11.DB
 	void RefreshDeadzones();
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnPlayForceFeedbackEvent(FName eventName, bool looping = false);
+		void OnPlayForceFeedbackEvent(FName eventName, bool looping = false);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnStopForceFeedbackEvent(FName eventName);
+		void OnStopForceFeedbackEvent(FName eventName);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void OnSecondaryHighlightTargetChanged(const TArray<AMobCharacter*>& targets, AMobCharacter* closest/*AActor* newTarget, AActor* oldTarget*/);
+		void OnSecondaryHighlightTargetChanged(const TArray<AMobCharacter*>& targets, AMobCharacter* closest/*AActor* newTarget, AActor* oldTarget*/);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void UpdateInitialBlueprintSetup();
+		void UpdateInitialBlueprintSetup();
 
 	UFUNCTION(BlueprintNativeEvent)
-	bool InitialBlueprintSetupComplete();
+		bool InitialBlueprintSetupComplete();
 
 	UFUNCTION(BlueprintPure, Category = "Dungeons|Audio")
-	FVector GetAudioListenerLocation();
+		FVector GetAudioListenerLocation();
 
 	//D11.KS
 	ELocalPlayerCameraStatus CurrentCharacterScreenStatus = ELocalPlayerCameraStatus::InSafeZone;
 
-    // D11.DB
+	// D11.DB
 	FOnAlternativeRangeAttack OnAlternativeRangeAttack;
 
 	void MoveTowards(const FVector& point);
@@ -502,32 +502,37 @@ public:
 
 	// D11.SSN
 	UFUNCTION(BlueprintImplementableEvent, Category = "Dungeons")
-	void OnAnyPlayerDamaged(float damage);
+		void OnAnyPlayerDamaged(float damage);
 
 	void ResetMouseStates();
 
 	UFUNCTION(Client, Reliable, WithValidation)
-	void ClientDropItems(const FItemDropSource& dropSource, const FNetworkedItemDropData& dropData, AActor* source, bool replicateItems, bool elongatedDrops, float dropDelay, float dropDelayCountSpeedUpFactor, EItemRarityChanceCategory rarityChanceCategory);
+		void ClientDropItems(const FItemDropSource& dropSource, const FNetworkedItemDropData& dropData, AActor* source, bool replicateItems, bool elongatedDrops, float dropDelay, float dropDelayCountSpeedUpFactor, EItemRarityChanceCategory rarityChanceCategory);
+
 protected:
+	// --- WASD MOVEMENT CONTROLS ---
+	void MoveForward(float Value);
+	void MoveRight(float Value);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dungeons|Player")
-	TSubclassOf<UNavigationQueryFilter> DefaultNavigationFilterClass;
+		TSubclassOf<UNavigationQueryFilter> DefaultNavigationFilterClass;
 
 	UPROPERTY()
-	AActor* SecondaryHighlightTarget;
+		AActor* SecondaryHighlightTarget;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dungeons|Player")
-	float AttackTargetRetargetingWindowSeconds = 0.5f;
+		float AttackTargetRetargetingWindowSeconds = 0.5f;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Dungeons|Player")
-	class UPlayerPathFollowingComponent* PathFollowingComponent;
+		class UPlayerPathFollowingComponent* PathFollowingComponent;
 
 	UPROPERTY(BlueprintAssignable, Category = "Dungeons")
-	FOnDestructibleComponentDestroyed OnDestructibleComponentDestroyed;
+		FOnDestructibleComponentDestroyed OnDestructibleComponentDestroyed;
 
 
 	/** Radius limit for when clickies get a target reticule. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Dungeons")
-	float ClickyCollisionRadiusTargetLimit = 125.f;
+		float ClickyCollisionRadiusTargetLimit = 125.f;
 
 	//D11.KS/DJB
 	/* Returns whether or not the local player is within the hard boundary of the screen and zero's the associated vector component to prevent leaving the screen space */
@@ -539,64 +544,64 @@ public:
 
 
 	UPROPERTY(EditDefaultsOnly, Category = "Dungeons")
-	float TargetReacquisitionTimeoutSeconds = 0.35f;	
+		float TargetReacquisitionTimeoutSeconds = 0.35f;
 
 	class UObjectDistanceNotifier* InitializeAndGetDistanceNotifier();
 
 	FrameTimeTracker& GetFrameTimeTracker();
 protected:
 	UPROPERTY(BlueprintReadWrite, Category = "Dungeons|Destructibles")
-	bool DestructibleDebugVisuals = false;
+		bool DestructibleDebugVisuals = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dungeons")
-	bool EnableDebug = false;
+		bool EnableDebug = false;
 
 public:
 	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerInteract(class UReplicatedInteractableComponent* interactable, AActor* interactor);
+		void ServerInteract(class UReplicatedInteractableComponent* interactable, AActor* interactor);
 
 	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerSpendEye(class AStrongholdFrame* strongholdFrame, const TArray<EEyeOfEnderType>& eyesSpent, AActor* spender);
+		void ServerSpendEye(class AStrongholdFrame* strongholdFrame, const TArray<EEyeOfEnderType>& eyesSpent, AActor* spender);
 
 	UFUNCTION(Client, Reliable, WithValidation)
-	void ClientFailSpendEye(class AStrongholdFrame* strongholdFrame);
+		void ClientFailSpendEye(class AStrongholdFrame* strongholdFrame);
 
 	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerSetNetConnectionSpeed(int32 NewNetSpeed);
+		void ServerSetNetConnectionSpeed(int32 NewNetSpeed);
 
 	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
-	void ServerRequestMoveEveryoneToLobby();
+		void ServerRequestMoveEveryoneToLobby();
 
 	UFUNCTION(Server, Reliable, WithValidation)
-	void ServerNotifyIdleChange(EPlayerIdleState idleState);
+		void ServerNotifyIdleChange(EPlayerIdleState idleState);
 
 	// server RPC to propagate client -> server console commands
 	// caller for client console commands to run on the server (WARNING, only enable for dev. builds)
 	UFUNCTION(Server, Reliable, WithValidation)
-	void Server_DeferredConsoleCommand(const FString& command);
+		void Server_DeferredConsoleCommand(const FString& command);
 
 	bool ShouldTickHighlight() const;
 
 	void PlayerLoadedInLevel();
 
 	UFUNCTION(BlueprintPure, Category = "Dungeons")
-	bool IsInitialSetupDone();
+		bool IsInitialSetupDone();
 
 	void ToggleStateChangeAllowed(bool allow);
-	
+
 protected:
 	UFUNCTION(Server, BlueprintCallable, Reliable, WithValidation)
-	void ServerRequestAwards();
+		void ServerRequestAwards();
 
 	UFUNCTION(BlueprintCallable, Category = "Dungeons")
-	bool ClickyClicked(UInteractableComponent* clicky);
+		bool ClickyClicked(UInteractableComponent* clicky);
 
 	void NotifyLoadedWorld(FName WorldPackageName, bool bFinalDest) override;
 
 	void UpdateMouseCursorState();
 	EMouseCursor::Type GetMouseCursor() const override;
-		
-	
+
+
 private:
 	//D11.KS
 	bool UpdateInitialSetup();
@@ -612,15 +617,15 @@ private:
 
 	void OnAnyPlayerActionPerformed();
 
-	void OnPlayerMoveFinished(FAIRequestID RequestID , const FPathFollowingResult& Result);
+	void OnPlayerMoveFinished(FAIRequestID RequestID, const FPathFollowingResult& Result);
 
 	void RefreshPlayerIdle(bool forceRefresh = false);
 
 	UFUNCTION()
-	void OnPlayerMovementChanged(bool isMoving);
+		void OnPlayerMovementChanged(bool isMoving);
 
 	UFUNCTION()
-	void OnPlayerIdleTimer();
+		void OnPlayerIdleTimer();
 
 	bool IsRevivePrioritised() const; // D11.DJB
 
@@ -638,7 +643,7 @@ private:
 
 	FTimerHandle mDelayedLaunchTimerHandle;
 
-	bool playerIsImmovable;	
+	bool playerIsImmovable;
 
 	FPathFollowingRequestResult MoveTo(const FAIMoveRequest& MoveRequest, FNavPathSharedPtr* OutPath = nullptr);
 
@@ -651,7 +656,7 @@ private:
 	virtual void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const override;
 
 	UFUNCTION(BlueprintCallable)
-	void ResetAllStates();
+		void ResetAllStates();
 
 	void UpdateVelocityAccumulator(float deltaTime);
 
@@ -659,15 +664,15 @@ private:
 	void UICaptureLocalPlayers(bool Captured);
 
 	UPROPERTY(replicated)
-	bool IsHostingPlayer;
+		bool IsHostingPlayer;
 
 	TargetController mTargetController;
 
 	UPROPERTY()
-	AAutoTarget* mAutoTarget;
+		AAutoTarget* mAutoTarget;
 
 	UPROPERTY()
-	class UObjectDistanceNotifier* PlayerDistanceNotifier;
+		class UObjectDistanceNotifier* PlayerDistanceNotifier;
 
 	TWeakObjectPtr<AGameBP> CachedGameBP;
 
@@ -693,9 +698,9 @@ private:
 	uint32 mTickStage = 0;
 
 	UPROPERTY()
-	TArray<AMobCharacter*> LastSecondaryTargets;
+		TArray<AMobCharacter*> LastSecondaryTargets;
 	UPROPERTY()
-	AMobCharacter* CurrentSecondaryTarget;
+		AMobCharacter* CurrentSecondaryTarget;
 
 	/*UPROPERTY()
 	AMobCharacter* mEngagedMusicOverrideMob;
@@ -711,17 +716,17 @@ private:
 
 	FTimerHandle PlayerIdleTimerHandle;
 	EPlayerIdleState CurrentIdleState = EPlayerIdleState::Active;
-	
+
 	UFUNCTION()
-	void OnFirePerformanceAnalytics();
+		void OnFirePerformanceAnalytics();
 
 	FTimerHandle PerformanceTimerHandle;
-	float  FollowTheLeaderCountDown = 0.0f;
+	float FollowTheLeaderCountDown = 0.0f;
 
-	float mTryToDodgeForSeconds = -1.0;	
+	float mTryToDodgeForSeconds = -1.0;
 	FVector mDoDodgeDirection;
 
 	class URangedAttackComponent* RangedAttackComponent = nullptr;
 
-	static const float TRY_TO_DODGE_SECONDS;	
+	static const float TRY_TO_DODGE_SECONDS;
 };

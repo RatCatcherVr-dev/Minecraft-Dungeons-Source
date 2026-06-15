@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsHTTP.cpp.obj": [
+			"DungeonsHTTP.cpp.obj",
+			"DungeonsHTTPClient.cpp.obj",
+			"DungeonsHTTPConfig.cpp.obj"
+		]
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"BuildId": "5660361",
+	"Modules": 
+	{
+		"DungeonsAPIClient": "UE4Editor-DungeonsAPIClient-Win64-DebugGame.dll",
+		"DungeonsAuth": "UE4Editor-DungeonsAuth-Win64-DebugGame.dll",
+		"DungeonsClient": "UE4Editor-DungeonsClient-Win64-DebugGame.dll",
+		"DungeonsClientUtils": "UE4Editor-DungeonsClientUtils-Win64-DebugGame.dll",
+		"DungeonsEntitlements": "UE4Editor-DungeonsEntitlements-Win64-DebugGame.dll",
+		"DungeonsHTTP": "UE4Editor-DungeonsHTTP-Win64-DebugGame.dll",
+		"DungeonsLiveOps": "UE4Editor-DungeonsLiveOps-Win64-DebugGame.dll",
+		"DungeonsTrials": "UE4Editor-DungeonsTrials-Win64-DebugGame.dll"
+	}
+}

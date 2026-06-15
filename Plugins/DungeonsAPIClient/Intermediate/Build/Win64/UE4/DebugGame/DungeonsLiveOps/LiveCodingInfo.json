@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.DungeonsLiveOps.cpp.obj": [
+			"DungeonsLiveOps.cpp.obj",
+			"LiveOpsClient.cpp.obj"
+		],
+		"Module.DungeonsLiveOps.gen.cpp.obj": [
+			"ConnectionStatus.gen.cpp.obj",
+			"DungeonsLiveOps.init.gen.cpp.obj"
+		]
+	}
+}
